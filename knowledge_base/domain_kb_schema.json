@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DomainKnowledgeBaseEntry",
+  "description": "EMPTY SCHEMA for the future domain knowledge base. Populate from cited external sources, independently of any benchmark item's expected label. Never populate by asking an extraction model to invent norms.",
+  "type": "object",
+  "required": ["domain", "taxonomy_version", "sources", "sender", "subject", "recipient", "information_type", "transmission_principle"],
+  "properties": {
+    "domain": {"type": "string", "description": "Domain label, aligned with configs/domains.yaml (or an accepted extension)."},
+    "subdomain": {"type": ["string", "null"]},
+    "taxonomy_version": {"type": "integer"},
+    "sources": {
+      "type": "array",
+      "description": "Citations for everything below (regulation, policy, professional code, literature). Entries without sources are invalid.",
+      "items": {"type": "object", "required": ["kind", "citation"], "properties": {"kind": {"enum": ["regulation", "institutional_policy", "professional_code", "literature", "other"]}, "citation": {"type": "string"}, "url": {"type": ["string", "null"]}, "jurisdiction": {"type": ["string", "null"]}}}
+    },
+    "sender": {
+      "type": "object",
+      "properties": {
+        "roles": {"type": "array", "items": {"type": "string"}},
+        "disclosure_rights": {"type": "array", "items": {"type": "string"}},
+        "responsibilities": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "subject": {
+      "type": "object",
+      "properties": {
+        "roles": {"type": "array", "items": {"type": "string"}},
+        "relationships": {"type": "array", "items": {"type": "string"}},
+        "protections": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "recipient": {
+      "type": "object",
+      "properties": {
+        "roles": {"type": "array", "items": {"type": "string"}},
+        "access_conditions": {"type": "array", "items": {"type": "string"}},
+        "responsibilities": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "information_type": {
+      "type": "object",
+      "properties": {
+        "categories": {"type": "array", "items": {"type": "string"}},
+        "granularity": {"type": "array", "items": {"type": "string"}},
+        "access_constraints": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "transmission_principle": {
+      "type": "object",
+      "properties": {
+        "permission": {"type": "array", "items": {"type": "string"}},
+        "confidentiality": {"type": "array", "items": {"type": "string"}},
+        "purposes": {"type": "array", "items": {"type": "string"}},
+        "onward_sharing": {"type": "array", "items": {"type": "string"}},
+        "exceptions": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "review": {"type": "object", "properties": {"status": {"enum": ["draft", "reviewed", "approved"]}, "reviewer": {"type": ["string", "null"]}, "notes": {"type": ["string", "null"]}}}
+  }
+}

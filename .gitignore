@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.egg-info/
+.env
+.pytest_cache/
+# Raw benchmark data and model outputs are reproducible via `python -m ci_audit download`.
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+# Manifests (provenance) ARE tracked.
+data/external/

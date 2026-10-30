@@ -1,0 +1,30 @@
+# Defaults for `extract` / `classify-privacy`. CLI flags override these.
+generation:
+  temperature: 0.0
+  max_output_tokens: 3000
+  timeout: 180
+  retries: 3             # transport-level retries (connection errors, 429, 5xx, timeouts)
+  validation_retries: 2  # extra attempts when the model's JSON fails schema validation
+  concurrency: 4
+  seed: 0
+
+# Source text longer than this is truncated in the prompt and the record is flagged `source_truncated`.
+max_source_chars: 24000
+
+prompts:
+  # Version labels are written into every record; the sha256 of the rendered template files is
+  # recorded too, so a silent template edit is still detectable.
+  confaide_tier2:  {dir: confaide_tier2,  version: "confaide_tier2-v1"}
+  confaide_tier3:  {dir: confaide_tier3,  version: "confaide_tier3-v1-untested"}
+  privacylens:     {dir: privacylens,     version: "privacylens-v1-untested"}
+  mpci_bench:      {dir: mpci_bench,      version: "mpci_bench-v1-untested"}
+  airgapagent_r:   {dir: airgapagent_r,   version: "airgapagent_r-v1-untested"}
+  pisas:           {dir: pisas,           version: "pisas-v1-untested"}
+  privacy_classification: {dir: shared, template: classify_privacy.j2, version: "privacy_cls-v1"}
+
+engines:
+  vllm:
+    default_base_url: http://localhost:8000/v1
+    # Sent as chat_template_kwargs; stops thinking-style models from spending the output budget on
+    # reasoning text. Ignored by templates that do not define the variable.
+    chat_template_kwargs: {enable_thinking: false}

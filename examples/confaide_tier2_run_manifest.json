@@ -1,0 +1,56 @@
+{
+  "run_id": "1c52ab59049b",
+  "operation": "extract",
+  "dataset": "confaide_tier2",
+  "subsets": [
+    "2a",
+    "2b"
+  ],
+  "adapter_status": "complete",
+  "source_revision": "github@3174c63e689226189675a740b7bf9053f10bae50",
+  "engine": {
+    "engine": "vllm",
+    "model": "Qwen3.6-35B-A3B",
+    "base_url": "http://localhost:8000/v1"
+  },
+  "is_mock": false,
+  "generation": {
+    "temperature": 0.0,
+    "max_output_tokens": 3000,
+    "timeout": 180,
+    "retries": 3,
+    "seed": 0
+  },
+  "concurrency": 6,
+  "validation_retries": 2,
+  "prompt_version": "confaide_tier2-v1",
+  "prompt_sha256": "e20bdfe134ac5d47262758b2a7770e1a8e6bcf6b818570a81246d2227016a5ba",
+  "taxonomy_version": 1,
+  "limit": null,
+  "records_selected": 196,
+  "records_resumed_from_previous": 0,
+  "records_attempted_this_run": 196,
+  "ok_this_run": 196,
+  "failed_this_run": 0,
+  "total_ok_in_file": 196,
+  "unresolved_failures": [],
+  "started_at": "2026-10-30T17:25:46+00:00",
+  "finished_at": "2026-10-30T17:31:25+00:00",
+  "cli_args": {
+    "command": "extract",
+    "dataset": "confaide_tier2",
+    "engine": "vllm",
+    "model": "Qwen3.6-35B-A3B",
+    "concurrency": 6,
+    "resume": false,
+    "force": false,
+    "no_progress": true,
+    "base_url": "http://localhost:8000/v1"
+  },
+  "environment": {
+    "ci_audit": "0.1.0",
+    "python": "3.12.2",
+    "platform": "Linux-5.15.0-152-generic-x86_64-with-glibc2.35"
+  },
+  "note": null
+}

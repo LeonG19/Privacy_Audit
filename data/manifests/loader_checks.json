@@ -1,0 +1,78 @@
+{
+  "airgapagent_r": {
+    "counts": {
+      "records": 4160
+    },
+    "problems": [],
+    "notes": [
+      "labels vs approp_matrix.csv: 0 mismatches of 4160",
+      "recipient, sender and transmission principle are not represented in this release (left null)"
+    ],
+    "adapter_status": "loader_verified"
+  },
+  "confaide_tier2": {
+    "counts": {
+      "records": 196
+    },
+    "problems": [],
+    "notes": [
+      "labels: n=98 min=-86.21 max=70.82",
+      "2a<->2b positional pairing: same-index narrative is the best word-overlap match for 46/98 items and at/above the median for 98/98 (chance for best-match: ~1%). Heuristic support only; many flows share templates."
+    ],
+    "alignment_check": {
+      "top1": 46,
+      "above_median": 98,
+      "n": 98
+    },
+    "adapter_status": "complete"
+  },
+  "confaide_tier3": {
+    "counts": {
+      "records": 270
+    },
+    "problems": [],
+    "notes": [
+      "no human labels exist for Tier 3 in the release"
+    ],
+    "adapter_status": "loader_verified"
+  },
+  "mpci_bench": {
+    "counts": {
+      "records": 6156,
+      "cases": 2052,
+      "pairs": 1026,
+      "required_images": 1026,
+      "images_available_locally": 0
+    },
+    "problems": [],
+    "notes": [
+      "MISSING image assets: 1026/1026 (VISPR not redistributed; text-only processing)"
+    ],
+    "adapter_status": "loader_verified"
+  },
+  "pisas": {
+    "counts": {
+      "records": 265,
+      "by_subset": {
+        "original": 85,
+        "expanded": 180
+      },
+      "tasks": 9,
+      "annotated_attributes": 5751
+    },
+    "problems": [],
+    "notes": [],
+    "adapter_status": "loader_verified"
+  },
+  "privacylens": {
+    "counts": {
+      "records": 1479,
+      "data_points": 493
+    },
+    "problems": [],
+    "notes": [
+      "HF main_data.json is identical to GitHub data/main_data.json"
+    ],
+    "adapter_status": "loader_verified"
+  }
+}

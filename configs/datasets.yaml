@@ -1,0 +1,109 @@
+# Source registry. `revision` pins the exact commit inspected when this project was built, so
+# `python -m ci_audit download` reproduces identical bytes. Set `revision: null` to follow the
+# default branch (the manifest always records the resolved commit either way).
+#
+# Raw data layout:  data/raw/<source>/<part>/...    (immutable after download; verified by sha256)
+sources:
+  confaide:
+    description: "ConfAIde (Mireshghallah et al., 2023) - tiers 1-4 text files"
+    parts:
+      github:
+        kind: git
+        url: https://github.com/skywalker023/confaide
+        revision: 3174c63e689226189675a740b7bf9053f10bae50
+    expected_files:
+      - {part: github, path: benchmark/tier_2a.txt}
+      - {part: github, path: benchmark/tier_2b.txt}
+      - {part: github, path: benchmark/tier_2_labels.txt}
+      - {part: github, path: benchmark/tier_3.txt}
+      - {part: github, path: benchmark/tier_3_control.txt}
+      - {part: github, path: eval.py}   # documents how labels are aligned with scenarios
+    adapters: [confaide_tier2, confaide_tier3]
+
+  privacylens:
+    description: "PrivacyLens (Shao et al., 2024) - seeds, vignettes, trajectories"
+    parts:
+      hf:
+        kind: hf
+        repo_id: SALT-NLP/PrivacyLens
+        revision: 7dc406e8d1e882e5b0c6ea4be697b2b7a5dee805
+      github:
+        kind: git
+        url: https://github.com/SALT-NLP/PrivacyLens
+        revision: 9c2ee07b080dc54ed4924af11d9751e81753c94d
+    expected_files:
+      - {part: hf, path: main_data.json}
+      - {part: github, path: data/main_data.json}
+    adapters: [privacylens]
+
+  mpci_bench:
+    description: "MPCI-Bench - multimodal pairwise CI benchmark (JSON only; VISPR images NOT included)"
+    parts:
+      github:
+        kind: git
+        url: https://github.com/hpzhang94/MPCI-Bench
+        revision: bd85c6ec5c7aef81570da73081bdcbbe3af97893
+    expected_files:
+      - {part: github, path: dataset/mpci_bench.json}
+      - {part: github, path: dataset/required_image_ids.json}
+      - {part: github, path: croissant_metadata.json}
+    adapters: [mpci_bench]
+    external_assets:
+      vispr_images:
+        downloaded_by_default: false
+        reason: "VISPR images are not redistributed with MPCI-Bench; obtain them from https://tribhuvanesh.github.io/vpa/ under the VISPR licence."
+        expected_local_dir: data/external/vispr/train2017
+
+  airgapagent_r:
+    description: "AirGapAgent-R (reconstruction; Green et al., 2025 'Leaky Thoughts')"
+    parts:
+      hf:
+        kind: hf
+        repo_id: parameterlab/leaky_thoughts
+        revision: f1d8f27376eb0854ec5b476e88b942d0060eee62
+      github:
+        kind: git
+        url: https://github.com/parameterlab/leaky_thoughts
+        revision: 66154a39d932354960da2fa56821a10196ed3605
+    expected_files:
+      - {part: hf, path: airgapagent-r.json}
+      - {part: hf, path: airgapagent-r-small.json}
+      - {part: hf, path: airgapagent-r-ablation-swap-original.json}
+      - {part: hf, path: airgapagent-r-ablation-swap-flipped.json}
+      - {part: github, path: approp_matrix.csv}
+    adapters: [airgapagent_r]
+
+  pisas:
+    description: "PiSAs (ServiceNow) - multi-agent contextual privacy scenarios"
+    parts:
+      hf:
+        kind: hf
+        repo_id: ServiceNow/PiSAs
+        revision: 8a1ba30ba210d4a430bbd25cf4a3500d0e22c5b9
+      github:
+        kind: git
+        url: https://github.com/ServiceNow/PiSAs
+        revision: 52611d0cb6eac6e13a80c5716fd9cfd02e0ee155
+    expected_files:
+      - {part: hf, path: README.md}
+      - {part: hf, glob: "*/scenario_*/scenario.json", min_count: 265}
+      - {part: hf, glob: "*/scenario_*/utility.json", min_count: 265}
+      - {part: hf, glob: "*/scenario_*/appropriateness.json", min_count: 265}
+      - {part: hf, glob: "*/scenario_*/visibility.json", min_count: 265}
+      - {part: github, path: README.md}
+    adapters: [pisas]
+
+# Adapter-level settings (adapters read these; they never modify raw files).
+adapters:
+  confaide_tier2: {source: confaide, status: complete, subsets: ["2a", "2b"]}
+  confaide_tier3: {source: confaide, status: loader_verified}
+  privacylens:    {source: privacylens, status: loader_verified, subsets: [seed, vignette, trajectory]}
+  mpci_bench:     {source: mpci_bench, status: loader_verified, subsets: [seed, story, trajectory]}
+  airgapagent_r:  {source: airgapagent_r, status: loader_verified, subsets: [full, small, swap-original, swap-flipped]}
+  pisas:
+    source: pisas
+    status: loader_verified
+    subsets: [original, expanded]
+    # From the PiSAs README: the paper evaluates the first three tasks (85 hand-built scenarios);
+    # the other six were generated later from task seeds.
+    original_tasks: [JIRA_allocation, meeting_allocation, severity_classification]

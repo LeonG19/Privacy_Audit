@@ -1,0 +1,6 @@
+## Domain taxonomy (initial; not final)
+{% for d in taxonomy.domains -%}
+- {{ d.name }}: {{ d.description }}
+{% endfor -%}
+- Unclear: {{ taxonomy.reserved.Unclear }}
+- Other: {{ taxonomy.reserved.Other }}

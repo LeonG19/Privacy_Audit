@@ -1,0 +1,420 @@
+{
+  "source": "privacylens",
+  "description": "PrivacyLens (Shao et al., 2024) - seeds, vignettes, trajectories",
+  "status": "ok",
+  "download_date": "2026-10-30T17:16:31+00:00",
+  "parts": {
+    "hf": {
+      "kind": "hf",
+      "source_url": "https://huggingface.co/datasets/SALT-NLP/PrivacyLens",
+      "requested_revision": "7dc406e8d1e882e5b0c6ea4be697b2b7a5dee805",
+      "resolved_revision": "7dc406e8d1e882e5b0c6ea4be697b2b7a5dee805",
+      "n_files": 3,
+      "bytes": 2721414
+    },
+    "github": {
+      "kind": "git",
+      "source_url": "https://github.com/SALT-NLP/PrivacyLens",
+      "requested_revision": "9c2ee07b080dc54ed4924af11d9751e81753c94d",
+      "resolved_revision": "9c2ee07b080dc54ed4924af11d9751e81753c94d",
+      "n_files": 57,
+      "bytes": 4193608
+    }
+  },
+  "expected_files_check": [
+    {
+      "spec": {
+        "part": "hf",
+        "path": "main_data.json"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "github",
+        "path": "data/main_data.json"
+      },
+      "found": 1,
+      "ok": true
+    }
+  ],
+  "files": [
+    {
+      "part": "hf",
+      "path": ".gitattributes",
+      "size": 2307,
+      "sha256": "f4e703ea6e44bbebe53aceed2a89c11e40b88b7ae130c480c89860ab805ffc8f"
+    },
+    {
+      "part": "hf",
+      "path": "README.md",
+      "size": 4788,
+      "sha256": "ac6013bf1be127fbd281949e91a282bc25692d471e4781e5246f96acd9b89176"
+    },
+    {
+      "part": "hf",
+      "path": "main_data.json",
+      "size": 2714319,
+      "sha256": "2a8b3bfa470ffa9e50b12866857b17d62b422a2fea926b1249220a0244991941"
+    },
+    {
+      "part": "github",
+      "path": ".gitignore",
+      "size": 1760,
+      "sha256": "fcd67a1745dd5d4284e01010abe331e1986e9e4c851e8023aa697e31452ca01a"
+    },
+    {
+      "part": "github",
+      "path": "LICENSE",
+      "size": 1109,
+      "sha256": "8079ebdd44998d089304fc2a2b4302afc1e112e89c2d91f51713fd89fa87fc15"
+    },
+    {
+      "part": "github",
+      "path": "README.md",
+      "size": 10454,
+      "sha256": "9e9090e58cf7e42eb3fe635352308a7c7e3917c74f971e895f60c1f227b16c75"
+    },
+    {
+      "part": "github",
+      "path": "requirements.txt",
+      "size": 355,
+      "sha256": "c7df295920edb97d2d2ce603a37f7693c6efc495d4e7327caaaa0749d808762c"
+    },
+    {
+      "part": "github",
+      "path": "assets/overview.png",
+      "size": 854862,
+      "sha256": "fdf0046725412e41111a1b966f485a9f9a0a9300f292adf58394b995fa34f407"
+    },
+    {
+      "part": "github",
+      "path": "data/main_data.json",
+      "size": 2714319,
+      "sha256": "2a8b3bfa470ffa9e50b12866857b17d62b422a2fea926b1249220a0244991941"
+    },
+    {
+      "part": "github",
+      "path": "data/extensibility/confide_subset.json",
+      "size": 160512,
+      "sha256": "54e0ebd09fe45ab85c69998580f9a5d4ba6c3e45f71c163c1fe0ec4ca40fb804"
+    },
+    {
+      "part": "github",
+      "path": "data/extensibility/culturebank_subset.json",
+      "size": 116830,
+      "sha256": "d7b5ba6b3a4fa09ebdc387ad3aec2dcc6561f22c7cfaf7604d7400a8c0ba4b1f"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/format_trajectory.py",
+      "size": 9458,
+      "sha256": "ffa69b4a6d06f864d5214efb9344846952837064f94e7e8ee6173601ed1719f7"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/format_vignette_for_trajectory_simulation.py",
+      "size": 7007,
+      "sha256": "b74b99a655b4bff6a4da650aeb464a751baba4d5465fbc7236ae4c799ea67c25"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/seed_to_vignette.py",
+      "size": 11589,
+      "sha256": "81e58bc7cf23b3a7fc80cb51b861e2c3d2d108dbdf52034cf9644d6d7705cb77"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/simulate_trajectory.py",
+      "size": 3342,
+      "sha256": "45d010c0de1a6f69b8f95eefb34e2b1db42707ce23a42902b1122dccec7d75a7"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/README.md",
+      "size": 869,
+      "sha256": "2a15132c6755556ffa1ae1e20e90f7d0355796998018d7cf917190e85b4cc35f"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/__init__.py",
+      "size": 35,
+      "sha256": "e674d5a9d23f126bf9303a727fe8943911cb1e96bb0c47c58f170b256f5f2fb4"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/agent_executor_builder.py",
+      "size": 2124,
+      "sha256": "308634ca0d1871707dd187415ab7263f2af2c55ef6483eb140924341e102f485"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/dataloader.py",
+      "size": 7413,
+      "sha256": "d9aaaa8ea2c95ffb283ba6f88747a261fea214407d83c0f23bef67b7dd8bba57"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/agents/__init__.py",
+      "size": 361,
+      "sha256": "6a970a07abbb457870643c6f3109ba43c90497c33598dadcaae7c8b5235bc0dd"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/agents/agent_executor.py",
+      "size": 11992,
+      "sha256": "a6f91cbf868f3675ce17b1e1f402aaefea8a0b6fbd3c659a312014a450628bd6"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/agents/agent_interface.md",
+      "size": 1130,
+      "sha256": "8e7f353727bc713476c13bb29257519f3495f736c569809c6e6622c780804097"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/agents/virtual_agent_executor.py",
+      "size": 22865,
+      "sha256": "21833306db376ad9ba54f8f5f495a60fdbcd60cced5d5a3bb5d9fb99dc5b760a"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/agents/zero_shot_agent_with_toolkit.py",
+      "size": 9056,
+      "sha256": "b05ef703f6495197add33ec52748982f98973a2f57855a3ceab99d3a491f8bc2"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/executors/__init__.py",
+      "size": 164,
+      "sha256": "f6c8a83733541b30073b0aec5fb122859bb056fbf0dd8a4cc2db41b8727602a5"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/executors/func_executor.py",
+      "size": 11074,
+      "sha256": "e77325136135c1c87a7fe923d8670403fe1e2926e3ae997943a65140ec8bd4f0"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/executors/prompt_executor.py",
+      "size": 10207,
+      "sha256": "1792aefedde9a91d613cb446738a1a08aa5f9706f903cbf911b58b90719c12b5"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/README.md",
+      "size": 277,
+      "sha256": "b5d139650e2528fe332a1590ee4468acd0a55ee6ad8d11b8868aace53891d979"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/globals.py",
+      "size": 4298,
+      "sha256": "64233e2373bc07df62c55e6e7ec6fee55bb32e8aae2b2134e0ae500722811ca9"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/principles.py",
+      "size": 7318,
+      "sha256": "831c16a869e15e5679da95eabbd8a2d8eb1160aac5e571bef1ba8d85cdf871e7"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/agent/__init__.py",
+      "size": 208,
+      "sha256": "e01c4b6b7913273a8d3c22bd43d5b6542565c5fc90bee0cfa931f588e2b8b874"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/agent/agent_naive.py",
+      "size": 1380,
+      "sha256": "c8fcb09b7d6ac75fdf2b0700e110e39d9156e407ff8aff2d764ef7adf877a76e"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/agent/agent_privacy_enhanced.py",
+      "size": 1290,
+      "sha256": "1ca339dd571fb8ddefbce4a4e080eed2f04ff6af16b8d975fd949ec54defc4e1"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/agent/shared.py",
+      "size": 9482,
+      "sha256": "88d6207f8612a93994c1b3ed2f905a7ae21a17d831c943f3aa9ae7bb260dd56f"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/simulator/__init__.py",
+      "size": 110,
+      "sha256": "3925b8ccc515123e4fa32a3fc7eae6c81a15a31730d2e2a01aeb4b785fd740a8"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/simulator/privacy_adversarial.py",
+      "size": 9374,
+      "sha256": "06371e7f5d83c38f95ac5be291292a729884640bc2263f16b3a693d66193286a"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/prompts/simulator/shared.py",
+      "size": 8085,
+      "sha256": "9e08bc930a3958ec466b1f79992dd7a7beecfef86479f55bf57a8b6c883073d4"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/tools/__init__.py",
+      "size": 764,
+      "sha256": "46df370916aed4e1d45b225cf36cd30ca4ef27650bbab99c3e7bf073965f600f"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/tools/core_virtual_tools.py",
+      "size": 40197,
+      "sha256": "58af3762c1e8a42c9a105e2c25d65f4ac53e09c502c5ce3b12b69b38aaac501a"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/tools/register.py",
+      "size": 718,
+      "sha256": "e8816c5097949adcf930b0c64ae177aed11ff65fd3394839a2a471e51fa6e039"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/tools/tool_interface.py",
+      "size": 7626,
+      "sha256": "9d4a97fa10b965e5a51d1f0b8c795e946fc4d69bb8d63992f1139392c692a747"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/__init__.py",
+      "size": 816,
+      "sha256": "2025bfee72c34956ee0dec363ed62d7c60fdc95ed5a319e37a08b35a6c12f2f3"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/agent.py",
+      "size": 3484,
+      "sha256": "91f6ce41913ce9267218183e3022463fed8e9ba05850746c5351ecc12559e0a0"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/colorful.py",
+      "size": 1343,
+      "sha256": "8da3351c232b34386a54cac3c0352bd9e01f98ea333ef63e8b60ed07e066059f"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/const.py",
+      "size": 1740,
+      "sha256": "cb0b965f1a07baffa1625b23bbc6a71041466558f0de4dd35de6693fc869657f"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/convertion.py",
+      "size": 2839,
+      "sha256": "30fae62ab525a78be628829f61b1465a5e0bc9f14f1040c0657f9ab68b843452"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/io.py",
+      "size": 2683,
+      "sha256": "8cd01dce8ecd4d26abe7e722112be45704171dc2c9c38ccdea472e71a3fb8d31"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/langchain_utils.py",
+      "size": 1503,
+      "sha256": "cdb60b6bd6629b4ef9efc460bbdb605c17acbaef5755e8aae6af43758fb3bc70"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/llm.py",
+      "size": 13461,
+      "sha256": "a9693f008c9eba0a78970eb54872676eedc7f085ba6e67db586ff3309d4273a0"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/misc.py",
+      "size": 3232,
+      "sha256": "689c51ec0d616e34d915e81ef6441f987abe7a242f4b423fee48da4cabd11bac"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/my_typing.py",
+      "size": 444,
+      "sha256": "83110ee7ab7ec679314ddff5e7f8d33211ad5ef83af20b5c946636ed789ffdef"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/parallel.py",
+      "size": 1945,
+      "sha256": "22ef3415f38c0619d1742f05d6c2311a5bf1a72d2a7e7fbb293d2faadb48356b"
+    },
+    {
+      "part": "github",
+      "path": "data_construction/toolemu/utils/tool.py",
+      "size": 8790,
+      "sha256": "01ce3aac7bd58ffe70c7e86dd6e0d8dffd9876a1f085b4bc857b7ec4ea1c5402"
+    },
+    {
+      "part": "github",
+      "path": "evaluation/evaluate_final_action.py",
+      "size": 17089,
+      "sha256": "935ab568989e835ff9a9fe2542048417674a27db7a4f0944ccfa9648e0ea3d8c"
+    },
+    {
+      "part": "github",
+      "path": "evaluation/get_final_action.py",
+      "size": 8476,
+      "sha256": "c5c9691282b3c3cdcface0ac788856a18c75f488490f1cd5ac0c24ee52354324"
+    },
+    {
+      "part": "github",
+      "path": "evaluation/probing.py",
+      "size": 17596,
+      "sha256": "8630e0cf2324b96df8f3306d76f6061f15ede9384588f2dc37d83c491c32bc0f"
+    },
+    {
+      "part": "github",
+      "path": "helper/inspect_data.py",
+      "size": 4422,
+      "sha256": "a06e373deb41cd6cf6cc5fb7ce15aa72b5d241239e7587cd6a851fe008323ba2"
+    },
+    {
+      "part": "github",
+      "path": "helper/quick_start.ipynb",
+      "size": 31103,
+      "sha256": "550a675f5071900a624d75ae4eb783d35adebb891718fbecd4830fb6cb9b1ca4"
+    },
+    {
+      "part": "github",
+      "path": "helper/utils.py",
+      "size": 12628,
+      "sha256": "64b5770281e3ae1280d847e1d677bf451b6dffd6b18c751d8f94b71b05819b43"
+    }
+  ],
+  "external_assets": {},
+  "adapters": {
+    "privacylens": {
+      "records": 1479,
+      "native_reference_kinds": [
+        "violation_by_construction"
+      ],
+      "subsets": [
+        "seed",
+        "vignette",
+        "trajectory"
+      ],
+      "status": "loader_verified"
+    }
+  },
+  "errors": []
+}

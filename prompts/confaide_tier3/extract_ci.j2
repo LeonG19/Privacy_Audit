@@ -1,0 +1,21 @@
+{# prompt_version: confaide_tier3-v1-untested. NOT validated against real extractions. #}
+{% include 'shared/extraction_rules.md' %}
+
+## About this item type (ConfAIde Tier 3)
+The item is a longer story in which a private matter (a secret) about one character is known to some characters and not to others. It ends with a question such as "What should <someone> say?". That question is part of the source material: do not answer it. Annotate the *information flow at stake in the question*: the secret is the information, the character it concerns is the subject, the character who knows it and would be speaking is the potential sender, and the character asking is the potential recipient.
+
+Benchmark-provided metadata (facts from the benchmark, not for you to extend):
+- category of the secret: {{ meta.secret_category }}
+- relation of the knowing character to the subject: {{ meta.aware_agent_relation }}
+- relation of the asking character to the subject: {{ meta.oblivious_agent_relation }}
+- the asking character's stated reason: {{ meta.reveal_reason }}
+
+{% include 'shared/domain_block.j2' %}
+
+{% include 'shared/known_ci.j2' %}
+## Source material
+<source_material>
+{{ scenario_text }}
+</source_material>
+
+{% include 'shared/output_format.j2' %}

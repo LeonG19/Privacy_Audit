@@ -1,0 +1,180 @@
+{
+  "source": "mpci_bench",
+  "description": "MPCI-Bench - multimodal pairwise CI benchmark (JSON only; VISPR images NOT included)",
+  "status": "ok",
+  "download_date": "2026-10-30T17:16:32+00:00",
+  "parts": {
+    "github": {
+      "kind": "git",
+      "source_url": "https://github.com/hpzhang94/MPCI-Bench",
+      "requested_revision": "bd85c6ec5c7aef81570da73081bdcbbe3af97893",
+      "resolved_revision": "bd85c6ec5c7aef81570da73081bdcbbe3af97893",
+      "n_files": 19,
+      "bytes": 14229466
+    }
+  },
+  "expected_files_check": [
+    {
+      "spec": {
+        "part": "github",
+        "path": "dataset/mpci_bench.json"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "github",
+        "path": "dataset/required_image_ids.json"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "github",
+        "path": "croissant_metadata.json"
+      },
+      "found": 1,
+      "ok": true
+    }
+  ],
+  "files": [
+    {
+      "part": "github",
+      "path": ".env.example",
+      "size": 1044,
+      "sha256": "deb852fa4ca27ab6378f38b005ad1ea65c8c0283513f8e7a01fc9aed1c7c3949"
+    },
+    {
+      "part": "github",
+      "path": "LICENSE",
+      "size": 1066,
+      "sha256": "2edb78bc7b98f999850861d558f2d2662fd3c09a53ab080f9df094eb08b874d6"
+    },
+    {
+      "part": "github",
+      "path": "README.md",
+      "size": 6569,
+      "sha256": "07651748e8f9a22a981306d1db18c337ea528cbc75b87b70e1774fff33618446"
+    },
+    {
+      "part": "github",
+      "path": "__init__.py",
+      "size": 405,
+      "sha256": "dafaa5bcf3dfef8127c89db18cbe13038cf8b5a3293d502f12b5d359d428c160"
+    },
+    {
+      "part": "github",
+      "path": "case_example.png",
+      "size": 1442426,
+      "sha256": "ce9f0f904ad10cf0377afbc0058195ad2fd14e520f2dad8c8b09824a4075c770"
+    },
+    {
+      "part": "github",
+      "path": "croissant_metadata.json",
+      "size": 8384,
+      "sha256": "bff84edc47eac46b26301824aa1f728552a10448f06bc4b13b7336635e8f7cc1"
+    },
+    {
+      "part": "github",
+      "path": "data.py",
+      "size": 5164,
+      "sha256": "3b73be3cb8ad5bf25b59881cfe14a9a7382d56f8cc8ee7bdfd47efd2c583e718"
+    },
+    {
+      "part": "github",
+      "path": "pyproject.toml",
+      "size": 1360,
+      "sha256": "a3936647f607ee4b8c50597e0fe11aeaa33607b2bc52dbb4209a64ffa8d7cfe1"
+    },
+    {
+      "part": "github",
+      "path": "requirements.txt",
+      "size": 928,
+      "sha256": "9641e5489ac3cd43256f52b6fe55478e394bebccf76e563fae6f81b5932ec3a9"
+    },
+    {
+      "part": "github",
+      "path": "validate.py",
+      "size": 5193,
+      "sha256": "86979eb49829b20a1068e9b85709be48c3c67f53fdb84043563c264373f74f1e"
+    },
+    {
+      "part": "github",
+      "path": "dataset/mpci_bench.json",
+      "size": 12482052,
+      "sha256": "c08007d34a7ebf2c7e191e94dd03c4640292dc50e514a2a0483e1a6da4e6ff23"
+    },
+    {
+      "part": "github",
+      "path": "dataset/required_image_ids.json",
+      "size": 19496,
+      "sha256": "b83b1d3f9c230d75038aea8b81bf02bfd217858bc21aee5d0dcd66314c6220ab"
+    },
+    {
+      "part": "github",
+      "path": "eval/action.py",
+      "size": 48047,
+      "sha256": "86f06e0fad138dd9b46425560a1c374141392d2da88a79e8ffc158c23f9b34ba"
+    },
+    {
+      "part": "github",
+      "path": "eval/grounding.py",
+      "size": 64208,
+      "sha256": "db45bd136d47c0777311183a17c8eddb3e47c5452083c180d964bf6f0ecec177"
+    },
+    {
+      "part": "github",
+      "path": "eval/leakage.py",
+      "size": 43297,
+      "sha256": "7ccc3b28ed69beb9f8dffbdacb089180de3b2d90180ba9ce2abd02cf10a3d6a4"
+    },
+    {
+      "part": "github",
+      "path": "eval/probing.py",
+      "size": 42252,
+      "sha256": "b05f1e234970ff213db323744ba0ccd8b98ce290dad4f9cb6cfdd1f041872ad9"
+    },
+    {
+      "part": "github",
+      "path": "eval/sharing.py",
+      "size": 33453,
+      "sha256": "b4376033ce5c0df89043f571a244f41cbf1edbdb1118e096c24802e7240430fb"
+    },
+    {
+      "part": "github",
+      "path": "human_eval/app.py",
+      "size": 12826,
+      "sha256": "f753c2f97bb2b89e97dbfcdc2267c9c49831ed37dc940d61d0a13683749a9162"
+    },
+    {
+      "part": "github",
+      "path": "human_eval/setup.py",
+      "size": 11296,
+      "sha256": "7db5bf4c1853219641e64b9260b03ed8b22669bde7310c45fc9e8e36a8c3f5ff"
+    }
+  ],
+  "external_assets": {
+    "vispr_images": {
+      "downloaded_by_default": false,
+      "reason": "VISPR images are not redistributed with MPCI-Bench; obtain them from https://tribhuvanesh.github.io/vpa/ under the VISPR licence.",
+      "expected_local_dir": "data/external/vispr/train2017"
+    }
+  },
+  "adapters": {
+    "mpci_bench": {
+      "records": 6156,
+      "native_reference_kinds": [
+        "pair_polarity"
+      ],
+      "subsets": [
+        "seed",
+        "story",
+        "trajectory"
+      ],
+      "status": "loader_verified"
+    }
+  },
+  "errors": []
+}

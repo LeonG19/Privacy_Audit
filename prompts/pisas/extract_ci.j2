@@ -1,0 +1,15 @@
+{# prompt_version: pisas-v1-untested. NOT validated. Scenario-level only; attribute-level extraction is not implemented. #}
+{% include 'shared/extraction_rules.md' %}
+
+## About this item type (PiSAs scenario)
+A PiSAs scenario puts an *executor* (an agent acting for a person in an organisation) in front of a decision. Evidence for the decision, and unrelated private facts, are spread across colleagues' artifacts; each artifact lists who can see it. The scenario involves many information flows. Describe the **central flow the executor's task depends on**; if several flows are equally central, describe the most prominent one and mention the rest in `unknown_facts`. Do not judge which facts should or should not be used. The `domain` should describe the organisational context of the task. Parameters already given by the benchmark are listed below.
+
+{% include 'shared/domain_block.j2' %}
+
+{% include 'shared/known_ci.j2' %}
+## Source material
+<source_material>
+{{ scenario_text }}
+</source_material>
+
+{% include 'shared/output_format.j2' %}

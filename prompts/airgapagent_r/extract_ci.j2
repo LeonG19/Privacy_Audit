@@ -1,0 +1,15 @@
+{# prompt_version: airgapagent_r-v1-untested. NOT validated against real extractions. #}
+{% include 'shared/extraction_rules.md' %}
+
+## About this item type (AirGapAgent-R)
+The item names a task context (a domain and a scenario slug such as "doctor_appointment") and ONE attribute of a synthetic user profile that an assistant could share for that task. The release does **not** say who the sender or recipient is, nor under which transmission principle the attribute would be shared. Do not invent them: return null with a `missing_reason` unless the text states them. The information type is the attribute named in the item. The purpose of the flow can be described from the task scenario only if the scenario name makes it unambiguous. The domain should reflect the task context.
+
+{% include 'shared/domain_block.j2' %}
+
+{% include 'shared/known_ci.j2' %}
+## Source material
+<source_material>
+{{ scenario_text }}
+</source_material>
+
+{% include 'shared/output_format.j2' %}

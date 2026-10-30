@@ -1,0 +1,3268 @@
+{
+  "source": "airgapagent_r",
+  "description": "AirGapAgent-R (reconstruction; Green et al., 2025 'Leaky Thoughts')",
+  "status": "ok",
+  "download_date": "2026-10-30T17:16:34+00:00",
+  "parts": {
+    "hf": {
+      "kind": "hf",
+      "source_url": "https://huggingface.co/datasets/parameterlab/leaky_thoughts",
+      "requested_revision": "f1d8f27376eb0854ec5b476e88b942d0060eee62",
+      "resolved_revision": "f1d8f27376eb0854ec5b476e88b942d0060eee62",
+      "n_files": 6,
+      "bytes": 10043772
+    },
+    "github": {
+      "kind": "git",
+      "source_url": "https://github.com/parameterlab/leaky_thoughts",
+      "requested_revision": "66154a39d932354960da2fa56821a10196ed3605",
+      "resolved_revision": "66154a39d932354960da2fa56821a10196ed3605",
+      "n_files": 525,
+      "bytes": 4165490
+    }
+  },
+  "expected_files_check": [
+    {
+      "spec": {
+        "part": "hf",
+        "path": "airgapagent-r.json"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "hf",
+        "path": "airgapagent-r-small.json"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "hf",
+        "path": "airgapagent-r-ablation-swap-original.json"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "hf",
+        "path": "airgapagent-r-ablation-swap-flipped.json"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "github",
+        "path": "approp_matrix.csv"
+      },
+      "found": 1,
+      "ok": true
+    }
+  ],
+  "files": [
+    {
+      "part": "hf",
+      "path": ".gitattributes",
+      "size": 2461,
+      "sha256": "e7a120ab07b1bc5b486be249e9fc6c83d59448d0093e1dfebe95d1566d9cafc0"
+    },
+    {
+      "part": "hf",
+      "path": "README.md",
+      "size": 4206,
+      "sha256": "2e0774ada0af636a65ca4a00794ee50500d9eff0e846f8c6ab141ff17ed4a29a"
+    },
+    {
+      "part": "hf",
+      "path": "airgapagent-r-ablation-swap-flipped.json",
+      "size": 487175,
+      "sha256": "a7abe442ebce3158c84f0e5a59bcd8b17a4ee496ef60d6c9313ae011b92e32d4"
+    },
+    {
+      "part": "hf",
+      "path": "airgapagent-r-ablation-swap-original.json",
+      "size": 487395,
+      "sha256": "6e9c87f354147134f1acb251ddec9ce5df0ae42ea6e90ac802d14fbfa3bbc44e"
+    },
+    {
+      "part": "hf",
+      "path": "airgapagent-r-small.json",
+      "size": 1177362,
+      "sha256": "c1ea3f039e0a9569609437d31b9b495e3d932a601c94f6fbb1aa302427e49238"
+    },
+    {
+      "part": "hf",
+      "path": "airgapagent-r.json",
+      "size": 7885173,
+      "sha256": "117a76be7caa1e0cde682a0f594fb70af8c6e6859041bc8a5b39c48b22bdf3e3"
+    },
+    {
+      "part": "github",
+      "path": ".gitignore",
+      "size": 56,
+      "sha256": "19f0c15168f612027a63ac59bd1ebc0dead59c4d6642498647a14bae54df009e"
+    },
+    {
+      "part": "github",
+      "path": "LICENSE",
+      "size": 1069,
+      "sha256": "cec8431621afc4be39eb9ffa7761b93b4fb34fa7c34b71c72ac1ce1ce156036d"
+    },
+    {
+      "part": "github",
+      "path": "README.md",
+      "size": 12755,
+      "sha256": "60cd7c78d35e24691f07cc435b773cd7f3e966386b34f9403f436dbb38b3f69e"
+    },
+    {
+      "part": "github",
+      "path": "approp_matrix.csv",
+      "size": 973,
+      "sha256": "9ac220595fe1d691c796805d7f70d7586168e8c4d1f6578c584fc3b2edd18a53"
+    },
+    {
+      "part": "github",
+      "path": "cp_eval_utils.py",
+      "size": 64171,
+      "sha256": "32025b1cd1dc728e79dab00f9fa11a4881b33774a334403320f5a202ec72968f"
+    },
+    {
+      "part": "github",
+      "path": "eval_agentdam.sh",
+      "size": 6297,
+      "sha256": "504fea5663bef10f1805d5693d07c3ff2ebd768c67d8d6abafcdfc4a5f62a7c8"
+    },
+    {
+      "part": "github",
+      "path": "eval_cp.py",
+      "size": 35769,
+      "sha256": "320d61592d52fa59a700be62934b3526ef51e760066e002fef12846485d06798"
+    },
+    {
+      "part": "github",
+      "path": "generate_utils.py",
+      "size": 65769,
+      "sha256": "bf9303a3576d6bcada90dabcba414dd5c9b34ff5fbce095b4ba471889bb545f8"
+    },
+    {
+      "part": "github",
+      "path": "pyproject.toml",
+      "size": 2300,
+      "sha256": "7fa1d0f0afe248db70c0f3129c27b4cec6fc04a29c2b270db9f6154fa6d84298"
+    },
+    {
+      "part": "github",
+      "path": "teaser_figure_new3-1.png",
+      "size": 312577,
+      "sha256": "2837cf3babc6e2c869e6cedfcf2c1a836be52dfb2b26583e397f85619c64fb34"
+    },
+    {
+      "part": "github",
+      "path": "uv.lock",
+      "size": 543248,
+      "sha256": "6e9e310da678b49badf256da77261eb07626082ddade6ec26dde87877c318f0e"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/README_agentdam.md",
+      "size": 6777,
+      "sha256": "f28ea3e852eefce655f91cf664931ea455091849c5ec031c73d84f9ce44b0925"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/models.csv",
+      "size": 689,
+      "sha256": "4936187e48159e2c853036e7ffb3e03c2057d8b4e6c1d58dc225888c58dd2bbe"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/prepare.sh",
+      "size": 171,
+      "sha256": "16099ab4791faa33c92b06417a61dcbacbaaacc48d55fd6d12b1b6591a0bf0cf"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/privacy_eval.py",
+      "size": 4103,
+      "sha256": "2d7d78d9e5526e872045f7aabc8c8bac69ddffeb9f3a16170b75914293f20274"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/run_agentdam.py",
+      "size": 32688,
+      "sha256": "5a6ae5bd78a77c17fa744a974ab23dbdbd2eb4ccd6ee0d0c85934e1d3340fec9"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/p_cot_id_actree_3s.json",
+      "size": 5805,
+      "sha256": "d8cf377dead8a090feee291d6b8b3c76c4e37105145824986904ab577e29b298"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/p_cot_id_actree_4s_privacy.json",
+      "size": 11462,
+      "sha256": "57b184c832f1393806c08f389af2a8bfad363585b9fe32e531e68b5cf1a263a8"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/p_cot_privacy_judge_3s.json",
+      "size": 4155,
+      "sha256": "1e4746de96b811a2e4ebc23d134d701204a3649bf66c869b4176c05e49697675"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/p_cot_privacy_judge_3s_reasoning.json",
+      "size": 4242,
+      "sha256": "5b6f5d92649838bafc78d3ed937718f464a3861db050a33c075ebda8c8ccabec"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/p_reasoning_id_actree_4s_privacy.json",
+      "size": 11337,
+      "sha256": "e2abad5b69186bad242abf465e39a55c78e6cde9f94c85db47bc2a7874046b90"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/p_som_cot_id_actree_3s.json",
+      "size": 6667,
+      "sha256": "35afb8e4bc9d050715bd7c21c5bc5166f8f381e5c6e6a526c515b7a0b31cdebf"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/p_som_cot_id_actree_4s_privacy.json",
+      "size": 11881,
+      "sha256": "996f5b8e8d20b626075adffabea53777e595154b24effd0f93df9088e7890632"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/p_vanilla_id_actree_4s_privacy.json",
+      "size": 10170,
+      "sha256": "f8ce74a46c7563ae2d5a09662f0121dcb414b1bc9727c824a88b9858382cb061"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/som_examples/som_example1.png",
+      "size": 131,
+      "sha256": "1a63e3dedbcc2706d2baba6ae074907b6b46ea96d7c51576e627ee4a815702d2"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/som_examples/som_example2.png",
+      "size": 131,
+      "sha256": "c6ee886a00241147938689d20b2715c8f9951fb8c687983874b091f2199b998d"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/som_examples/som_example3.png",
+      "size": 131,
+      "sha256": "b783597d8e71b5dc7d3585e769d08c2a69acc0a0ad19156454f5ffa5bba6716c"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/configs/som_examples/som_example4.png",
+      "size": 131,
+      "sha256": "cdadb09766469a4a3752038c5e1b1af752b965e7874a7d59e0e60dcf7bfec387"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/data/dutils.py",
+      "size": 9787,
+      "sha256": "ced08f3298f25101b83faa57ea53ede9e58c933b2d1434c8d87196f32296d752"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/data/generate_test_data.py",
+      "size": 2113,
+      "sha256": "f6c7d146f070065f681f5f830209e1850a90713fe933dc88696f1a9348c98baf"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/data/seed_to_data.py",
+      "size": 6513,
+      "sha256": "d495b91c1ab187ea0233a4de2b29c57ffa0c204aba9a3c69ca40382505ebeead"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/llama3x/chat_template_llama3.1.jinja",
+      "size": 5255,
+      "sha256": "8aedd05f7ab549b897b929c89da9b62e537f4f4197f33736e9d2f10fea53b1bf"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/llama3x/chat_template_llama3.2.jinja",
+      "size": 5816,
+      "sha256": "c22af47e53f444258ba6565bfa6c472c3d74f207105ae49bd1ae9b600e90a3be"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/llama3x/llama_test_vllm.py",
+      "size": 1206,
+      "sha256": "9005542932bd0997251489a0204ab2582c3c2e466156f36b67c795a02e22f268"
+    },
+    {
+      "part": "github",
+      "path": "agentdam/llama3x/run_llama3_vllm_localhost.sh",
+      "size": 3181,
+      "sha256": "de3de908f43f601de72f420c70e50c91ea1b23285e5cd1b1437deb4e86b9533f"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/original/deepseek-ai_DeepSeek-R1-Distill-Llama-70B.jinja",
+      "size": 2246,
+      "sha256": "56a1447ad31926fdc21fb07e56e5642bd9c850c4f52d8c8af7bbe5f079a84f5f"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/original/deepseek-ai_DeepSeek-R1-Distill-Llama-8B.jinja",
+      "size": 2246,
+      "sha256": "56a1447ad31926fdc21fb07e56e5642bd9c850c4f52d8c8af7bbe5f079a84f5f"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/original/deepseek-ai_DeepSeek-R1-Distill-Qwen-14B.jinja",
+      "size": 2246,
+      "sha256": "56a1447ad31926fdc21fb07e56e5642bd9c850c4f52d8c8af7bbe5f079a84f5f"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/original/deepseek-ai_DeepSeek-R1-Distill-Qwen-32B.jinja",
+      "size": 2246,
+      "sha256": "56a1447ad31926fdc21fb07e56e5642bd9c850c4f52d8c8af7bbe5f079a84f5f"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/original/deepseek-ai_DeepSeek-R1.jinja",
+      "size": 2765,
+      "sha256": "563b1ce7d61d50a9b4c7439a912a1116f095b712df5b5e4d3e1116049874eb64"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/rana/deepseek-ai_DeepSeek-R1-Distill-Llama-70B.jinja",
+      "size": 2264,
+      "sha256": "7fe4d7ebe0b3f90b4e0e285038f56c1a276e087e7c3840b1654bd3e91afc2a03"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/rana/deepseek-ai_DeepSeek-R1-Distill-Llama-8B.jinja",
+      "size": 2264,
+      "sha256": "7fe4d7ebe0b3f90b4e0e285038f56c1a276e087e7c3840b1654bd3e91afc2a03"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/rana/deepseek-ai_DeepSeek-R1-Distill-Qwen-14B.jinja",
+      "size": 2264,
+      "sha256": "7fe4d7ebe0b3f90b4e0e285038f56c1a276e087e7c3840b1654bd3e91afc2a03"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/rana/deepseek-ai_DeepSeek-R1-Distill-Qwen-32B.jinja",
+      "size": 2264,
+      "sha256": "7fe4d7ebe0b3f90b4e0e285038f56c1a276e087e7c3840b1654bd3e91afc2a03"
+    },
+    {
+      "part": "github",
+      "path": "chat_templates/rana/deepseek-ai_DeepSeek-R1.jinja",
+      "size": 2783,
+      "sha256": "a7fb8715ff35b2e75d2dadc94a117b4e972d0f9b2437351d0e00b3ce32b6baee"
+    },
+    {
+      "part": "github",
+      "path": "injections/repeat_reasoning.txt",
+      "size": 577,
+      "sha256": "49d676cc7c3e104acb6bc4bf6e8eedf1c4169942a8063ca94231439ece3e0b52"
+    },
+    {
+      "part": "github",
+      "path": "injections/repeat_sys_prompt.txt",
+      "size": 528,
+      "sha256": "04a9310968817cb40110806b2f8b81697c819a8609ea539ba8602df394a8e90a"
+    },
+    {
+      "part": "github",
+      "path": "openrouter_settings/default_settings.json",
+      "size": 144,
+      "sha256": "258a2964d48a8823659e7acf905e76607ff4c98be9bcd521639ee8aa04cb5b18"
+    },
+    {
+      "part": "github",
+      "path": "openrouter_settings/no_order.json",
+      "size": 115,
+      "sha256": "2f35da5fedb091e5662918304f54388fd7380d51dfdd8095d52769843eefe783"
+    },
+    {
+      "part": "github",
+      "path": "prompts/cp_open_ended_chat/cot_explicit_unk.txt",
+      "size": 1738,
+      "sha256": "f7147be1c95e1ded2f7806ea2acbd6337fc9ce62eaa004e2da272d62913ac1ef"
+    },
+    {
+      "part": "github",
+      "path": "prompts/cp_open_ended_chat/reasoning_explicit_unk.txt",
+      "size": 1738,
+      "sha256": "f7147be1c95e1ded2f7806ea2acbd6337fc9ce62eaa004e2da272d62913ac1ef"
+    },
+    {
+      "part": "github",
+      "path": "prompts/cp_open_ended_chat/situation_template.txt",
+      "size": 201,
+      "sha256": "e17b7caacd3a6d3c7e045f8ae0cc838ffaa37bd8e8489dab71a4476ce75b59e6"
+    },
+    {
+      "part": "github",
+      "path": "prompts/cp_open_ended_chat/vanilla.txt",
+      "size": 813,
+      "sha256": "6ce3a596f76d564141f06a6ff6b9c17d834149bb8ca0d6185f5b7597967264a5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/.gitignore",
+      "size": 2425,
+      "sha256": "6c232398b7c3582a8ee06c4529857eebd6931cece370581e000d7de88908ab56"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/CITATION.cff",
+      "size": 374,
+      "sha256": "d1207f2c046519d133f4a303f73395b9c68d94924c2b25d91e5c1b1ec54f90b0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/LICENSE",
+      "size": 1128,
+      "sha256": "a05020744efd1a76f94a3788a9ab9798160ac1a94b3e3adc6cea19fba59af39e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/README.md",
+      "size": 9943,
+      "sha256": "9c0928a55d820a16f8acdc49424a72484e146c448c9ef2357a498e6394b9cd99"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/package-lock.json",
+      "size": 1598,
+      "sha256": "8047b658515280a1f82a506ee39f25648afd5edb6c752d80e7d3070c1cd435be"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/package.json",
+      "size": 56,
+      "sha256": "63ae4d2d436604ff40fab7fc2edac962ffd836f4f3d43635c1dc43cc9ceb2714"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/prepare.sh",
+      "size": 93,
+      "sha256": "e40c362a23f845ded4db32568e786b5ebc080aef0bf68423fbd5771758dc2dbe"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/requirements.txt",
+      "size": 429,
+      "sha256": "31881cc453cc3782a466cf1eb7ea0d94c0a935fb0e2a29806a7102233ea92700"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/run.py",
+      "size": 18149,
+      "sha256": "d65858a676922c23cf8a48ea87a2a3a8f173fd8f1c5bdcf26bf4af87e205cf5d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/run_demo.py",
+      "size": 14383,
+      "sha256": "ddede6d6b4853f0c94bc3790223fbb713c895335b69b9100f91b2fd1a4e3e07d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/run_homepage.sh",
+      "size": 420,
+      "sha256": "c4a38d05b87be3beccb061daf3df4be70d2602bba284ff672bd5311312c006bd"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/setup.cfg",
+      "size": 368,
+      "sha256": "9c6af56ba3c6717229d8a437deb5627987146306bbff9a94ccde0a7947c7e965"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/setup.py",
+      "size": 68,
+      "sha256": "bbed59d194a7bce18da3f3e074a8dc9b51c072b286ae6d67d589f8aff3658166"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/wa_parallel_run.sh",
+      "size": 2862,
+      "sha256": "952abaf3e6081a4b28df496ed4788d0a15a04090463d82d7d1265b70ac6f7ec5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/__init__.py",
+      "size": 175,
+      "sha256": "ef3ba40f20c4f6670aa37fa4e440dbbf4987ef87d17d3558c101213963325c9e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/agent.py",
+      "size": 8856,
+      "sha256": "42004423ab792c28429721af3dc65d59371d1821ed2668bb4b512ee195daf4c5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/__init__.py",
+      "size": 34,
+      "sha256": "5f1951aa049af9c1068faf9cfd0853f8708c8d0340b74075b566d6b1d560f953"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/prompt_constructor.py",
+      "size": 19736,
+      "sha256": "669a298a83481daf853f383250e32780b916de9dcf4515be4a5f58e447ed87c5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/to_json.py",
+      "size": 808,
+      "sha256": "a7daa48334a2ffcb0dfa2d8dc998ba151afb7a4a6acbc7f005e0762fa32bde30"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/jsons/p_cot_id_actree_2s.json",
+      "size": 4695,
+      "sha256": "abd919ba9e1098499de210af4bb9a4924492d6803f99954fe9afb4e3e6888355"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/jsons/p_cot_id_actree_3s.json",
+      "size": 6081,
+      "sha256": "6e0bcbbcef5098e3253cd49f2ba75820805eeb328e87ac5f71a03c97ca326aa4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/jsons/p_multimodal_cot_id_actree_3s.json",
+      "size": 6292,
+      "sha256": "3696a9c6ab1ccc5a376e3bfd16f103fabec357e57fb1119dccad142d9b75f060"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/jsons/p_som_cot_id_actree_3s.json",
+      "size": 6961,
+      "sha256": "e38a4b7dd33ea202092af9c11a530d85e396d9cc617c7ce84fc71b8fd4aa8dd6"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/multimodal_examples/multimodal_example1.png",
+      "size": 131,
+      "sha256": "3dc4665431e43b54e2ec236ddadc844166878c25fc3a68ad87611cec059bbdcb"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/multimodal_examples/multimodal_example2.png",
+      "size": 131,
+      "sha256": "3b6267707d615461b615dcdea1b477d2573bd9e69d6c3ac43e07068d4877ba97"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/multimodal_examples/multimodal_example3.png",
+      "size": 131,
+      "sha256": "3325fdbf794a08116e0529010559584595b84e641e4b5c10d277cebceaf1d18c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/raw/p_cot_id_actree_2s.py",
+      "size": 4581,
+      "sha256": "50766c5cc959806a3e800a809ab0731945a709b92897a5f7fc56fdd9c4bb090b"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/raw/p_cot_id_actree_2s_no_na.py",
+      "size": 4486,
+      "sha256": "0abcbd987f57b2ae03f20400943a8a6adcb4798390a67a3e0dfff0707f05f131"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/raw/p_cot_id_actree_3s.py",
+      "size": 5937,
+      "sha256": "a97c2111db24f012eb9eb2f54c4c544be45ad11c89abee1b03bad51b8dfa0fd2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/raw/p_multimodal_cot_id_actree_3s.py",
+      "size": 6163,
+      "sha256": "36bf136a8ed99474109a18c626e9ed368177aa4e078c8a5a269e7f7e0e74c711"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/raw/p_som_cot_id_actree_3s.py",
+      "size": 6813,
+      "sha256": "88ccc4eee487c21cdcbbe432f284d3670ace5a2b230366a6ad40796eb70614f2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/som_examples/som_example1.png",
+      "size": 131,
+      "sha256": "1a63e3dedbcc2706d2baba6ae074907b6b46ea96d7c51576e627ee4a815702d2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/som_examples/som_example2.png",
+      "size": 131,
+      "sha256": "c6ee886a00241147938689d20b2715c8f9951fb8c687983874b091f2199b998d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/agent/prompts/som_examples/som_example3.png",
+      "size": 131,
+      "sha256": "b783597d8e71b5dc7d3585e769d08c2a69acc0a0ad19156454f5ffa5bba6716c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/__init__.py",
+      "size": 2100,
+      "sha256": "e13f52b510f7cc388c79932dfe59340777190ad7578e039472bea85a319a65e8"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/actions.py",
+      "size": 62474,
+      "sha256": "4c1be83ca870f550ee0dd2d13e8b49b3311bf948fb53e1b4ca1187b78dbe1058"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/async_envs.py",
+      "size": 5469,
+      "sha256": "e98fee9c3619b5f43ab59befb6917bd40c545e65d7788a5bec7800ceead46029"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/auto_login.py",
+      "size": 6380,
+      "sha256": "cb148cb52dd4baa94b48cc3245270af14d9158c9de1fa8a5f6f7ad4a0182c438"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/constants.py",
+      "size": 5212,
+      "sha256": "f76c84be095bcc014bf207d00f8ea77d436e4e3f49b036bf3fd81c5373c0376c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/env_config.py",
+      "size": 3258,
+      "sha256": "7b2aba204ed35174203e451b13e968c7d58d95b349f7239fb1970845200263b6"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/envs.py",
+      "size": 12101,
+      "sha256": "48deac34fe29cbab2598063990984e1a9a2affad34e82ad680651359290a996f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/helper_functions.py",
+      "size": 9322,
+      "sha256": "09693089940ac78179471432933c95d572d4b79cc315da5f079f118761b90adb"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/processors.py",
+      "size": 51318,
+      "sha256": "23b09cf8c03fc8057cbdc5dc3a9537ebf7c7b3f8d4c683bf68c0821a5d50f0bf"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/py.typed",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/trajectory.py",
+      "size": 128,
+      "sha256": "90f0b744e35f7af14b4a1515b4154d0fcdf13e143e0d1402d0ff3dca84aea7a1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/utils.py",
+      "size": 2510,
+      "sha256": "bd6529f635267ff4f29dcc80854580cec43da493d0ef2c087cca791495fb6245"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/javascript/frame_mark_elements.js",
+      "size": 9059,
+      "sha256": "5347f37cb1568d79b70e3cbea8c89061336a2339ac8ea6dd4c41134f09acb9a2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/browser_env/javascript/frame_unmark_elements.js",
+      "size": 1787,
+      "sha256": "a314846df266988d1347f3ffb7db9b994edc8478246b57a8d79ad1945e5029c0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/config_files/vwa/test_classifieds.raw.json",
+      "size": 312960,
+      "sha256": "5d7322cc3bef21c755abc966624530d15121ad73403f64177d2f06014dbfb14f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/config_files/vwa/test_reddit.raw.json",
+      "size": 337859,
+      "sha256": "68ea7eaa11b5ec16d71cd4012243a6e956fb7abfefe091c5da6584b9189a8e34"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/config_files/vwa/test_shopping.raw.json",
+      "size": 714795,
+      "sha256": "beb9fc27d90406131f11442cc9518facdefc2c4845b5648f4934921aee4afa90"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/config_files/wa/test_webarena.raw.json",
+      "size": 880776,
+      "sha256": "fb1e427322dd2bbfa8c5200a4af440410fb9ae2dcfea8941e59c3ff9352ceaf5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/README.md",
+      "size": 9525,
+      "sha256": "136b40dc8766f7ee1c24e29bbbeff2dbf0510c528bbafc90e5cc80fb3f69a8ec"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/reset_dockers.sh",
+      "size": 624,
+      "sha256": "e98771d7fb9e1264bd5032a180190f3e0972ae9db4b093ca28e84f67f3c6b40f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/start_dockers.sh",
+      "size": 2807,
+      "sha256": "a471b5b666023032b246e9f1b1febb233b5fe146705192418662d70f8c666202"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/app.py",
+      "size": 517,
+      "sha256": "3cc774ffd83eac79a1ad346749adcc63dec5a1a1e58f3978800d3b8449909cb4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/calculator.png",
+      "size": 131,
+      "sha256": "74b631d451d88398a653efb8ea815f6af9a0c8e0217aedf20c12d476b14c4b40"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/classifieds.png",
+      "size": 129,
+      "sha256": "bea779a4efefcfb258af33710cc8e114bd1e11f19622a4d17ce130470c9a05d3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/cms.png",
+      "size": 131,
+      "sha256": "ac9d1895ff43db458ef09c5bf215c6d50d020f261508218e319fe8ae72f5d34a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/gitlab.png",
+      "size": 130,
+      "sha256": "007c992b9d9f0aa295c44151debcd7ec2a66c3f30e06bd8b5fe16cc75e52b2ba"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/manual1.png",
+      "size": 131,
+      "sha256": "8c3d6b6056676db6bc81d05b21a5f4ba0aabd9b4142f02c74dc4bceba2d8238b"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/manual2.png",
+      "size": 131,
+      "sha256": "607bc309de2735f05abf8f178c0a1c83128df1d8364e6706f17f19ceed181ba1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/map.png",
+      "size": 131,
+      "sha256": "e4072fd9db1d29d1cfb93b4bed91eea5ee0d95e1a44ae65bcbd91f9c5cb2dec5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/onestopshop.png",
+      "size": 131,
+      "sha256": "4a51c16bd573658e0595cdf5ade1fbfe18c7d06c272177097e443d798a454e06"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/password.png",
+      "size": 130,
+      "sha256": "a8730daeb55c78133d63711ca549a9a880ada619ab084483747fa8af40e84faa"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/reddit.png",
+      "size": 130,
+      "sha256": "33919ae88a064a3e8a471b4fd5dcfeeee9a49994d9a34bfd663cf8ff7fd165b9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/scratchpad.png",
+      "size": 131,
+      "sha256": "f870a3a790fee619f9273b32312b0c8c4275ca8c559f9a22aa12b45e2a2d50a3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/figures/wikipedia.png",
+      "size": 131,
+      "sha256": "5081e22ce931935ab8f42cabeba15ba5fd7bbd569cb528f7d3b88737a0e51979"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_101/input_0.png",
+      "size": 131,
+      "sha256": "a29dc85d52e2e4fe8e03e83a63407a0091f8f51c31ef702757f0a10d37c4a13c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_102/input_0.png",
+      "size": 131,
+      "sha256": "9ed12b3ccb422df2b7b8a57c81c788af2a7bb86324e4bb40c211edb658eaf48f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_103/input_0.png",
+      "size": 131,
+      "sha256": "6449f212c998f723065b25f995b583cb940f9c3d1845005417075351561fb7fa"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_115/input_0.png",
+      "size": 130,
+      "sha256": "47305a330b4874831ed0e631b7aaf41ca8f2f96df3daafb384f8a05c9c9a3b3c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_116/input_0.png",
+      "size": 131,
+      "sha256": "3ae7b196504f0aa7e63b73739aca103e1044e4793fcad4358fbae6c06fc7b8cc"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_117/input_0.png",
+      "size": 130,
+      "sha256": "0a7e16ee7c505c8137ceb0d7c9cdc6a8f0f1187f0cc9d7442933e1101dc8a3ea"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_123/input_0.png",
+      "size": 130,
+      "sha256": "d6092c9aedfffebcabbfe5ee6f6fe4352fd7c4b31488c16c0aa0dbdda330a94c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_126/input_0.png",
+      "size": 131,
+      "sha256": "a559dc4f55bc3820e54641ca53f860c6651659a20aebccb33c060374465bcf96"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_134/input_0.png",
+      "size": 131,
+      "sha256": "65b68d26c62638b606fb51e27aa471a35ce172685597cad2d66b8eb18812126b"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_135/input_0.png",
+      "size": 131,
+      "sha256": "82d8ae83ed4192a4e729212268f8bb9835cdffd66bb57a54a8ed837125d8ebcd"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_136/input_0.png",
+      "size": 131,
+      "sha256": "2e13113e8925995932f6275df2896e5cca4933d3e49a6ab001667766e5aabd56"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_137/input_0.png",
+      "size": 131,
+      "sha256": "59082a7377f6f881123e3a0f132d16c5fc820ee58c602ed2294124ddb50d5214"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_138/input_0.png",
+      "size": 131,
+      "sha256": "539b358ec261ccd4244e97b14cf19699c4b5e5e706e26de4f4bebfce6996bad9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_139/input_0.png",
+      "size": 131,
+      "sha256": "d0d5a0910a76466d013c70e32f6cbd02b45f4fc4ba3e75304d8e9985b3f58b2a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_140/input_0.png",
+      "size": 131,
+      "sha256": "abb21042f8f882ee6ff7b180844c6bf88524f0a70268aef753cb83d0535fb419"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_141/input_0.png",
+      "size": 131,
+      "sha256": "86029a2d801e4e60a260ea614e57a725513b80099d652c8e750cd560a8fe247f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_142/input_0.png",
+      "size": 131,
+      "sha256": "ef9b4a89c60aac8cc9b23b6ccb7e2264022c9744a1084c3e7a71e4b5ae698d65"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_143/input_0.png",
+      "size": 131,
+      "sha256": "9a1ffbf3b92a5c795e2a033223dc94a4c10b55b0a1ef6f78cff5132b1ab8650e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_144/input_0.png",
+      "size": 131,
+      "sha256": "e2c10585afb8e7fe237526df126dc20ed6538175b4a232d8321ebdf90b55610e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_145/input_0.png",
+      "size": 131,
+      "sha256": "3cd6f1cbaa94967c645d422056eddf696d21102189e377afdd414f492a497f38"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_153/input_0.png",
+      "size": 131,
+      "sha256": "5a9367313fbbfe3e598545c58add796f2da944973ab47429c59fda43eb07667c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_164/input_0.png",
+      "size": 130,
+      "sha256": "e994a487c667c2f2b623af27a2680a2cb85391a16803f6f37bd582f5394237fa"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_165/input_0.png",
+      "size": 131,
+      "sha256": "fcec3f6ca1f1fbee4f957eb9fa2a5fec3110ce5fd80d0c9e144a1f9d75c50bc4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_166/input_0.png",
+      "size": 131,
+      "sha256": "73648d27acf1ebc23452b071dad0eb6eb1b0d2440e1ec98463a9315f645c6a4e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_167/input_0.png",
+      "size": 131,
+      "sha256": "0d4f4ede8771054d44eaddd1a33881d72482d243d2b0b2860e9c303eeb43563c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_168/input_0.png",
+      "size": 131,
+      "sha256": "a100b6d6597105836848ce100148b1b18214b806959764b142606a0dafc7c302"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_170/input_0.png",
+      "size": 131,
+      "sha256": "45b8a969e870794ab60b3da95241e41d10d5d6bf92c5ec1ad1bae6793b09eccb"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_177/input_0.png",
+      "size": 131,
+      "sha256": "a7fbbe7f2b2e35da272df5c994ab06f72c928d68e96fedea3f883bc1aa190985"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_179/input_0.png",
+      "size": 131,
+      "sha256": "8ae6eb1df0e27bffd75cd27d052d62d31fe793858bc423751f52b479509160ce"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_181/input_0.png",
+      "size": 131,
+      "sha256": "9a2bbb19d32afd5d6732364c0a2f6ab6ad2c25d7d63d515eb74b157f06976aeb"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_183/input_0.png",
+      "size": 131,
+      "sha256": "44d6c275807f15d9db5cc460008847b3a5ab47fc91990489233f8da33bace18d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_184/input_0.png",
+      "size": 130,
+      "sha256": "70e03e7d59b7115890c3fcc5c8a6f2fb88f0e97e529883db19673314052d7fe9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_185/input_0.png",
+      "size": 131,
+      "sha256": "14f4298c75e823b496b5814edbbab26d6c6724b6d6597e857be3f7e37e5665a4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_190/input_0.png",
+      "size": 131,
+      "sha256": "8ae6eb1df0e27bffd75cd27d052d62d31fe793858bc423751f52b479509160ce"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_214/input_0.png",
+      "size": 131,
+      "sha256": "48dfe15bd797832bda2c5eee052156553efd0bf4e606492f40e3efa2733c5a3c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_32/input_0.png",
+      "size": 131,
+      "sha256": "83bce8446dd632d829282a4efa9097b11c209ca569a45481eded14b6195da204"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_36/input_0.png",
+      "size": 130,
+      "sha256": "60ab1024fc8467cd58d7437d0fa16a70c0fe897ad50dd77b425c4493db14d0ef"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_37/input_0.png",
+      "size": 130,
+      "sha256": "e6453cfaa93ef5c928b54a153ce11d341f922745e6111a4eb7ed5b1fad05bcf5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_44/input_0.png",
+      "size": 131,
+      "sha256": "51621f615bc03913496df4fb4d9716b2ae4c263c1068544d31fa5da43e1f056d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_45/input_0.png",
+      "size": 131,
+      "sha256": "37128fd1f79c31fffd615d18479892f808479a5725583257052b6b35adde026a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_46/input_0.png",
+      "size": 131,
+      "sha256": "b7818a1648c7e93bdf5a3e294eadbfb0f423137dcd0a024832b93a8a82cd3d14"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_47/input_0.png",
+      "size": 131,
+      "sha256": "be5f987be32e36d5ac23e10c2879965c0f02dd5537f5a43413d4cb86eac08de4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_48/input_0.png",
+      "size": 131,
+      "sha256": "bb31a1128538d7731722c4e39549395ee0ebb3061e08a9687d3f4dec33b411a2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_51/input_0.png",
+      "size": 131,
+      "sha256": "edce182015ff577d1abf661ee980a31ca79e478cd071940ee7e5ccd563ba974e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_52/input_0.png",
+      "size": 131,
+      "sha256": "749ea74ea95e3c37b16dea6fca18e94e9dadc0dec639de74ffb724c7a70568ed"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_53/input_0.png",
+      "size": 129,
+      "sha256": "47a6b7ef521c0ed7cfc61bc7ff29c752e29ee0f3c1f14679a07a05e488b6f7bd"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_54/input_0.png",
+      "size": 129,
+      "sha256": "66daf2626d99f17b4cf140bc0a4b6b5816cf38b765f525c1a9dece95228cd8bc"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_55/input_0.png",
+      "size": 130,
+      "sha256": "aeff3af9cee2d5dd4b0203eedaedd41de0bc99e7d92577f10e9a2d56574d3388"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_59/input_0.png",
+      "size": 130,
+      "sha256": "c24a2a9d0fc50dc57f7a42997c0e39b0321e844e76f25db620a16daa52e2fbf2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_60/input_0.png",
+      "size": 130,
+      "sha256": "b86877f0449e0e6a1166e9cb59bd676be96d3adf37ed76ff03554068f60ee857"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_61/input_0.png",
+      "size": 130,
+      "sha256": "1fd6ea9d922265abb30bf6d99d7c21872e786367e92d026d718df31960330bf8"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_62/input_0.png",
+      "size": 130,
+      "sha256": "314e781d9d3dca528751b681ac39180d6f808092b8d946e8e0b5e139d10c3d25"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_63/input_0.png",
+      "size": 130,
+      "sha256": "7870174aede6b7f10ddb92f04eaad6af1948459fe45044b55169460e9c3347e2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_64/input_0.png",
+      "size": 130,
+      "sha256": "b86877f0449e0e6a1166e9cb59bd676be96d3adf37ed76ff03554068f60ee857"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_65/input_0.png",
+      "size": 130,
+      "sha256": "5bfe626bea76b923ddbce6a17f29df8962e1f76ab9d6100a3b466517275e5e6c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_66/input_0.png",
+      "size": 130,
+      "sha256": "4e0652ca58b007234129612eaf63a762e187f563e0955160cf08f318c6e359e2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_67/input_0.png",
+      "size": 130,
+      "sha256": "1310b373ad715c17cd13375869c6d49fdfd1398840ff7e6f6522e90da4262054"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_69/input_0.png",
+      "size": 130,
+      "sha256": "32ef69415296a99b79128ed730856435923fc67cd88a2de9dde42661691c0b8a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_71/input_0.png",
+      "size": 130,
+      "sha256": "d3f9c26f894f245b5533c83e90a33da77fb99305f7dcb1688ce9d257abaf3944"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_72/input_0.png",
+      "size": 131,
+      "sha256": "b2400e170b33b5b9c2d4c959c1075dd245ed17f36fb1cec4145316043df82354"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_73/input_0.png",
+      "size": 130,
+      "sha256": "bf41075e6e804b7f822f36dfb7f53dd5f87d09f291d2bff996460d6e58aa4dae"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_78/input_0.png",
+      "size": 131,
+      "sha256": "a289893b4eb260430f75033058003b129299a09dea2280f0cb6816b523297ee0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_79/input_0.png",
+      "size": 131,
+      "sha256": "d31935470203415f7244e654449bd388acff05f1ed72eb20fb0c5728b6b24b7a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_8/input_0.png",
+      "size": 131,
+      "sha256": "aa7619c2eb69d4b164987c387993b92a8e046a109f9b30bc88fe6985439167e4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_87/input_0.png",
+      "size": 131,
+      "sha256": "3d919af909f08c2ef491e9d825505b58820d0d1b3c8b195ce666cf6d59187a0d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_9/input_0.png",
+      "size": 131,
+      "sha256": "f032c773549c0ae842e5b4a20e14a1e00f99d952d87b919f96eb5e62581746bc"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_93/input_0.png",
+      "size": 131,
+      "sha256": "c58d8c6640bdfc52275661c4961f9eeb9f30a1f060dc6174354525d581597add"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/classifieds/task_96/input_0.png",
+      "size": 131,
+      "sha256": "19ca76cf7be1df47b9c43dabced1e78a1528faa1ffe47e80ac063ed1b5b48c98"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_0/input_0.png",
+      "size": 132,
+      "sha256": "70041256b6eca5c46d233c33d9d063203aaf4280b16aed236a9bd1f734616b89"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_1/input_0.png",
+      "size": 131,
+      "sha256": "9a8428fe604eb4b01ab4616f2c30169642f707e8d85821020ee645be5b9f6ae5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_10/input_0.png",
+      "size": 132,
+      "sha256": "d69ee2a0ecbec30d0d3d7b2286f43ab51642fc74d7b40ff7425d29d39ba139f2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_105/input_0.png",
+      "size": 132,
+      "sha256": "e984fed54649aedb7c8cc3b9af7ccf16701d9a031b48808d2c0f7ae540287ee9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_105/input_1.png",
+      "size": 132,
+      "sha256": "d9e62425c7aba677f6c79d13dfcd2ae458740dd25ed26420d3b488346875f5d9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_106/input_0.png",
+      "size": 131,
+      "sha256": "c3e9f46136eda3bf390c98ea7c64f7e6f8e75433a2db7e8adf919a498b5b7c30"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_107/input_0.png",
+      "size": 131,
+      "sha256": "fd3b22a09f2c2bfdf7c94a6688489d1a7d8bda7b698bde3c72863e2f60d4270e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_108/input_0.png",
+      "size": 130,
+      "sha256": "9b38ff793bd22cc42c48e6034f87d9763dfd539f885f2a8ca27b5fac0b9238aa"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_109/input_0.png",
+      "size": 132,
+      "sha256": "4b00d6a52114a79d602e2f3f18dd74762d3338f9fed279b8d951ae094a4324b3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_11/input_0.png",
+      "size": 131,
+      "sha256": "aad06e3f420a74f9958774a37f2693b703f3bf7753250ff2e3525ab84f1bf595"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_110/input_0.png",
+      "size": 132,
+      "sha256": "f7026e79c72eeb2a79140e9df89275f013664a2336c35b5ad624a5dc894b986c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_111/input_0.png",
+      "size": 132,
+      "sha256": "7a0dc53979e197d341a4220a8d872752beea17cfa402c797dbebfd918503a242"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_111/input_1.png",
+      "size": 132,
+      "sha256": "969fdbe00792b6c9a3a3a7f1d79524b6dcb784631803bc70027428cca36b4532"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_112/input_0.png",
+      "size": 131,
+      "sha256": "664a0022f07627e91d02ac30817cf86958cf36aa61605f4d60c18362b4a54165"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_112/input_1.png",
+      "size": 131,
+      "sha256": "7c35f94df477f8207ae0b8cdf3a6b8ebbbea38ef368edfa237d0774cb87d7ddb"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_113/input_0.png",
+      "size": 131,
+      "sha256": "8a48ba1fb6c244db785127d1b9f26e880a5b2f3f4a988a15b32b53f338710ea0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_113/input_1.png",
+      "size": 131,
+      "sha256": "39ef363ee4247b9132a98884d34dc8571cf612c926ba9f71faa8bacca560994e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_113/input_2.png",
+      "size": 130,
+      "sha256": "c35b3b9363604d43be7c285998c8ff9b548aeecd0bb38eac77b38f20451b8d12"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_12/input_0.png",
+      "size": 131,
+      "sha256": "c7331fc68f38ff6a3202fac13a3110b01e2f66063c502f667f92ba34f33250e1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_121/input_0.png",
+      "size": 131,
+      "sha256": "9f68edcebf08626cb465afc7496f60d2e0b8fb1cab9c0649f6c18257e3547814"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_122/input_0.png",
+      "size": 132,
+      "sha256": "fc88bc37bcd21bf18fda0e746491bead317ad7bdf4e90da988fbe5c268bcbaf5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_126/input_0.png",
+      "size": 131,
+      "sha256": "0b47814a591c2ef6b08a24bc0c9ba78e17bb11cb5b536b7060375e3ea7e9fc8c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_127/input_0.png",
+      "size": 132,
+      "sha256": "515618552e1b5d12efe17fb26d9295f893b4f4314cddf30b2596d644a5a7bda8"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_128/input_0.png",
+      "size": 132,
+      "sha256": "96db6704d03b4ce7818d49348eb6edeea55879ea2a0bfd4078d2beb68effef56"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_129/input_0.png",
+      "size": 131,
+      "sha256": "6424a599e91c004e4f2a3d23f566f4d3197ceb8b2ddfd9b86b546fd971e4e723"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_13/input_0.png",
+      "size": 132,
+      "sha256": "f54f646c4e8c49b108210ba26ccc32b1ecae7e6820d0cee3f376ac44a23a6d59"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_130/input_0.png",
+      "size": 131,
+      "sha256": "d8273ef7f32af2cb9d6f3214f42c396d7d28501ca03292b5a9172653fb519f95"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_131/input_0.png",
+      "size": 130,
+      "sha256": "930dca511f542425865b06cf1b5f67ff90f8ec5a9557a059fbef6cf2d05dd9ab"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_132/input_0.png",
+      "size": 130,
+      "sha256": "12b9ba18edc5d1852c4f77b05f0cc5459cd03e36f43b2f22b3ecb875369208fd"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_133/input_0.png",
+      "size": 132,
+      "sha256": "278d8a808fda8ba91514b422dbdfa9733a4db53920c835119fd963b02865c2a3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_134/input_0.png",
+      "size": 131,
+      "sha256": "526511e480ede4dfbd08308e95240adcf35660cf9083ea681464f9e9b466ea15"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_138/input_0.png",
+      "size": 132,
+      "sha256": "e3d0136b8d1b88f430290e69cc45d73eedf13c2ed532f5e22e233eab0d2d8b17"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_139/input_0.png",
+      "size": 130,
+      "sha256": "66102e676cb1f59b5930d2567bf7e540dbda313eee1324143f408e23fd34cfe5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_14/input_0.png",
+      "size": 131,
+      "sha256": "0dae4887125d06007186fdf8a6b7d28b1186b1bd56af2a7a8ca08d87d6e8a879"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_140/input_0.png",
+      "size": 132,
+      "sha256": "3f39c28744cbafa29052fd1a317840bfdc0ed75618b5710815e6b99c34795ebf"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_15/input_0.png",
+      "size": 131,
+      "sha256": "415a3c9caf06249c45469e0763a323405b7f0a0bba086a2be8311b6def08f3f8"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_153/input_0.png",
+      "size": 131,
+      "sha256": "5b0f40a91fea4595ab89b5bfa3ac646b1217c1e8c4a9c4c74b2b75390e944354"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_155/input_0.png",
+      "size": 130,
+      "sha256": "5474afb7310c3dff68c44dfc9115311b9707630ecec6dda6a061d6c61e266f26"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_157/input_0.png",
+      "size": 130,
+      "sha256": "7fb321833cf93121423d638cafb475f44ca859d491248ff161726f1335709a6e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_16/input_0.png",
+      "size": 131,
+      "sha256": "e0454a66f8aabd58103be4c926941e7592475efa5974d1f452d95dcb6d7e49be"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_161/input_0.png",
+      "size": 130,
+      "sha256": "257527c07f23f9e5848cd9dc0bb69ccceca631368172f853e222e69e7d1d4a29"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_165/input_0.png",
+      "size": 130,
+      "sha256": "b5393df5106a804eeead97c00876690edbcba2be8787d9076f74b5edc5881d56"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_17/input_0.png",
+      "size": 130,
+      "sha256": "66102e676cb1f59b5930d2567bf7e540dbda313eee1324143f408e23fd34cfe5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_170/input_0.png",
+      "size": 131,
+      "sha256": "f556d7cb0e26c49bb1b5aba58a1b58234545e45b7e8765fc29cf205024c04453"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_171/input_0.png",
+      "size": 130,
+      "sha256": "e3270df9860a9c0712ca484c22e8ae3826328af39ce83237c69b6936139f83ef"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_176/input_0.png",
+      "size": 129,
+      "sha256": "6439ee5ec324fc526b7810bc53d15057974b46870dda8820132fd100c3b4d887"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_177/input_0.png",
+      "size": 129,
+      "sha256": "006caef07a6ed553f0bbdeceaa46ead0f92b87034b8893062e2c16c1daad864b"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_178/input_0.png",
+      "size": 131,
+      "sha256": "c79fae957a06a0d7ded02f1cc7e0b40a22d522f5f6dfc00017ef3aa42e103f38"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_179/input_0.png",
+      "size": 129,
+      "sha256": "4bf57e6c0a2ad3db991ffc0dd3ffa465ff51ba3f560af969d096ccfa3a0e3f7e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_18/input_0.png",
+      "size": 131,
+      "sha256": "43066692e386602e9d586125750cbf7e889c88db7b49ebae91037193dac17756"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_180/input_0.png",
+      "size": 130,
+      "sha256": "1536b0494ae36cadb739c12df0822f33ec0dc726d1f5eaf6a0426e0ca06e2006"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_181/input_0.png",
+      "size": 129,
+      "sha256": "e87d1f221a4535496e38f41de09826b98aef17eca78f71b80aabb7d6482e8fdd"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_182/input_0.png",
+      "size": 130,
+      "sha256": "c8d86cbae7f580e35a5783ef6cde7cb0c0e483283df53437516985e94941e43e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_188/input_0.png",
+      "size": 129,
+      "sha256": "5728e71ce2dbb15e5ed151c17373d8c5a898390efc9448e5248956f9d415aa8f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_189/input_0.png",
+      "size": 129,
+      "sha256": "3e2939b830f887b9ba6130bc814aef470a12e579df6750ac905b8391d72e7191"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_19/input_0.png",
+      "size": 131,
+      "sha256": "4402c2b4d5d65134f2bd6e012707b32c8e3f7ee5bdd01d026a6b19af6efb9ede"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_190/input_0.png",
+      "size": 129,
+      "sha256": "a421652a49cba82729c3176b1e9b342bf911e1757e7519fdfdfc2c544789e9fe"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_198/input_0.png",
+      "size": 130,
+      "sha256": "8841fe6c450d1b147b9bd92e00c4c0163e3e7f12a37fc60a34e32e2f122f5193"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_199/input_0.png",
+      "size": 132,
+      "sha256": "f6c632afdc9868c1ee16bbce9544e65ae9b89fdeb3ce69a0df2bc20fbcc4691c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_2/input_0.png",
+      "size": 131,
+      "sha256": "9ad683b0c6344c0c2c3cd113c4f246e14d9d1ad42b042ae6dbf54b9d814e0058"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_20/input_0.png",
+      "size": 129,
+      "sha256": "e2d2d7f271fb5ae89e4e953533e3fc57951dd0f1b7326041b267094a76b131b5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_200/input_0.png",
+      "size": 131,
+      "sha256": "d712f7e5036a7b0d441a411a2ed4e1c1c959010fdd8836cb6d13c4d95ea6fadc"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_201/input_0.png",
+      "size": 130,
+      "sha256": "b4500ce945d03a97a5c6a2ddf65f845b100505c17225640c2ee0080f99bd6b3d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_205/input_0.png",
+      "size": 129,
+      "sha256": "c1ecd4da31048ed2395be1c49157a4e17e1e9d591b9f723c7f0a55f4908c093f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_206/input_0.png",
+      "size": 129,
+      "sha256": "f6f9b3096f0c3c70330ba81c9d0baadbeb3c648770ff48cb42475304552e6d88"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_21/input_0.png",
+      "size": 131,
+      "sha256": "6bf5a10aa8e47aedd3b69a37120b370f644a395d6e89e573f65229a3954d4641"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_22/input_0.png",
+      "size": 131,
+      "sha256": "2908910ca4c53e9c90ffc5ca59c630f58c4058885637df09353a156f049e18af"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_23/input_0.png",
+      "size": 131,
+      "sha256": "198e3c1f5a7ba87a75d82db871ddf19569a39d37653e66d2857f07b6b0decef1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_24/input_0.png",
+      "size": 132,
+      "sha256": "c3fc26d1daf762fd52f8729e9e12731f533f76011f76f96401151fe858aaa553"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_25/input_0.png",
+      "size": 130,
+      "sha256": "3008d64802ba6382ef3eb50f4f6598959bc2209b1249bd2e22bd6901e0679cb9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_26/input_0.png",
+      "size": 131,
+      "sha256": "a7ac50a11b9ae6b4b795c8f2e45a0b3cf96480c8d2b0f90e515a7e57cd3de5d5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_27/input_0.png",
+      "size": 130,
+      "sha256": "7d7887be98cdcfa7cc9e1096c52638031464c618564cdfc8adeda39c948cce1d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_28/input_0.png",
+      "size": 131,
+      "sha256": "a35828ed5f68d8786732a174bf9fd1c72fa8847424093c05c97bda9741cc8c6a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_29/input_0.png",
+      "size": 131,
+      "sha256": "8262c5b83e7d9f318fc44e6575e7894bb960e93a9c9fd41b298fe32bea04c183"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_3/input_0.png",
+      "size": 132,
+      "sha256": "7e7365ee37ea1fcf6b71024b41791151adf7e24af0f059a2305a6830854517f0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_30/input_0.png",
+      "size": 131,
+      "sha256": "7c15cc86e086b399bb13114fd9250545e56b4f353e4c784c895d1a026b7ed8e9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_31/input_0.png",
+      "size": 131,
+      "sha256": "d0519a6b9f9338a49ab32ebf8d67b864380a4e24f910746383ec2bbec65eba6c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_32/input_0.png",
+      "size": 131,
+      "sha256": "6adcf4bfde88e8566b5af8843d5c292fcd714e0ad54e6769e6d16682e2930314"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_33/input_0.png",
+      "size": 133,
+      "sha256": "f5ea5073f41c53b5b7c61bc96b8f8e5e396ebcbd2a87bce6a0bb7882e2df9344"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_38/input_0.png",
+      "size": 131,
+      "sha256": "be97b07f4e3e50b90a28abd163ec1eb5c9f689bf4088ac60d64cc9b7ea9f7f1a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_39/input_0.png",
+      "size": 132,
+      "sha256": "cd954eae819b0f2ef3a34f5f850f1c37c6dc2d46a6f5d59bd98cd7e8caaa8216"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_4/input_0.png",
+      "size": 131,
+      "sha256": "e49173ef0c6cd125d2204c045d8e036a9b059cd71e9eda1bba2d68d9ecaa9ca4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_40/input_0.png",
+      "size": 131,
+      "sha256": "2b327516c30d5473fa06f2af54e1beba27ced71ca94d3b43aadee2b05a14a2fa"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_5/input_0.png",
+      "size": 130,
+      "sha256": "e756dab041e715694d8058bc4ea6196736dcea6fdd1274fb69b54f3e5fae0a2d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_6/input_0.png",
+      "size": 132,
+      "sha256": "0aed75d2f48726fd0f0b2716214143e2165cfa27d18db6028bb841765fba294e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_7/input_0.png",
+      "size": 131,
+      "sha256": "dc52d0d2f504f4038bd198201c14de6c16123a0a06eed1a0ee4715b493d38ea9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_74/input_0.png",
+      "size": 132,
+      "sha256": "05415f8b0529a764936be071bea1f31d0f2ad9facfb2101f86a2e20e8c964a10"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_8/input_0.png",
+      "size": 132,
+      "sha256": "7e7365ee37ea1fcf6b71024b41791151adf7e24af0f059a2305a6830854517f0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/reddit/task_9/input_0.png",
+      "size": 132,
+      "sha256": "5ada914b00ca02cdb0999d27864b3994a651f5ede4789b352f978d03a4dca56c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_100/input_0.png",
+      "size": 131,
+      "sha256": "19158e399711cec79da02676ce211fd16ac438e2699a33dc0f12c10d30856732"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_101/input_0.png",
+      "size": 131,
+      "sha256": "5e32e19c345033936c8f2d36d5eab4a689d6fabdf7b03b219150aa240b9fb3a5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_102/input_0.png",
+      "size": 131,
+      "sha256": "a9bc228ecebc0b1697595cb64801054fb9768259c093e30bd55a5276a419169d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_103/input_0.png",
+      "size": 130,
+      "sha256": "319b3e607e3b3afd410b747e4934677484634b2975a7e1f62b7c1d4a708449a5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_104/input_0.png",
+      "size": 130,
+      "sha256": "4c162ffdd245d1258e30611e165a8fb3c1fe11cc944ab3e05bbac766332bcb5d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_105/input_0.png",
+      "size": 131,
+      "sha256": "55bd8b55e9ad3091cc03cbd0d85b54e19d55b449b7caaba2f23356f4f6ef63d4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_106/input_0.png",
+      "size": 131,
+      "sha256": "cf2beca67fe9b8fa85df61a00ba7f7c6fb95d2c05841adb1f5535d0d98b25a15"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_107/input_0.png",
+      "size": 131,
+      "sha256": "e54849e441c4cd0cf312e446433ce6ca96de55d0ef3263d08a2cf9b52c8ee11d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_108/input_0.png",
+      "size": 131,
+      "sha256": "2afefceb729d91d8ec3bb97a7af656e533d8557803f37174bd7535f0e51b3611"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_109/input_0.png",
+      "size": 130,
+      "sha256": "21a074e526e8cad4159c881fa7314685f2b8f96f334aaece75906181327fe22c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_110/input_0.png",
+      "size": 130,
+      "sha256": "2a042a867cade1cbe30cb4de7aa862cbbadac8d345096a0f4464713f390b0315"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_111/input_0.png",
+      "size": 129,
+      "sha256": "3e9a732c40dedbabf2a67df0efb3afca1d21fa4c11c765b4663fd8c24957506e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_112/input_0.png",
+      "size": 130,
+      "sha256": "c6234746f0801478a1855188c8ec43b0d7f7514568ed9e8400d27f6acb072436"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_113/input_0.png",
+      "size": 130,
+      "sha256": "29206e77cff88b6fd4330edb9768769e39b585b0f1116428dac7d743c6f85c3c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_114/input_0.png",
+      "size": 129,
+      "sha256": "ad06a9a4a81a85ae027e991b0e7912db7b0ff8572d7f1611b47f1d4146fcf5fa"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_115/input_0.png",
+      "size": 129,
+      "sha256": "9dc6241988271226cae21d67afb2ec7c4c3b05e094bc7ca5f0cf9e0cee1b792e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_116/input_0.png",
+      "size": 130,
+      "sha256": "8d7028660886ba1c6b5145b105f5c50c63123baad34204cd353c89e2f168977d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_117/input_0.png",
+      "size": 130,
+      "sha256": "dff47718d7f5351f7b4bc077a54758eec689fc621a41d7001189e3cd0caaa581"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_118/input_0.png",
+      "size": 130,
+      "sha256": "16fb061ba994803f0a5455c66324262b691b4c062ba3c9973c5955d5429999c0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_119/input_0.png",
+      "size": 129,
+      "sha256": "74b1340a61e48b9dfb2e40d1242d0bcc4e3775203d99170a264ade09de433291"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_120/input_0.png",
+      "size": 130,
+      "sha256": "9ad7a551d4f73084e67ada98a90ed9d9d506a69b8ce754ee63b9a0a9937bb8bb"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_121/input_0.png",
+      "size": 129,
+      "sha256": "5c007a53fb860e6da9b691521416f7dbda0385575cd1079691997a7e1897f2f9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_122/input_0.png",
+      "size": 130,
+      "sha256": "b9890056599c23b8e2b4f0225b4aa941573d8eb784e25b8a2f763876b0b4a883"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_123/input_0.png",
+      "size": 130,
+      "sha256": "65b4a7ba5daf9944a170d4479279ae73d00bada115aef84be0293a70800963d4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_124/input_0.png",
+      "size": 129,
+      "sha256": "8318f2b7969dfeb7bcf18eaf77b83f4bb30659afa30e50e9e476cbb79f2d3a7a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_125/input_0.png",
+      "size": 131,
+      "sha256": "4295c25f4f6d5e1dcbd58d6f30ed7ca0d64a7e4ff9e72578a238a7ee673bff4f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_126/input_0.png",
+      "size": 132,
+      "sha256": "64259b9480af18e0fa4af7caab0cb45926e4bdfae6464613c4574b057999ceac"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_150/input_0.png",
+      "size": 132,
+      "sha256": "2ffe07e9a5f8633f8bb7896430327a039b9ac1eadd0b7d8b58fe29a513265a32"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_151/input_0.png",
+      "size": 132,
+      "sha256": "c0d60fe2f2275518f3ce1b9b06be525e24defed12fc5268e31e580d19b1d2130"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_152/input_0.png",
+      "size": 131,
+      "sha256": "a8ee67400b5fb3e960dea7206ee3a4a2b312e1a539b70c39141df9fbd897a3d4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_153/input_0.png",
+      "size": 131,
+      "sha256": "f62ff8d636c217d54a4cf3f0bce67b51605087f7026d59e5f4e63bc7c889ee35"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_154/input_0.png",
+      "size": 131,
+      "sha256": "d4896e800ed1ea8e00192ef2ad6e51b07842002829d7b794f1ca5e9f0fb561a7"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_155/input_0.png",
+      "size": 131,
+      "sha256": "a289f2ac083ed034caf7ce6ef2f8581fbff563ab2b2f913045c5d6ab542e3ac0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_156/input_0.png",
+      "size": 131,
+      "sha256": "ac58d44363f2aabf24723da0781c9fdc334500662a1060cd621e03c2cf6e2085"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_157/input_0.png",
+      "size": 130,
+      "sha256": "7caa493e43a7e31d7d99d385fd5388a02de21c27ec10038a8b42e879e6b3aff4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_158/input_0.png",
+      "size": 131,
+      "sha256": "f58717fb3b3af859fca0e500e2f5b2587d15247ceec868adb15bba1b5bd26602"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_158/input_1.png",
+      "size": 131,
+      "sha256": "d007d5691dc66d098bb909dbf8ba7d1b2015f4d06d95d6113e1428bd2daa23e7"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_159/input_0.png",
+      "size": 131,
+      "sha256": "04f107628e8de4acaf0329dc3439c2ce7ffc2cca9589c42c23b8ae87add54c76"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_160/input_0.png",
+      "size": 132,
+      "sha256": "6e1bfdab4d79015b93052a282d435edfb1fd7811e5afdab02fcc10517d4813b0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_161/input_0.png",
+      "size": 132,
+      "sha256": "3b94f3ec6133a3d80cf609d454c25c070799ab3a04301ec91f4bb00cf527ffcc"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_162/input_0.png",
+      "size": 131,
+      "sha256": "dbba9e8198faa19e9cc491ceba7bc2cc009914a765524d6838df60c0b9a05333"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_163/input_0.png",
+      "size": 131,
+      "sha256": "2823cf1d900565f2d8ce9d4ca8863e9af374d024b26b0ab9af2a95ef0d8f3266"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_164/input_0.png",
+      "size": 131,
+      "sha256": "6f43eb6d2296ff27053e4eb7582270e4f450b73ee09fe1ad1c4427ab4e055188"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_164/input_1.png",
+      "size": 131,
+      "sha256": "6bd29124138b1571aa16b15504283ae655d971dd966f4fbffab03a4bf846325f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_165/input_0.png",
+      "size": 131,
+      "sha256": "36584f521f7fd21d73152a3cf5adea1048db8ec5704a83697b3e886520ec1c01"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_165/input_1.png",
+      "size": 130,
+      "sha256": "62a22528c27896b149c397bf97f590887a0baf6e9ddcd5e30cfbb77897f9213b"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_166/input_0.png",
+      "size": 130,
+      "sha256": "11190cec0caba73eabbf78648bf25dd8a44b6e7da5762a916bc48649d737577c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_166/input_1.png",
+      "size": 130,
+      "sha256": "c481bc2e42513a6cf9f7890e5808db27634b93da21ddb4e951bd1f92e5bd1035"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_166/input_2.png",
+      "size": 130,
+      "sha256": "b666d027730ddd93078c3758f98798cbc1ed36fe8de4cfd60f3dfa67f47b9cd3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_167/input_0.png",
+      "size": 130,
+      "sha256": "06428bb4c92bd0bfef837bbe5c506dc536182dc87f53b80529dba3a40ff0f474"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_167/input_1.png",
+      "size": 130,
+      "sha256": "169c48d5db2a0a894a8bed3842b5f3341e2f93c2d74bcb8f36c74381394d1aba"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_167/input_2.png",
+      "size": 131,
+      "sha256": "ad8b1c0bb96fb45a5d129f71590400961b44b2bb2f7496795ce627595741abb8"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_168/input_0.png",
+      "size": 131,
+      "sha256": "9841dc14a35bbec8184518e486c6f8544b6ac100ca3b0baf8d31b3bb47101442"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_169/input_0.png",
+      "size": 131,
+      "sha256": "f3b7652054cfeacbb6d42da6084b9e6a393ea20efa685f34cd3c6cbb106da8b4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_169/input_1.png",
+      "size": 131,
+      "sha256": "dcaf2992c035f30c06b0555f8be2bfb6714541ea30f5d4b2c66d85caee6574ca"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_170/input_0.png",
+      "size": 131,
+      "sha256": "6663d87fb3bb8bc94441955d822db4c46a72cc31c850636dd62cec7cd50cae52"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_170/input_1.png",
+      "size": 132,
+      "sha256": "25a9208033479d288a0ee7227124c6adf3fc23ac0cf5ba94a4485d604581536d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_171/input_0.png",
+      "size": 132,
+      "sha256": "65412a926bfc614577818286af45428141dc24404b56242a4c81dec752a8d756"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_171/input_1.png",
+      "size": 131,
+      "sha256": "2a1b1f49f3d40805faa39cdfb54794b6ddefabde122b7e6cf7e56b6ed1971472"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_172/input_0.png",
+      "size": 132,
+      "sha256": "4bd87c398c855c0a463989913ce604009b34a764dc6e3e8f114fa08f2d0bc5f9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_173/input_0.png",
+      "size": 130,
+      "sha256": "e773dadcc7460f26980f68f9fb7613ef9a1de823aba44a5dd35d26c3a5c2e6e5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_174/input_0.png",
+      "size": 130,
+      "sha256": "021080e10e20b8c02d8b3bf1eb979527c6c41c16e71eb795b5c83031cd564b89"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_174/input_1.png",
+      "size": 131,
+      "sha256": "d156725167724d838f82ab0f580cdaa3f64df0e04619e83e6f584a8547dbbac5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_175/input_0.png",
+      "size": 130,
+      "sha256": "bba1866e312ee91d5d5dcac988c12d298bdb1b61f12b2cb945fcf3c2145dc191"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_176/input_0.png",
+      "size": 130,
+      "sha256": "89be68bcdb14535627bc84bbadcbc7f0423997b345e9ede9870b31429f8b6770"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_177/input_0.png",
+      "size": 132,
+      "sha256": "a27e408d75633f01c6124e015d866111c50a6fdfe4857048e9658fe3df00297d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_178/input_0.png",
+      "size": 132,
+      "sha256": "35728fe43c039f19d0293483839c899f3ef49019253dd8a7e2df26827eded24a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_179/input_0.png",
+      "size": 132,
+      "sha256": "d9ea164bce2410ffedaeb2107c78e94d3a48a9b68e334f9495d8c0e6e2754c5c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_180/input_0.png",
+      "size": 132,
+      "sha256": "3879806936d55c160cb3fc2f8c907c23c2db3d672bc669e05aaf5f6a7d4a0620"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_181/input_0.png",
+      "size": 130,
+      "sha256": "364a70a710a60648b8808ebb22615fc316a70c348c683a14e0638f7b2d596ed4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_182/input_0.png",
+      "size": 131,
+      "sha256": "7cbe105feb7dea05032f93a717adc9394e30cf8c5d8abedfd5c7cd27a945906a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_183/input_0.png",
+      "size": 130,
+      "sha256": "fb3f652dbecba0a244d7ba73a5f07028087569e5bbcf96df5c820f9524f6a728"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_183/input_1.png",
+      "size": 130,
+      "sha256": "782ba8ebd0f0c456cef4b2140652604af9f3d78ebb476d217d7f5988a6de631a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_184/input_0.png",
+      "size": 132,
+      "sha256": "d52382c3497d6605c473d1d73c2a8c990f4cb9629fa3d83e4df58ce3f59c6302"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_185/input_0.png",
+      "size": 131,
+      "sha256": "7b80c04a62754f9397b6f8c2eab4cdde569f14db76c6d75d1cdb26f9f999312e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_186/input_0.png",
+      "size": 132,
+      "sha256": "78f0ed5e4da7797e0a4f535081ccbf294f3512d4780f679060b98e87c667955a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_186/input_1.png",
+      "size": 132,
+      "sha256": "c6d2c4356d53cbf2543740b9e5c9240354203d6d78223340872d9699ef596aa2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_224/input_0.png",
+      "size": 130,
+      "sha256": "4ae1643c8d64b44316e9f8e1fe9a094da87ec866d0d754d3c0a2c7f4e4ee2ffb"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_244/input_0.png",
+      "size": 132,
+      "sha256": "9bf147dc1cd0ee140e57fdd5bd329f5c071faaeaf782ea79e8ccb6f577818eea"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_245/input_0.png",
+      "size": 132,
+      "sha256": "7ff6b79d9ef36f0379965f058018d534fe501df57f1c5e7cff2ccac19506e2cf"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_261/input_0.png",
+      "size": 132,
+      "sha256": "a030d52918c8c65d988a19ff3c0036db43b07b09fc76c7f39edc4bc04bee6d3f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_265/input_0.png",
+      "size": 132,
+      "sha256": "0eecb4271987c78e5877ff5af01016822c440094bcdd5cb367f26ac54887947c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_266/input_0.png",
+      "size": 132,
+      "sha256": "221f0d5397cd3e42fa3f36aca8157348f6f558a1f53cfdfeb32ceeedaaa544c3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_275/input_0.png",
+      "size": 130,
+      "sha256": "2971105b05ab5b64b24b771b15a0041a0e6b2bc84c29e9f7ef4d8e722e4bb373"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_276/input_0.png",
+      "size": 130,
+      "sha256": "5530e79c465817d48b1b64ad300497fd2e61aafb2fb12c16a4e72bf17e4c9ccb"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_277/input_0.png",
+      "size": 130,
+      "sha256": "dd5f629433829c67717bcab05533b4df013c8765a55f87a21c9a1fedd66e6e7d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_278/input_0.png",
+      "size": 130,
+      "sha256": "093d6d9f54734358d1eb66a0e601ecd6f38dba6dab76618ca7743fd208408809"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_279/input_0.png",
+      "size": 130,
+      "sha256": "2f65077262de9bc995bdb8cfd05f920fd694c8548d4fca46a48d372a73da43be"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_280/input_0.png",
+      "size": 130,
+      "sha256": "c17396e8bf0c18594883692bc96fcc628444c47ab8764a49e32cf99bdadb885d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_281/input_0.png",
+      "size": 130,
+      "sha256": "6a081e50a2de3e270b5a53cc0c4e98ebcb1b372969f63392d0e22a047fef7f5c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_282/input_0.png",
+      "size": 130,
+      "sha256": "6b1958fb8958bca5fa01908d539d9007dbac9ecb81bc68ffd32cbc1a934fde06"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_283/input_0.png",
+      "size": 130,
+      "sha256": "1e249a40be438c41990b933537d6c6246fcf27ea2bb7b2bda5ea5e142c2702ce"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_285/input_0.png",
+      "size": 130,
+      "sha256": "37e28be1872ebf997b4ce74a5c6c250e2050931486baff9b944145fe43dd9e45"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_286/input_0.png",
+      "size": 132,
+      "sha256": "e32bf81a53be61b37f054d8e6a6bbf2e1946f844c4e023ba4db96d21429c154b"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_288/input_0.png",
+      "size": 131,
+      "sha256": "740ae3ae0091a49e10ac75ebab67819565063404d6fdc9f6eb8833c159ce6a4c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_292/input_0.png",
+      "size": 131,
+      "sha256": "87e78c0a7f80fcf35701a4fd7f65d9fa566b744a7bda6caa588483130dd3c591"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_293/input_0.png",
+      "size": 130,
+      "sha256": "b22bfb215c1f814f21dac62fec8b11c341d87f72e0857c7333b849ac9a659568"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_294/input_0.png",
+      "size": 130,
+      "sha256": "bb8c46cda75d74275ca6d07689a7797b989d4ceb5cc9b9e79b620136e76bf07c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_295/input_0.png",
+      "size": 132,
+      "sha256": "088696bb750ee397aea2d2c0f4353aa3808c43c260319197b21881cca5f65023"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_296/input_0.png",
+      "size": 131,
+      "sha256": "357f2bf4ebedf6b335ba4d24d0adc647e702c12c32311ebaf31aa3cb060a6af2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_297/input_0.png",
+      "size": 132,
+      "sha256": "449ddf86e6bcdbbe2b43821ddd6ae2738c79261fcfb74db3d9f83751a737c62c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_305/input_0.png",
+      "size": 132,
+      "sha256": "8b7aa00bc66bb7cbcc51adbb3ee0fed04fe43ad49991b9bbe26e1dd07094e2ac"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_314/input_0.png",
+      "size": 131,
+      "sha256": "e33d49a71e4591331f5508e8814a39908e9992276c8cbc83308ef5b14f9ac01b"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_314/input_1.png",
+      "size": 131,
+      "sha256": "5d024a8095b8a8db53f0df1f2790f6abc065c6cc10e64695ac1e86715b5092b9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_315/input_0.png",
+      "size": 130,
+      "sha256": "4c23138b61a9f5e62da6d2a9f70bacdc9f635f6375c0570d6a568ab3c6700888"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_315/input_1.png",
+      "size": 130,
+      "sha256": "51784d0158a81408e0633aaefc8d3162f8b1b1ba4747e6e2ba51fed86d255b95"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_318/input_0.png",
+      "size": 130,
+      "sha256": "67d0ebc92edaf74da3598f30d9fe0ebf1b3dbe683b3c891017f1aec8a83c4c2c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_318/input_1.png",
+      "size": 130,
+      "sha256": "ca9cc95f8e4e3395ac6aac6e302ff027809c49524fd87d2dcdd32c43965b0e3c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_319/input_0.png",
+      "size": 129,
+      "sha256": "91be2ef11802db1146d4d97f4b1b6971d63fc431af7efb96e066f5cb2fb5d644"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_319/input_1.png",
+      "size": 129,
+      "sha256": "1285c27f0120d9fa53cf34a389457c47866a2f43fb0336c934378d77d5ae77c3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_320/input_0.png",
+      "size": 130,
+      "sha256": "3d30b366f574b66c75e4d07f433189d8f85e561e5ddd495bd68511c905bc75ac"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_321/input_0.png",
+      "size": 131,
+      "sha256": "976838e04f08eb9985e92823ceb70fbb6176337a569b64f1cc9cdfd5d588d937"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_322/input_0.png",
+      "size": 130,
+      "sha256": "a900a84308f8e75579aea4f36f61de0aed01a3686e8715b83b9d2ca93c1bf7af"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_324/input_0.png",
+      "size": 131,
+      "sha256": "5e128f77bcf53c7747b45b9ba1afa6af97bf39a6b70a48755c8c86f0c6a24db0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_325/input_0.png",
+      "size": 132,
+      "sha256": "d3333c5145dee5c65f93be853073beb97878319dcd5ebfc0fffe4cf89c6242b2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_326/input_0.png",
+      "size": 132,
+      "sha256": "9915928f69b3a337167f8275d590cd5439ae6532e86b5b0c86f05e064f5b5d77"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_327/input_0.png",
+      "size": 132,
+      "sha256": "d60e0443989ae93555e0ea502f10db698a10caa0399dda4f286ef9c2215690d4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_328/input_0.png",
+      "size": 130,
+      "sha256": "aa01aecca7bbca7357a48d697366a1eca5fa6edcbf4b958fa3d3be51c8a6a81d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_329/input_0.png",
+      "size": 131,
+      "sha256": "82299397213fe2285a2d1c7b32c5ab2f2854aa4220db403b81cba745535bb2c3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_330/input_0.png",
+      "size": 131,
+      "sha256": "54c3c6a26f1cc3e0b9221fb93041c3f412e04e34236c75c1e656ec74395048ac"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_331/input_0.png",
+      "size": 130,
+      "sha256": "030a3b79dbb36da990b3f4fe67da398ce71298801b1d724993a3ec72bc294928"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_332/input_0.png",
+      "size": 131,
+      "sha256": "1dd4e303c377f19dbf94d22ff5d5533733d1fc294bf21fbfe103d6f013c2a78e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_333/input_0.png",
+      "size": 132,
+      "sha256": "e47aeb8e31c846b5f415b4228a371da7c35d6571c1a8b3270c467b9989fcc6da"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_334/input_0.png",
+      "size": 131,
+      "sha256": "78495f9fd4ce8eb591ad369d71c0d90105c475b4b07571cfce7903122636a92c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_335/input_0.png",
+      "size": 132,
+      "sha256": "aa9a95aa898f00ba5e2cc3d7d2d4f99b36e63ba0618dc04d8d8fecf68476e8dc"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_336/input_0.png",
+      "size": 132,
+      "sha256": "031277b068e8195bc1069e532f74324654f942a3173c481ae2873c6e62359651"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_337/input_0.png",
+      "size": 132,
+      "sha256": "451d29b7a23a3bac317b7e0674676a950e13d76d600c5b2f7552c53c4fc6e7e5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_338/input_0.png",
+      "size": 131,
+      "sha256": "8baafcaf081448438b5694e787295d027d46e32e6b232fa918a4f8cb2df2ab5a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_339/input_0.png",
+      "size": 130,
+      "sha256": "7f6bbacaaa254be804713bc546cd2784396704249ef0639cb51f571f4c09f7da"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_340/input_0.png",
+      "size": 131,
+      "sha256": "32cabedb898f8d98598e313d09be5158309be5658286d8d9de5c3c3105a843da"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_341/input_0.png",
+      "size": 132,
+      "sha256": "448297bd0d39a9bf2938378c2c526221f0e68f98ede03c529047c090a3426f29"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_342/input_0.png",
+      "size": 131,
+      "sha256": "68743b584d9dd7da1f21db43ee9f5499d8b2b51c3eb99a4637f1513953c5bc1f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_343/input_0.png",
+      "size": 131,
+      "sha256": "b53812dc740e73ddd5984175dfd3c695002e24577f9bac6307a18942d1803904"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_344/input_0.png",
+      "size": 131,
+      "sha256": "9521f017e6d7697847a42c6d2a5d490bf600a7077877f6efb4b773623078340d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_346/input_0.png",
+      "size": 132,
+      "sha256": "6147c6f90cb73777064a48f9a90f98538a9d271e88de16c99adbcbc7cf83cb9b"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_347/input_0.png",
+      "size": 132,
+      "sha256": "ceecf9858ad68e1f32111bf6cb783d8b9fcce995febddf70c479ebaa96b28ff1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_348/input_0.png",
+      "size": 132,
+      "sha256": "1dfb89359b37f64430d90a9c7f30a80173c31ada1715eef78dba6946d83a21e9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_349/input_0.png",
+      "size": 132,
+      "sha256": "e13b157d9b6d0ba1808827e3874e45368444d7e0bcceaf55bc6b174399b3d614"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_350/input_0.png",
+      "size": 132,
+      "sha256": "534a8f3bd8dd961d7eeb8516b895cf1d8a241e458b8420f6be96191aa20bf612"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_351/input_0.png",
+      "size": 129,
+      "sha256": "45fe5bde570a80faeb8561e0a7b356cef242dbd73d7af8274e84b74d8eba4c8a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_352/input_0.png",
+      "size": 131,
+      "sha256": "974a436f9909e770ebda4cdd3d5062c249c0a745cfb4947480b5e58702d4223e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_352/input_1.png",
+      "size": 129,
+      "sha256": "1285c27f0120d9fa53cf34a389457c47866a2f43fb0336c934378d77d5ae77c3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_353/input_0.png",
+      "size": 132,
+      "sha256": "c5754d71b709555f2546ce2fb673a344d40d800cf566aeb9e70d6544401174aa"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_354/input_0.png",
+      "size": 132,
+      "sha256": "c7b3eb72b7fe27516aed9fa68e853f43adfe986a37206e3dc6ce4ada52be238d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_356/input_0.png",
+      "size": 130,
+      "sha256": "b9df3162dc1fe72d0e345341fc27fcd759bf4565246320f3aa2f8eeeafc211d7"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_363/input_0.png",
+      "size": 130,
+      "sha256": "e9d86858aa24293961b6b60b0e3bdf650ac2dfc00bca111aee20cceaac2d9c63"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_365/input_0.png",
+      "size": 131,
+      "sha256": "6eff0f49bb8572c39b83fa8de45b2bbcb13d79ebf96b5ee10caa615f5221d4ec"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_369/input_0.png",
+      "size": 131,
+      "sha256": "94a386fedabc5639a57efd3221301d9446b2c8b45ad15d5898cbfb29ebdacba9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_370/input_0.png",
+      "size": 131,
+      "sha256": "bc8cafe78f1737fe7cabcafb6b1f4485ca285e67c39b2eeca6d0f29d8ece5b80"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_372/input_0.png",
+      "size": 131,
+      "sha256": "26b741975f5c976fea28765334364f754982828bee7b5eb912b476668b9c3ba1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_398/input_0.png",
+      "size": 131,
+      "sha256": "3f397e3d2bdd1bf531acc8e260af1050699cfdcaa935e9a6351454705886fa94"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_405/input_0.png",
+      "size": 130,
+      "sha256": "5ef624244748462df927d25988f941ab63decaf4f582468a2a9b483c82e1afe1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_408/input_0.png",
+      "size": 130,
+      "sha256": "0c976cd4632ff7ffbffbd38aaff3bb663fa96f6cee17a11af0865bf90b9961ef"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_409/input_0.png",
+      "size": 130,
+      "sha256": "76369ee7541543d1da054e3f6c01d6a95be6adb54f3018e9b92c3a79bb20737d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_410/input_0.png",
+      "size": 130,
+      "sha256": "1c71cf471134769cc6759463af300b26cc462d8eaa4e5d2c36dcc0f7fac44b45"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_411/input_0.png",
+      "size": 131,
+      "sha256": "9ff2bfe0d8b11f9d01c85b956b4c65be2ecd971c2f53e9b2f78883878fa71b84"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_412/input_0.png",
+      "size": 131,
+      "sha256": "9ff2bfe0d8b11f9d01c85b956b4c65be2ecd971c2f53e9b2f78883878fa71b84"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_413/input_0.png",
+      "size": 131,
+      "sha256": "9ff2bfe0d8b11f9d01c85b956b4c65be2ecd971c2f53e9b2f78883878fa71b84"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_430/input_0.png",
+      "size": 130,
+      "sha256": "e97efdfea1265ce145278bd575dd3596ae1f70ed86463264d3005ada81f28724"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_431/input_0.png",
+      "size": 131,
+      "sha256": "575115d48c188a6beef1b664d3bb83451e0c65ac47b1c591e86180939533d23a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_432/input_0.png",
+      "size": 130,
+      "sha256": "a9efea2d18cb9cda1da6da02cd1715f650ade5d660f2e9bdf67701ed03b546e8"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_433/input_0.png",
+      "size": 130,
+      "sha256": "8994e305a97d57739098b3e8c75bf23a3a5da8fd38da024a46598b9131e584f1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_434/input_0.png",
+      "size": 130,
+      "sha256": "0c1e4ef8d83bdaae8ce8c5d403e86b8a642f3f33645060c43511c76d4c6ddeca"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_435/input_0.png",
+      "size": 130,
+      "sha256": "0a14a172481d3489dac6533a874c79058563835c56134737627b3b505b3e117f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_436/input_0.png",
+      "size": 132,
+      "sha256": "654561e128ab8a2d40b7239af738204918d8501e04e097b7648fd0dd1ff94e58"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_437/input_0.png",
+      "size": 131,
+      "sha256": "8e9d3ffbd999828bbf0dbe631c721f228c12b6346e87d0140a559ad3c4b74827"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_438/input_0.png",
+      "size": 131,
+      "sha256": "0d213b2016b78272d938bf31ea8b35a770ca961500fe444f0e4e1a5911b5a0ce"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_439/input_0.png",
+      "size": 132,
+      "sha256": "3a5bcaa31d22fef1c318f75480135e94c9da2b0455955746bd6934f7db375053"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_440/input_0.png",
+      "size": 132,
+      "sha256": "bda6cc878967c1aafa17cd293d8181481dc3ca8b85ce6802babaaf2dbb9d54e6"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_441/input_0.png",
+      "size": 130,
+      "sha256": "476bd044718819c25a32d0270384a1b46745cb097f3f16e54091c03755e19f5f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_442/input_0.png",
+      "size": 130,
+      "sha256": "17064cf02488d0919cbbd41a66ba779c338509fc6dcddbe8ddae37c15160b7ba"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_442/input_1.png",
+      "size": 131,
+      "sha256": "b0f07e08fc4b1e587df837977c89f1b483994c9126139ccaa9e8515a6678d475"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_443/input_0.png",
+      "size": 130,
+      "sha256": "294f487cec04cf6d2533d3635573771fe26505de7149987f8ef6c40fb95d1c11"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_443/input_1.png",
+      "size": 130,
+      "sha256": "df00b4f437b03f8f024468e6d69252c50bde678b71b6ad4f085a2a7e6b728f41"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_461/input_0.png",
+      "size": 130,
+      "sha256": "fa7bf158405573be9584b7fb1904b6727555e135f0b169675269f3e4b8d8a68f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_86/input_0.png",
+      "size": 131,
+      "sha256": "2afefceb729d91d8ec3bb97a7af656e533d8557803f37174bd7535f0e51b3611"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_87/input_0.png",
+      "size": 131,
+      "sha256": "f301bbc58ef865d612fad2da6f6cbc3f4851b86ff0423db478fab04f334d2ad3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_88/input_0.png",
+      "size": 131,
+      "sha256": "30721ded4749a94a8275836bd60efca458e991f2a02a2cea15d8d73cde00cc32"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_89/input_0.png",
+      "size": 131,
+      "sha256": "3b93ad08bcaf0a81105722774439aae72f323c9df953decd4480c5399d188dcf"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_90/input_0.png",
+      "size": 131,
+      "sha256": "f824e3de585d9045fc27585a8b743ab8bd463042f500f4cd9eddd1c3e4784b63"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_91/input_0.png",
+      "size": 131,
+      "sha256": "21cca5c9d8846ee9e7e9aec360bd5a6373f6df87e71c8beebdb928c811baea29"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_92/input_0.png",
+      "size": 131,
+      "sha256": "8c2ec7871c65f42f64944605e485f86460a1d7578bc3d76d2ff0a5c04fbf228a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_93/input_0.png",
+      "size": 131,
+      "sha256": "b4bdf38f46b15707ab38ee2bf042822aa7e61d3c02617ac8deb2a38b6e8ce7f9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_94/input_0.png",
+      "size": 131,
+      "sha256": "e9dfa61485abfeeb502071746eaf2041f43d49fdaa7e4a8b9859e39d02fd4083"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_95/input_0.png",
+      "size": 131,
+      "sha256": "cb3f070ede98b937a64732a13bdcdc7a074dfc94cb763d3de7c78709187a47bb"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_96/input_0.png",
+      "size": 131,
+      "sha256": "57f00e92a96260015e330399e11c383a775c4672f759e2965f48db82eb996c34"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_97/input_0.png",
+      "size": 131,
+      "sha256": "de986d17a1667551fc2cec3ed6138502294523b46fd9bbc33262af6947742f8a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_98/input_0.png",
+      "size": 131,
+      "sha256": "5efb66fa29a564e409a2b71c79c21104afa684ca761e0f7734bf50dcd1de2ff1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/static/input_images/shopping/task_99/input_0.png",
+      "size": 131,
+      "sha256": "bce0870963326554cdd3d820fb7ecc01559f79b41d334c4c9edf1af7c7346cd0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/templates/calculator.html",
+      "size": 3346,
+      "sha256": "4ee63b5573e025a3003af3e0b31f3e67cd7f05a7f0b5d71cc805e3d480d3fbd4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/templates/index.html",
+      "size": 4114,
+      "sha256": "523e116720bdd27f87c1765a1cc09e9cebec183f85c6a12d3696529d88cd08ef"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/environment_docker/webarena-homepage/templates/scratchpad.html",
+      "size": 2557,
+      "sha256": "0c300dcf6e6dce311a375509ed3dc70675973317e4ca5147a6c0c37e5483414d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/evaluation_harness/__init__.py",
+      "size": 700,
+      "sha256": "755fcd6c16fba164bf1bdb94c3db022332c36cf90cee2c8dde717713cc5497f9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/evaluation_harness/evaluators.py",
+      "size": 24229,
+      "sha256": "00419191831d8a4d5260b7e742b964992acb95c4846864f46b7017ef8ca89f34"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/evaluation_harness/helper_functions.py",
+      "size": 20436,
+      "sha256": "044a40ecb53e911d626e649a299ffeae4648e48d30ce23cfd2d507830fc2f1fc"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/evaluation_harness/image_utils.py",
+      "size": 2685,
+      "sha256": "ad6edd1619e51bb4b35626cc49fff9f3da9013b9e77c37f8db7be376073d7241"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/llms/__init__.py",
+      "size": 1289,
+      "sha256": "8317c4da594e90f1f7cfaeec9151ed097d1f45dea9dc30942005e2ce1857d62d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/llms/lm_config.py",
+      "size": 3856,
+      "sha256": "8f9280c56f7c68ffdc27e326caa884d389d92f3add2f086c09ea615f77e220bd"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/llms/tokenizers.py",
+      "size": 1521,
+      "sha256": "7af3c94a2bac71adf4f7288c86b0e710208381ababac1aa50e310c3b116fb0a2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/llms/utils.py",
+      "size": 6985,
+      "sha256": "f573d2a1baf307b3d64c9dc6abe3a326fea4f13640342e6d566e33952598da8a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/llms/providers/gemini_utils.py",
+      "size": 3146,
+      "sha256": "352db634aaf9e19a0f06afd0d7e6e432d56c00d43385276536ec26513f534e90"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/llms/providers/hf_utils.py",
+      "size": 545,
+      "sha256": "41d6a62b2fd04c1a4171bd6321c53b1a35a554d4371d0a616cd30ee49df9241a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/llms/providers/openai_utils.py",
+      "size": 10810,
+      "sha256": "4c39948a03f869f5eecaaed3d96dfd687baedceeb5789ff2a64868a637f90e9f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/llms/providers/openrouter_utils.py",
+      "size": 10558,
+      "sha256": "a0466253202afb51ca1b15610753b6bd65422c539a1b003eb612df49981d6cb4"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/llms/providers/vllm_utils.py",
+      "size": 10720,
+      "sha256": "9e257a289bb096a65b8bf0bab5ac76102ce5e4131bc7ceb0b345e2d255653096"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/media/SourceCodePro-SemiBold.ttf",
+      "size": 120208,
+      "sha256": "6d1b964de7b931da548108b41e2a2815f9da83a509fe3367f7f3f094cf991ff9"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/media/find_restaurant.gif",
+      "size": 133,
+      "sha256": "462f0693cd86506197952a8c8e8534021fc449460e9bff6ada8ac88aac7dcbe7"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/media/homepage_demo.png",
+      "size": 130,
+      "sha256": "c5d6e3692297d626964e2f6d27d3516f91fc864de265fad1313ee52e623e8ec3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/media/overview.png",
+      "size": 131,
+      "sha256": "1519e7e628f9e1a20805b16bd2e95cbd46d5c9fe668d0ecc2cb9fd6dca43e658"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/media/som_figure.png",
+      "size": 131,
+      "sha256": "e3936a4617d682393ea325f61a09b7b7310a41faa4a1faae50f83efc034b564a"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/scripts/calc_breakdown_sr.py",
+      "size": 4229,
+      "sha256": "1a45d7c553861d6fd5685cb62d0e1e24dcf03fd43f62330e814473ee2253310c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/scripts/check_error_runs.py",
+      "size": 4963,
+      "sha256": "1338c7499a96d2039a7837e07c6a2d374b2d4749093c829d2e40c3317689f20d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/scripts/collect_obs.py",
+      "size": 1467,
+      "sha256": "d43a86cb326b5674a4fccc9f83533d9ac9cffb1ab51cfe073468bb2e86c65a04"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/scripts/generate_test_data.py",
+      "size": 2225,
+      "sha256": "63937e02860825bac7e9f66b82e081df8f09476cc88b44c5ff66726753fbd3ad"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/scripts/reset_reddit.sh",
+      "size": 286,
+      "sha256": "52aacdb622f7104d0e47778de2821e5ef000edd4ffb0d1c67dd2b87c726c4e40"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/scripts/reset_shopping.sh",
+      "size": 1953,
+      "sha256": "044fecc9adc51dbbcce3905381a673adfac5f38bee29398b17579340f6ab5d17"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/scripts/run_classifieds_som.sh",
+      "size": 1422,
+      "sha256": "4bb695f5688d6a2f48e95efbd57fe234fead8511bb589b5b413e2194782e3271"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/scripts/run_reddit_som.sh",
+      "size": 1361,
+      "sha256": "d809cd6169a5b6b67df53f027a30ec002d00720aa2cd4f39436aec6a04d7e025"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/scripts/run_shopping_som.sh",
+      "size": 1200,
+      "sha256": "5d9aaa14be59e412ca93799ff080a5010156205c8244866a0e6db10cfee1a6f1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/conftest.py",
+      "size": 2098,
+      "sha256": "22e8cec88ee03f63e15cf0a806b5b18572cec8c6b9fdfdfec6a7d9a3ace79c7e"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_browser_env/test_action_functionalities.py",
+      "size": 12404,
+      "sha256": "3f05fbeb185be82e12b089458d1c7a31815b3d70b079830dd1bc011f90846c99"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_browser_env/test_actions.py",
+      "size": 4699,
+      "sha256": "7b52932edab4ee1d448443be1118be0799d2cb816ad614394ab91f39235239c3"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_browser_env/test_auth_cookie.py",
+      "size": 2319,
+      "sha256": "69343d3e613580369e9bd34fd808dd026f7d90d214feb18903f55a414c1d5f6d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_browser_env/test_playwright_actions.py",
+      "size": 3907,
+      "sha256": "f342b1327e6c398d037b575609fd101de0c8fa2ec4651292d873ea5ec22223d2"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_browser_env/test_script_browser_env.py",
+      "size": 9130,
+      "sha256": "7e67699f87219fddefeae854677c75d8c32132afc177ddd856b3d48362bd73b0"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_browser_env/sites/new_tab.html",
+      "size": 254,
+      "sha256": "a6dabe26659c9b780a37dc809c3e42aee08d3f59294f516c04bda3105cd91986"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/test_exact_evaluators.py",
+      "size": 19288,
+      "sha256": "88a0488e85ee06d9a97cc0b0cea7484d1a653a2596532da5c77d70837ca328a8"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/test_helper_functions.py",
+      "size": 9503,
+      "sha256": "bf779f8063ec9dd43a675919c8959be1924817bdb1940bd2895b4d072e836534"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/exact_image_failure.json",
+      "size": 1288,
+      "sha256": "1d8368bfa48e682bbf76caafdb82f79b3484793dbcbb5d1030fcb6b316565141"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/exact_image_resize_failure_1.json",
+      "size": 1297,
+      "sha256": "520168d07fa9bde84791f7fc9c06ccd08b586073e12afb709d1445b82395bb23"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/exact_image_resize_failure_2.json",
+      "size": 1297,
+      "sha256": "520168d07fa9bde84791f7fc9c06ccd08b586073e12afb709d1445b82395bb23"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/exact_image_resize_template.json",
+      "size": 1171,
+      "sha256": "24a265d1d34b9a900e331d0559877b7b099d3b1092214fe8fa69614d5b3fafcf"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/exact_image_success.json",
+      "size": 1297,
+      "sha256": "f26e88e5e403720dbd4dff0295c624e52697cd0296f114afa638d503a73b2c4c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/func_eval_fail.json",
+      "size": 841,
+      "sha256": "0cc909793d428a7c6f3fbcb236a6a9ea3507f956e9423c1dea4664c3cfb6d38c"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/func_eval_success.json",
+      "size": 842,
+      "sha256": "0d77bc4366ce64db62c685227348febba9e5b33011f563d051a4db66c63eed7f"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/func_url_func_1.json",
+      "size": 660,
+      "sha256": "f394be7e326b060970c6ec3d8addf7f5c2df2a50c38eb9bdad3ec96c8c2d7388"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/func_url_func_2.json",
+      "size": 975,
+      "sha256": "73c419a03e5fd4b8da1da1299b311d251d48aac2d4942e6723dfb38a8ad345af"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/html_content_element_exact_match.json",
+      "size": 943,
+      "sha256": "fa304f34db8fcf18dd24a52121d0e1e2be1318d859400b46bba69e28958223d5"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/html_content_exact_match.json",
+      "size": 857,
+      "sha256": "e3852fa87311fb7d080875180b74f5ade01c7d464d13c1f1814d5cdd37dd2a5d"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/html_content_url_comb.json",
+      "size": 999,
+      "sha256": "90ed0a1c02670e222396cd5f2363650e32e2c7e6763dca1f8f411c3cc7143515"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/html_required_values_failure_1.json",
+      "size": 2187,
+      "sha256": "527e7aa661e78eced76c50b4acff4eb54d60dc0b81bc28272be69a52a5c31436"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/html_required_values_success_1.json",
+      "size": 2280,
+      "sha256": "149d8da48061cf7e71d215863432e55d024b70860575f40983da1d3fdd9751a1"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/image_evaluator_yes.json",
+      "size": 1709,
+      "sha256": "93e6b792ea87f92de43d99542a82a874c046f123bb0bc422f419f8384e6580dc"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/image_evaluator_yes_direct_img.json",
+      "size": 1700,
+      "sha256": "6751c29f028b5ff2f56015ad2d01621bf9889b91c1cca94f576b58680bd91d15"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/image_evaluator_yes_no.json",
+      "size": 1699,
+      "sha256": "d04670c30a5944b290a70ff153827e5439d86104093fa3ba519026393ece765b"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/string_match.json",
+      "size": 522,
+      "sha256": "16e17e879b8f796a226a7ba46508a5d777c400be052d502c930bb46de3628856"
+    },
+    {
+      "part": "github",
+      "path": "visualwebarena/tests/test_evaluation_harness/configs/url_exact_match.json",
+      "size": 525,
+      "sha256": "55340897bc1dc740ca3f523ef4b6ecdc83c5ff0c6f6265e991969558b39eeb5a"
+    }
+  ],
+  "external_assets": {},
+  "adapters": {
+    "airgapagent_r": {
+      "records": 4160,
+      "native_reference_kinds": [
+        "attribute_appropriateness"
+      ],
+      "subsets": [
+        "full"
+      ],
+      "status": "loader_verified"
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,9 @@
+{% if known_ci -%}
+## Values already provided by the benchmark (do NOT re-extract these)
+{% for k, v in known_ci.items() -%}
+- {{ k }}: {{ v.value }}
+{% endfor -%}
+For each parameter listed above, return `value: null`, `evidence: []` and `missing_reason: "provided by benchmark"`. Extract only the remaining parameters (and the context and domain fields) from the source material.
+{% else -%}
+No CI parameters are provided by the benchmark for this item; extract all five from the text.
+{% endif %}

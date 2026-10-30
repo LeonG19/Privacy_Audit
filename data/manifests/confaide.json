@@ -1,0 +1,174 @@
+{
+  "source": "confaide",
+  "description": "ConfAIde (Mireshghallah et al., 2023) - tiers 1-4 text files",
+  "status": "ok_with_adapter_errors",
+  "download_date": "2026-10-30T17:16:28+00:00",
+  "parts": {
+    "github": {
+      "kind": "git",
+      "source_url": "https://github.com/skywalker023/confaide",
+      "requested_revision": "3174c63e689226189675a740b7bf9053f10bae50",
+      "resolved_revision": "3174c63e689226189675a740b7bf9053f10bae50",
+      "n_files": 16,
+      "bytes": 1047027
+    }
+  },
+  "expected_files_check": [
+    {
+      "spec": {
+        "part": "github",
+        "path": "benchmark/tier_2a.txt"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "github",
+        "path": "benchmark/tier_2b.txt"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "github",
+        "path": "benchmark/tier_2_labels.txt"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "github",
+        "path": "benchmark/tier_3.txt"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "github",
+        "path": "benchmark/tier_3_control.txt"
+      },
+      "found": 1,
+      "ok": true
+    },
+    {
+      "spec": {
+        "part": "github",
+        "path": "eval.py"
+      },
+      "found": 1,
+      "ok": true
+    }
+  ],
+  "files": [
+    {
+      "part": "github",
+      "path": "LICENSE",
+      "size": 1068,
+      "sha256": "f6ce05a54cb9eeee88634ab704b966252fce88b81b890fd7400cb42e9f9d93f8"
+    },
+    {
+      "part": "github",
+      "path": "README.md",
+      "size": 1749,
+      "sha256": "b012fc5bd2943738048062deae7864999997aa244d29447963585c8aaf90cb3a"
+    },
+    {
+      "part": "github",
+      "path": "environment.yml",
+      "size": 678,
+      "sha256": "21546d17a4869fd2d6e4dbd79c3d2faf2c93bfa563558aca653e93370125c124"
+    },
+    {
+      "part": "github",
+      "path": "eval.py",
+      "size": 41986,
+      "sha256": "ebc30b35872927abe0eee3067c9c0c5fea55e766d19c0b0d6ea72fb4330d32f0"
+    },
+    {
+      "part": "github",
+      "path": "agents/gpt.py",
+      "size": 3744,
+      "sha256": "3581074120bfb85a7ade8fb00dc4694a208a043b4548f321a5e52987cbe0c69c"
+    },
+    {
+      "part": "github",
+      "path": "agents/huggingface.py",
+      "size": 4683,
+      "sha256": "09310c36ec7843725852bc134feeffae9d2d145e295f2824da85728c2cc37baf"
+    },
+    {
+      "part": "github",
+      "path": "agents/together_ai.py",
+      "size": 2812,
+      "sha256": "63506ae1749e5e8904ff1f5fbe5082e99defed2ff0280c301d6bf38a38d0e4a9"
+    },
+    {
+      "part": "github",
+      "path": "assets/figure1.png",
+      "size": 480080,
+      "sha256": "ea1a0bed9e87e028e37eec61dba51f4eac6610d19f89916090f436d97275231c"
+    },
+    {
+      "part": "github",
+      "path": "benchmark/tier_1.txt",
+      "size": 3491,
+      "sha256": "63261cf847efb3f35f359913bea828131298ee04980189ed7d75eae05f76ac58"
+    },
+    {
+      "part": "github",
+      "path": "benchmark/tier_1_labels.txt",
+      "size": 39,
+      "sha256": "76c0c3b970ca25016ff224bf47910b5b8c89fb106e731cc7f5a3712e63cababb"
+    },
+    {
+      "part": "github",
+      "path": "benchmark/tier_2_labels.txt",
+      "size": 667,
+      "sha256": "cd573da5a542a4d92f3a81ed5b09b66cc25a6ae0ea656aaaf754af43304bbb34"
+    },
+    {
+      "part": "github",
+      "path": "benchmark/tier_2a.txt",
+      "size": 41034,
+      "sha256": "a869099fab404cde9dd50f23c20668063021afa8f080e190b348a5a4da14b979"
+    },
+    {
+      "part": "github",
+      "path": "benchmark/tier_2b.txt",
+      "size": 78453,
+      "sha256": "8c194006c92816f56a9ee2f6ec3bf09f29bb1a543408ce154096c8c67f72df37"
+    },
+    {
+      "part": "github",
+      "path": "benchmark/tier_3.txt",
+      "size": 284253,
+      "sha256": "193ab78cc9908b09a146dc1f77af193f86afc622b942f7e17aa0d2ffa3d38fc2"
+    },
+    {
+      "part": "github",
+      "path": "benchmark/tier_3_control.txt",
+      "size": 41644,
+      "sha256": "7affb08b90d5b7161980a731d717f87cb4e4d0506b02f196473beb3cc28c13c0"
+    },
+    {
+      "part": "github",
+      "path": "benchmark/tier_4.txt",
+      "size": 60646,
+      "sha256": "cf0ba2d5f4d6c13619aaa92da8b860be62f60563cb31d46e54aa14701e3e9ff5"
+    }
+  ],
+  "external_assets": {},
+  "adapters": {
+    "confaide_tier2": {
+      "error": "AdapterError: confaide_tier2: missing raw file data/raw/confaide/benchmark/tier_2_labels.txt. Run: python -m ci_audit download --dataset confaide"
+    },
+    "confaide_tier3": {
+      "error": "AdapterError: confaide_tier3: missing raw file data/raw/confaide/benchmark/tier_3_control.txt. Run: python -m ci_audit download --dataset confaide"
+    }
+  },
+  "errors": []
+}
