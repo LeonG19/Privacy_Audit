@@ -50,6 +50,8 @@ class RunSpec:
     resume: bool = False
     force: bool = False
     operation: str = "extract"  # extract | privacy
+    record_ids: Optional[list[str]] = None  # restrict to these records (e.g. a shared pilot sample), in this order
+    blind_native_ci: bool = False  # hide benchmark CI values from the model (evaluation); extract only
     cli_args: dict[str, Any] = field(default_factory=dict)
     show_progress: bool = True
 
@@ -149,9 +151,18 @@ async def run_async(spec: RunSpec, paths: Paths) -> dict:
     op = OPS[spec.operation]
 
     adapter = get_adapter_class(spec.dataset)(paths, spec.subsets)
+    if spec.blind_native_ci and spec.operation != "extract":
+        raise PipelineError("--blind-native-ci only applies to extract")
     if spec.operation == "privacy" and not adapter.privacy_classification_supported:
         raise PipelineError(f"privacy classification is only implemented for confaide_tier2 (not {spec.dataset}).")
     records = list(adapter.iter_records())
+    if spec.record_ids is not None:
+        by_id = {r.record_id: r for r in records}
+        missing = [i for i in spec.record_ids if i not in by_id]
+        if missing:
+            raise PipelineError(f"{len(missing)} requested record id(s) not produced by the {spec.dataset} adapter with subsets "
+                                f"{list(adapter.selected)} (e.g. {missing[:3]}); check --subset and the ids file")
+        records = [by_id[i] for i in dict.fromkeys(spec.record_ids)]
     if spec.limit is not None:
         records = records[: spec.limit]
     if not records:
@@ -163,7 +174,7 @@ async def run_async(spec: RunSpec, paths: Paths) -> dict:
     rdir = run_dir(spec.output_dir, spec.dataset, spec.engine.name, spec.engine.model)
     out_ok, out_fail = rdir / op["ok"], rdir / op["fail"]
     key = spec.dataset if spec.operation == "extract" else "privacy_classification"
-    cur_sha = builder.prompt_sha256(key)
+    cur_sha = builder.prompt_sha256(key, spec.blind_native_ci)
 
     existing = [p for p in (out_ok, out_fail) if p.exists() and p.stat().st_size > 0]
     done: set[str] = set()
@@ -175,7 +186,7 @@ async def run_async(spec: RunSpec, paths: Paths) -> dict:
             prev = list(read_jsonl(out_ok))
             shas = {r["extraction_metadata"]["prompt_sha256"] for r in prev}
             if shas and shas != {cur_sha}:
-                raise PipelineError("the prompt templates changed since this run started; resuming would mix prompt versions. Use --force to start over (old files are archived).")
+                raise PipelineError("the prompt templates changed since this run started (or --blind-native-ci differs); resuming would mix prompt versions. Use --force to start over (old files are archived).")
             done = {r["record_id"] for r in prev}
             archive_existing(out_fail)  # failed records are retried below; the old failure log is archived
         else:
@@ -187,7 +198,7 @@ async def run_async(spec: RunSpec, paths: Paths) -> dict:
 
     if spec.operation == "extract":
         async def worker(rec):
-            return await extract_record(spec.engine, rec, builder, spec.settings, taxonomy, run_id, spec.validation_retries)
+            return await extract_record(spec.engine, rec, builder, spec.settings, taxonomy, run_id, spec.validation_retries, spec.blind_native_ci)
     else:
         async def worker(rec):
             return await classify_record(spec.engine, rec, builder, spec.settings, run_id, spec.validation_retries)
@@ -213,7 +224,9 @@ async def run_async(spec: RunSpec, paths: Paths) -> dict:
         "generation": spec.settings.as_dict(),
         "concurrency": spec.concurrency,
         "validation_retries": spec.validation_retries,
-        "prompt_version": builder.prompt_version(key),
+        "prompt_version": builder.prompt_version(key, spec.blind_native_ci),
+        "blind_native_ci": spec.blind_native_ci,
+        "record_ids_requested": len(spec.record_ids) if spec.record_ids is not None else None,
         "prompt_sha256": cur_sha,
         "taxonomy_version": taxonomy.version,
         "limit": spec.limit,

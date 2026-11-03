@@ -13,6 +13,7 @@ from ci_audit.config import Paths, load_config
 from ci_audit.schemas import SourceRecord, strict_json_schema
 from ci_audit.storage import sha256_text
 
+BLIND_SUFFIX = "+blind_native_ci"  # benchmark CI values hidden from the model (see render_extraction)
 TRUNCATION_MARK = "\n[... source text truncated by the pipeline (max_source_chars) ...]"
 
 
@@ -68,14 +69,16 @@ class PromptBuilder:
         e = self._entry(key)
         return f"{e['dir']}/{e.get('template', 'extract_ci.j2')}"
 
-    def prompt_version(self, key: str) -> str:
-        return self._entry(key)["version"]
+    def prompt_version(self, key: str, blind_native_ci: bool = False) -> str:
+        return self._entry(key)["version"] + (BLIND_SUFFIX if blind_native_ci else "")
 
-    def prompt_sha256(self, key: str) -> str:
+    def prompt_sha256(self, key: str, blind_native_ci: bool = False) -> str:
         """Hash of every file that can influence the prompt text (templates, shared rules, taxonomy)."""
         files = ["shared/system.md", "shared/extraction_rules.md", "shared/domain_block.j2", "shared/known_ci.j2", "shared/output_format.j2", self.template_name(key)]
         blob = "".join(self.env.loader.get_source(self.env, f)[0] for f in files)
         blob += yaml.safe_dump({"taxonomy": self.taxonomy.domains, "version": self.taxonomy.version}, sort_keys=True)
+        if blind_native_ci:
+            blob += BLIND_SUFFIX
         return sha256_text(blob)
 
     # -- rendering --------------------------------------------------------------------
@@ -89,20 +92,21 @@ class PromptBuilder:
     def _system(self) -> str:
         return self.env.get_template("shared/system.md").render().strip()
 
-    def render_extraction(self, record: SourceRecord, schema: type[BaseModel]) -> RenderedPrompt:
+    def render_extraction(self, record: SourceRecord, schema: type[BaseModel], blind_native_ci: bool = False) -> RenderedPrompt:
+        """`blind_native_ci`: do not show benchmark-provided CI values, so the model extracts all five (evaluation runs)."""
         key = record.dataset
         text, truncated = self._text(record)
         ctx = {
             "variant": record.subset,
             "level": record.level,
             "scenario_text": text,
-            "known_ci": {k: v for k, v in record.native_ci.items()},
+            "known_ci": {} if blind_native_ci else {k: v for k, v in record.native_ci.items()},
             "meta": {k: (v if v is not None else "not given") for k, v in record.prompt_context.items()},
             "taxonomy": self.taxonomy,
             "output_schema": json.dumps(strict_json_schema(schema), indent=1),
         }
         user = self.env.get_template(self.template_name(key)).render(**ctx)
-        return RenderedPrompt(self._system(), user, self.prompt_version(key), self.prompt_sha256(key), truncated)
+        return RenderedPrompt(self._system(), user, self.prompt_version(key, blind_native_ci), self.prompt_sha256(key, blind_native_ci), truncated)
 
     def render_privacy(self, record: SourceRecord, schema: type[BaseModel]) -> RenderedPrompt:
         """Privacy-classification prompt: scenario text only. No native reference, no extracted values, no ids."""

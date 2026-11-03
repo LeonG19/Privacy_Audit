@@ -2,7 +2,7 @@
 {% include 'shared/extraction_rules.md' %}
 
 ## About this item type (PiSAs scenario)
-A PiSAs scenario puts an *executor* (an agent acting for a person in an organisation) in front of a decision. Evidence for the decision, and unrelated private facts, are spread across colleagues' artifacts; each artifact lists who can see it. The scenario involves many information flows. Describe the **central flow the executor's task depends on**; if several flows are equally central, describe the most prominent one and mention the rest in `unknown_facts`. Do not judge which facts should or should not be used. The `domain` should describe the organisational context of the task. Parameters already given by the benchmark are listed below.
+A PiSAs scenario puts an *executor* (an agent acting for a person in an organisation) in front of a decision. Evidence for the decision, and unrelated private facts, are spread across colleagues' artifacts; each artifact lists who can see it. The scenario involves many information flows. Describe the **central flow the executor's task depends on**; if several flows are equally central, describe the most prominent one and mention the rest in `unknown_facts`. Do not judge which facts should or should not be used. The `domain` should describe the organisational context of the task. {% if known_ci %}Parameters already given by the benchmark are listed below.{% endif %}
 
 {% include 'shared/domain_block.j2' %}
 

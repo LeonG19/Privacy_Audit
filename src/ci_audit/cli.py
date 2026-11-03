@@ -59,6 +59,7 @@ def build_parser(root: Optional[Path] = None) -> argparse.ArgumentParser:
         sp.add_argument("--base-url", help="API base URL (vllm default http://localhost:8000/v1)")
         sp.add_argument("--subset", help="comma-separated adapter subsets (see `list`)")
         sp.add_argument("--limit", type=int, help="process only the first N records")
+        sp.add_argument("--ids-file", type=Path, help="process only these record ids: a pilot sample JSON (from `pilot sample`) or a text file with one id per line")
         sp.add_argument("--output-dir", type=Path, help="default: <data>/processed")
         sp.add_argument("--temperature", type=float)
         sp.add_argument("--max-output-tokens", type=int)
@@ -70,6 +71,9 @@ def build_parser(root: Optional[Path] = None) -> argparse.ArgumentParser:
         sp.add_argument("--resume", action="store_true", help="continue an interrupted run, skipping completed records")
         sp.add_argument("--force", action="store_true", help="start over; existing outputs are archived, not deleted")
         sp.add_argument("--no-progress", action="store_true")
+        if not privacy:
+            sp.add_argument("--blind-native-ci", action="store_true",
+                            help="EVALUATION: do not show benchmark-provided CI values; the model extracts all five (benchmark values stay in native_ci)")
 
     run_args(sub.add_parser("extract", help="extract CI parameters + domain for a dataset"))
     run_args(sub.add_parser("classify-privacy", help="OPTIONAL: model judges appropriate/inappropriate/uncertain (separate output file)"), privacy=True)
@@ -79,6 +83,20 @@ def build_parser(root: Optional[Path] = None) -> argparse.ArgumentParser:
     dm.add_argument("--output-dir", type=Path, help="where extraction runs live (default: <data>/processed)")
     dm.add_argument("--run-dir", type=Path, action="append", help="explicit run directory (repeatable); default: newest non-mock run per dataset")
     dm.add_argument("--include-mock", action="store_true", help="include mock-engine test runs (never use for research)")
+
+    pl = sub.add_parser("pilot", help="model-comparison pilot: shared sample + reference sheet, then scoring")
+    psub = pl.add_subparsers(dest="pilot_command", required=True)
+    ps = psub.add_parser("sample", help="draw the shared pilot sample (configs/pilot.yaml) and write the blank reference sheet")
+    ps.add_argument("--out-dir", type=Path, default=Path("pilot"), help="default: pilot/")
+    sc = psub.add_parser("score", help="score runs against the reference sheet; writes report.md + scores.json")
+    sc.add_argument("run_dirs", nargs="*", type=Path, help="run directories; default: every run under <pilot-dir>/runs")
+    sc.add_argument("--pilot-dir", type=Path, default=Path("pilot"), help="holds pilot_sample.json, reference_annotations.csv, judgments.csv")
+    sc.add_argument("--gpu-log", type=Path, action="append", help="gpu-monitor CSV(s) covering the vLLM runs (repeatable)")
+    sc.add_argument("--out-dir", type=Path, help="default: <pilot-dir>/reports")
+
+    gm = sub.add_parser("gpu-monitor", help="log nvidia-smi utilisation/memory/power with UTC timestamps until stopped")
+    gm.add_argument("--out", type=Path, required=True)
+    gm.add_argument("--interval", type=float, default=1.0, help="seconds between samples")
     return p
 
 
@@ -197,9 +215,27 @@ def _spec(args, paths: Paths, operation: str) -> RunSpec:
         resume=args.resume,
         force=args.force,
         operation=operation,
+        record_ids=read_ids_file(args.ids_file, args.dataset) if args.ids_file else None,
+        blind_native_ci=getattr(args, "blind_native_ci", False),
         cli_args={k: v for k, v in vars(args).items() if k not in ("root", "data_dir") and v is not None and not callable(v)} | {"base_url": base_url},
         show_progress=not args.no_progress,
     )
+
+
+def read_ids_file(path: Path, dataset: str) -> list[str]:
+    """Pilot sample JSON ({"datasets": {name: {"record_ids": [...]}}}) or plain text, one record id per line."""
+    path = Path(path)
+    text = path.read_text(encoding="utf-8")
+    if path.suffix == ".json":
+        entry = json.loads(text).get("datasets", {}).get(dataset)
+        if entry is None:
+            raise PipelineError(f"{path} has no record ids for dataset {dataset!r}")
+        ids = entry["record_ids"]
+    else:
+        ids = [line.strip() for line in text.splitlines() if line.strip() and not line.startswith("#")]
+    if not ids:
+        raise PipelineError(f"{path} lists no record ids for {dataset!r}")
+    return ids
 
 
 def cmd_run(args, paths: Paths, operation: str) -> int:
@@ -265,6 +301,38 @@ def cmd_domains(args, paths: Paths) -> int:
     return 0
 
 
+def _under_root(p: Path, paths: Paths) -> Path:
+    return p if p.is_absolute() else paths.root / p
+
+
+def cmd_pilot(args, paths: Paths) -> int:
+    from ci_audit.evaluation import gpu, scoring
+    from ci_audit.evaluation.sample import write_sample
+
+    cfg = load_config(paths.root, "pilot")
+    if args.pilot_command == "sample":
+        files = write_sample(paths, cfg, _under_root(args.out_dir, paths))
+        sample = json.loads(files["sample"].read_text(encoding="utf-8"))
+        for ds, info in sample["datasets"].items():
+            print(f"  {ds:16} {len(info['record_ids'])} records from {info['population']}")
+        print("Wrote: " + ", ".join(str(f) for f in files.values()))
+        print("Next: commit pilot_sample.json, then fill the gold_* columns of reference_annotations.csv (see docs/pilot_evaluation.md).")
+        return 0
+    pdir = _under_root(args.pilot_dir, paths)
+    sample = json.loads((pdir / "pilot_sample.json").read_text(encoding="utf-8"))
+    runs = [r.resolve() for r in args.run_dirs] or sorted(m.parent for m in (pdir / "runs").glob("*/*/run_manifest.json")
+                                                          if not m.parent.name.startswith("mock__"))
+    if not runs:
+        raise PipelineError(f"no run directories given and none found under {pdir / 'runs'}")
+    gpu_rows = [row for log in (args.gpu_log or []) for row in gpu.read_log(log)]
+    res = scoring.score(sample, scoring.read_csv_rows(pdir / "reference_annotations.csv"), [scoring.load_run(r) for r in runs],
+                        pdir / "judgments.csv", cfg, gpu_rows)
+    files = scoring.write_report(res, args.out_dir or pdir / "reports")
+    print(files["md"].read_text(encoding="utf-8"))
+    print("Wrote: " + ", ".join(str(f) for f in files.values()))
+    return 0
+
+
 def main(argv: Optional[list[str]] = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
@@ -284,7 +352,13 @@ def main(argv: Optional[list[str]] = None) -> int:
             return cmd_run(args, paths, "privacy")
         if args.command == "domains":
             return cmd_domains(args, paths)
-    except (PipelineError, AdapterError, EngineError, FileNotFoundError) as e:
+        if args.command == "pilot":
+            return cmd_pilot(args, paths)
+        if args.command == "gpu-monitor":
+            from ci_audit.evaluation.gpu import monitor
+
+            return monitor(args.out, args.interval)
+    except (PipelineError, AdapterError, EngineError, FileNotFoundError, FileExistsError) as e:
         print(f"error: {e}", file=sys.stderr)
         return 2
     except KeyboardInterrupt:

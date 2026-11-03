@@ -10,3 +10,8 @@ data/processed/*
 !data/processed/.gitkeep
 # Manifests (provenance) ARE tracked.
 data/external/
+
+# Pilot: run outputs are shared (small); server/job logs and model caches are not.
+pilot/runs/*.log
+pilot/runs/slurm-*.out
+.hf_cache/
