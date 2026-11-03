@@ -2,7 +2,7 @@
   "source": "pisas",
   "description": "PiSAs (ServiceNow) - multi-agent contextual privacy scenarios",
   "status": "ok",
-  "download_date": "2026-10-30T17:17:02+00:00",
+  "download_date": "2026-11-02T23:08:18+00:00",
   "parts": {
     "hf": {
       "kind": "hf",

@@ -2,7 +2,7 @@
   "source": "privacylens",
   "description": "PrivacyLens (Shao et al., 2024) - seeds, vignettes, trajectories",
   "status": "ok",
-  "download_date": "2026-10-30T17:16:31+00:00",
+  "download_date": "2026-11-02T23:07:41+00:00",
   "parts": {
     "hf": {
       "kind": "hf",

@@ -2,7 +2,7 @@
   "source": "mpci_bench",
   "description": "MPCI-Bench - multimodal pairwise CI benchmark (JSON only; VISPR images NOT included)",
   "status": "ok",
-  "download_date": "2026-10-30T17:16:32+00:00",
+  "download_date": "2026-11-02T23:07:45+00:00",
   "parts": {
     "github": {
       "kind": "git",
