@@ -1,0 +1,817 @@
+{
+  "systems": {
+    "vllm:llama-3.3-70b-instruct": {
+      "datasets": {
+        "airgapagent_r": {
+          "run_dir": "/Volumes/Kuike HD/Research/Privacy_Audit/pilot/runs/airgapagent_r/vllm__llama-3.3-70b-instruct",
+          "blind_native_ci": true,
+          "ci": {
+            "sender": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "subject": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "recipient": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "information_type": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "transmission_principle": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            }
+          },
+          "ci_overall": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          },
+          "domain": {
+            "n": 0,
+            "outcomes": {
+              "unannotated": 20
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_with_alternatives": null
+          },
+          "privacy": null,
+          "validity": {
+            "sampled": 20,
+            "ran": 20,
+            "not_run": 0,
+            "valid": 20,
+            "valid_rate": 1.0,
+            "valid_first_try": 20,
+            "clean": 17,
+            "failed_by_type": {},
+            "structured_mode": {
+              "json_schema": 20
+            },
+            "warnings": {
+              "evidence_not_in_source": 3
+            },
+            "records_with_unsupported_evidence": 3
+          },
+          "efficiency": {
+            "records": 20,
+            "prompt_tokens": 53122,
+            "completion_tokens": 6674,
+            "latency_s_mean": 13.18,
+            "latency_s_median": 13.17,
+            "latency_s_max": 13.61,
+            "wall_s": 264.0,
+            "busy_s": 264.3,
+            "concurrency": 1,
+            "sessions": 1,
+            "wall_time_partial": false,
+            "records_per_min": 4.54,
+            "output_tokens_per_s": 25.3,
+            "full_dataset_estimate": {
+              "records": 4160,
+              "prompt_tokens": 11049376,
+              "completion_tokens": 1388192,
+              "wall_hours": 15.27,
+              "gpu_hours": 30.54
+            },
+            "gpu": {
+              "n_gpus": 2,
+              "gpu_names": [
+                "NVIDIA RTX 6000 Ada Generation"
+              ],
+              "samples": 264,
+              "mean_util_pct": 98.0,
+              "peak_mem_used_gib_all_gpus": 87.19,
+              "mem_total_gib_per_gpu": 48.0,
+              "mean_power_w_all_gpus": 593.3,
+              "energy_wh": 43.55,
+              "requests_window_coverage": "1/1 busy intervals have GPU samples"
+            },
+            "gpu_hours": 0.147
+          }
+        },
+        "confaide_tier2": {
+          "run_dir": "/Volumes/Kuike HD/Research/Privacy_Audit/pilot/runs/confaide_tier2/vllm__llama-3.3-70b-instruct",
+          "blind_native_ci": true,
+          "ci": {
+            "sender": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "subject": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "recipient": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "information_type": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "transmission_principle": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            }
+          },
+          "ci_overall": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          },
+          "domain": {
+            "n": 0,
+            "outcomes": {
+              "unannotated": 20
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_with_alternatives": null
+          },
+          "privacy": null,
+          "validity": {
+            "sampled": 20,
+            "ran": 20,
+            "not_run": 0,
+            "valid": 20,
+            "valid_rate": 1.0,
+            "valid_first_try": 20,
+            "clean": 16,
+            "failed_by_type": {},
+            "structured_mode": {
+              "json_schema": 20
+            },
+            "warnings": {
+              "evidence_not_in_source": 6,
+              "dropped_unsupported_claim": 1
+            },
+            "records_with_unsupported_evidence": 4
+          },
+          "efficiency": {
+            "records": 20,
+            "prompt_tokens": 52763,
+            "completion_tokens": 7976,
+            "latency_s_mean": 15.85,
+            "latency_s_median": 15.53,
+            "latency_s_max": 20.95,
+            "wall_s": 318.0,
+            "busy_s": 317.3,
+            "concurrency": 1,
+            "sessions": 1,
+            "wall_time_partial": false,
+            "records_per_min": 3.78,
+            "output_tokens_per_s": 25.1,
+            "full_dataset_estimate": {
+              "records": 196,
+              "prompt_tokens": 517077,
+              "completion_tokens": 78165,
+              "wall_hours": 0.86,
+              "gpu_hours": 1.73
+            },
+            "gpu": {
+              "n_gpus": 2,
+              "gpu_names": [
+                "NVIDIA RTX 6000 Ada Generation"
+              ],
+              "samples": 317,
+              "mean_util_pct": 98.4,
+              "peak_mem_used_gib_all_gpus": 87.19,
+              "mem_total_gib_per_gpu": 48.0,
+              "mean_power_w_all_gpus": 585.8,
+              "energy_wh": 51.64,
+              "requests_window_coverage": "1/1 busy intervals have GPU samples"
+            },
+            "gpu_hours": 0.176
+          }
+        },
+        "mpci_bench": {
+          "run_dir": "/Volumes/Kuike HD/Research/Privacy_Audit/pilot/runs/mpci_bench/vllm__llama-3.3-70b-instruct",
+          "blind_native_ci": true,
+          "ci": {
+            "sender": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "subject": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "recipient": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "information_type": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "transmission_principle": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            }
+          },
+          "ci_overall": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          },
+          "domain": {
+            "n": 0,
+            "outcomes": {
+              "unannotated": 20
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_with_alternatives": null
+          },
+          "privacy": null,
+          "validity": {
+            "sampled": 20,
+            "ran": 20,
+            "not_run": 0,
+            "valid": 20,
+            "valid_rate": 1.0,
+            "valid_first_try": 20,
+            "clean": 14,
+            "failed_by_type": {},
+            "structured_mode": {
+              "json_schema": 20
+            },
+            "warnings": {
+              "value_without_evidence": 4,
+              "evidence_not_in_source": 3
+            },
+            "records_with_unsupported_evidence": 2
+          },
+          "efficiency": {
+            "records": 20,
+            "prompt_tokens": 58826,
+            "completion_tokens": 9887,
+            "latency_s_mean": 19.98,
+            "latency_s_median": 20.11,
+            "latency_s_max": 26.23,
+            "wall_s": 1020.0,
+            "busy_s": 400.9,
+            "concurrency": 1,
+            "sessions": 2,
+            "wall_time_partial": false,
+            "records_per_min": 2.99,
+            "output_tokens_per_s": 24.7,
+            "full_dataset_estimate": {
+              "records": 6156,
+              "prompt_tokens": 18243404,
+              "completion_tokens": 3054891,
+              "wall_hours": 34.4,
+              "gpu_hours": 68.8
+            },
+            "gpu": {
+              "n_gpus": 2,
+              "gpu_names": [
+                "NVIDIA RTX 6000 Ada Generation"
+              ],
+              "samples": 226,
+              "mean_util_pct": 96.7,
+              "peak_mem_used_gib_all_gpus": 87.19,
+              "mem_total_gib_per_gpu": 48.0,
+              "mean_power_w_all_gpus": 574.0,
+              "energy_wh": 63.92,
+              "requests_window_coverage": "1/2 busy intervals have GPU samples"
+            },
+            "gpu_hours": 0.223
+          }
+        },
+        "pisas": {
+          "run_dir": "/Volumes/Kuike HD/Research/Privacy_Audit/pilot/runs/pisas/vllm__llama-3.3-70b-instruct",
+          "blind_native_ci": true,
+          "ci": {
+            "sender": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "subject": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "recipient": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "information_type": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "transmission_principle": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            }
+          },
+          "ci_overall": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          },
+          "domain": {
+            "n": 0,
+            "outcomes": {
+              "unannotated": 20
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_with_alternatives": null
+          },
+          "privacy": null,
+          "validity": {
+            "sampled": 20,
+            "ran": 20,
+            "not_run": 0,
+            "valid": 20,
+            "valid_rate": 1.0,
+            "valid_first_try": 20,
+            "clean": 5,
+            "failed_by_type": {},
+            "structured_mode": {
+              "json_schema": 20
+            },
+            "warnings": {
+              "dropped_unsupported_claim": 13,
+              "evidence_not_in_source": 15
+            },
+            "records_with_unsupported_evidence": 6
+          },
+          "efficiency": {
+            "records": 20,
+            "prompt_tokens": 76950,
+            "completion_tokens": 10912,
+            "latency_s_mean": 22.11,
+            "latency_s_median": 21.81,
+            "latency_s_max": 30.4,
+            "wall_s": 443.0,
+            "busy_s": 443.0,
+            "concurrency": 1,
+            "sessions": 1,
+            "wall_time_partial": false,
+            "records_per_min": 2.71,
+            "output_tokens_per_s": 24.6,
+            "full_dataset_estimate": {
+              "records": 265,
+              "prompt_tokens": 1020746,
+              "completion_tokens": 142399,
+              "wall_hours": 1.61
+            },
+            "gpu": null
+          }
+        },
+        "privacylens": {
+          "run_dir": "/Volumes/Kuike HD/Research/Privacy_Audit/pilot/runs/privacylens/vllm__llama-3.3-70b-instruct",
+          "blind_native_ci": true,
+          "ci": {
+            "sender": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "subject": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "recipient": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "information_type": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            },
+            "transmission_principle": {
+              "n": 0,
+              "pending": 0,
+              "outcomes": {
+                "unannotated": 20
+              },
+              "accuracy_strict": null,
+              "accuracy_strict_ci95": null,
+              "accuracy_lenient": null,
+              "invention_rate": null,
+              "miss_rate": null
+            }
+          },
+          "ci_overall": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          },
+          "domain": {
+            "n": 0,
+            "outcomes": {
+              "unannotated": 20
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_with_alternatives": null
+          },
+          "privacy": null,
+          "validity": {
+            "sampled": 20,
+            "ran": 20,
+            "not_run": 0,
+            "valid": 20,
+            "valid_rate": 1.0,
+            "valid_first_try": 20,
+            "clean": 10,
+            "failed_by_type": {},
+            "structured_mode": {
+              "json_schema": 20
+            },
+            "warnings": {
+              "evidence_not_in_source": 16,
+              "value_without_evidence": 1,
+              "dropped_unsupported_claim": 4
+            },
+            "records_with_unsupported_evidence": 8
+          },
+          "efficiency": {
+            "records": 20,
+            "prompt_tokens": 58336,
+            "completion_tokens": 9085,
+            "latency_s_mean": 18.64,
+            "latency_s_median": 18.85,
+            "latency_s_max": 26.35,
+            "wall_s": 373.0,
+            "busy_s": 372.8,
+            "concurrency": 1,
+            "sessions": 2,
+            "wall_time_partial": false,
+            "records_per_min": 3.22,
+            "output_tokens_per_s": 24.4,
+            "full_dataset_estimate": {
+              "records": 1479,
+              "prompt_tokens": 4349528,
+              "completion_tokens": 672616,
+              "wall_hours": 7.68,
+              "gpu_hours": 15.37
+            },
+            "gpu": {
+              "n_gpus": 2,
+              "gpu_names": [
+                "NVIDIA RTX 6000 Ada Generation"
+              ],
+              "samples": 271,
+              "mean_util_pct": 98.2,
+              "peak_mem_used_gib_all_gpus": 87.19,
+              "mem_total_gib_per_gpu": 48.0,
+              "mean_power_w_all_gpus": 581.8,
+              "energy_wh": 60.25,
+              "requests_window_coverage": "1/2 busy intervals have GPU samples"
+            },
+            "gpu_hours": 0.207
+          }
+        }
+      },
+      "all": {
+        "ci": {
+          "sender": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          },
+          "subject": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          },
+          "recipient": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          },
+          "information_type": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          },
+          "transmission_principle": {
+            "n": 0,
+            "pending": 0,
+            "outcomes": {
+              "unannotated": 100
+            },
+            "accuracy_strict": null,
+            "accuracy_strict_ci95": null,
+            "accuracy_lenient": null,
+            "invention_rate": null,
+            "miss_rate": null
+          }
+        },
+        "ci_overall": {
+          "n": 0,
+          "pending": 0,
+          "outcomes": {
+            "unannotated": 500
+          },
+          "accuracy_strict": null,
+          "accuracy_strict_ci95": null,
+          "accuracy_lenient": null,
+          "invention_rate": null,
+          "miss_rate": null
+        },
+        "domain": {
+          "n": 0,
+          "outcomes": {
+            "unannotated": 100
+          },
+          "accuracy_strict": null,
+          "accuracy_strict_ci95": null,
+          "accuracy_with_alternatives": null
+        },
+        "privacy": null,
+        "efficiency": {
+          "records": 100,
+          "prompt_tokens": 299997,
+          "completion_tokens": 44534,
+          "wall_s": 2418.0,
+          "api_cost_usd": null,
+          "gpu_hours": null,
+          "gpu_cost_usd": null,
+          "full_dataset_estimate": {
+            "records": 12256,
+            "prompt_tokens": 35180131,
+            "completion_tokens": 5336263,
+            "wall_hours": 59.82,
+            "api_cost_usd": null,
+            "gpu_hours": null,
+            "gpu_cost_usd": null
+          }
+        }
+      }
+    }
+  },
+  "warnings": [],
+  "pending_judgments": 0,
+  "annotation_coverage": {
+    "confaide_tier2": 0,
+    "privacylens": 0,
+    "mpci_bench": 0,
+    "airgapagent_r": 0,
+    "pisas": 0
+  }
+}
