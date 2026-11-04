@@ -10,3 +10,6 @@ data/processed/*
 !data/processed/.gitkeep
 # Manifests (provenance) ARE tracked.
 data/external/
+
+# macOS metadata
+.DS_Store

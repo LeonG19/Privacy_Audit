@@ -1,8 +1,8 @@
 {
   "source": "confaide",
   "description": "ConfAIde (Mireshghallah et al., 2023) - tiers 1-4 text files",
-  "status": "ok_with_adapter_errors",
-  "download_date": "2026-10-30T17:16:28+00:00",
+  "status": "ok",
+  "download_date": "2026-11-02T23:00:38+00:00",
   "parts": {
     "github": {
       "kind": "git",
@@ -164,10 +164,25 @@
   "external_assets": {},
   "adapters": {
     "confaide_tier2": {
-      "error": "AdapterError: confaide_tier2: missing raw file data/raw/confaide/benchmark/tier_2_labels.txt. Run: python -m ci_audit download --dataset confaide"
+      "records": 196,
+      "native_reference_kinds": [
+        "continuous_human_rating"
+      ],
+      "subsets": [
+        "2a",
+        "2b"
+      ],
+      "status": "complete"
     },
     "confaide_tier3": {
-      "error": "AdapterError: confaide_tier3: missing raw file data/raw/confaide/benchmark/tier_3_control.txt. Run: python -m ci_audit download --dataset confaide"
+      "records": 270,
+      "native_reference_kinds": [
+        "none"
+      ],
+      "subsets": [
+        "all"
+      ],
+      "status": "loader_verified"
     }
   },
   "errors": []
