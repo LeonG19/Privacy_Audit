@@ -926,3 +926,44 @@ def test_load_run_combines_batch_sessions(tmp_path):
              "mem_total_mib": "2048", "power_w": "100"} for i, t in enumerate([run["sessions"][0][0] + 10, run["sessions"][1][0] + 10, 5.0])]
     g = gpu.summarize_windows(rows, run["sessions"])
     assert g["samples"] == 2 and g["energy_wh"] == round(100 * 150 / 3600, 2)
+
+
+# =========================================================================== human review of model outputs
+from ci_audit.evaluation import review
+
+
+def test_review_pick_batch_prefers_shared_ids_and_spreads_subsets():
+    sample = {"datasets": {"ds": {"subsets": ["a", "b"], "record_ids": [f"a{i}" for i in range(6)] + [f"b{i}" for i in range(6)]}}}
+    subsets_of = {i: i[0] for i in sample["datasets"]["ds"]["record_ids"]}
+    batch = review.pick_batch(sample, 5, seed=1, prefer={"b3"}, subsets_of=subsets_of)["ds"]
+    assert batch[0] == "b3" and len(batch) == len(set(batch)) == 5
+    assert Counter(subsets_of[i] for i in batch) == {"a": 3, "b": 2}  # quota 3/2, the preferred b3 counts for b
+    assert batch == review.pick_batch(sample, 5, seed=1, prefer={"b3"}, subsets_of=subsets_of)["ds"]  # reproducible
+
+
+def test_review_summarize_rates_and_unknown_labels(tmp_path):
+    p = tmp_path / "sheet.csv"
+    rows = [{"record_id": f"r{k}", "dataset": "ds", "subset": "a", "model": "m", "item": "sender", "judgment": j}
+            for k, j in enumerate(["correct", "correct", "partial", "invented", "missed", "Corect", ""])]
+    with open(p, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=review.SHEET_FIELDS, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(rows)
+    s = review.summarize([p])
+    a = s["models"]["m"]["all"]
+    assert a["judged"] == 5 and a["unjudged"] == 2  # the typo is reported and left unjudged, not guessed
+    assert a["correct_rate"] == 0.4 and a["correct_or_partial_rate"] == 0.6 and a["invented"] == 1 and a["missed"] == 1
+    assert len(s["problems"]) == 1 and "corect" in s["problems"][0]
+
+
+def test_review_write_batch_refuses_to_overwrite(tmp_path):
+    rec = {"record_id": "ds:1", "dataset": "ds", "subset": "a", "scenario_text": "[TEST FIXTURE] text",
+           "ci_parameters": {p: {"value": None, "evidence": [], "missing_reason": "not stated"} for p in CI_PARAMS},
+           "domain": {"domain": "Unclear", "subdomain": None, "supporting_span": None, "explanation": "x"}, "validation_warnings": []}
+    run = tmp_path / "run"
+    run.mkdir()
+    (run / "extractions.jsonl").write_text(json.dumps(rec) + "\n")
+    files = review.write_batch({"ds": run}, {"ds": ["ds:1"]}, "m", "me", tmp_path / "out")
+    assert len(list(csv.DictReader(files["sheet"].open()))) == 6  # five CI parameters + domain
+    with pytest.raises(FileExistsError):
+        review.write_batch({"ds": run}, {"ds": ["ds:1"]}, "m", "me", tmp_path / "out")

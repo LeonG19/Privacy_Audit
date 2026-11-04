@@ -101,3 +101,30 @@ What the report contains, per model and per dataset:
   GPU-hours, mean GPU utilisation, peak memory and energy, plus a dollar figure if `gpu_hourly_usd` is set.
 - **Full-dataset estimate**: per-subset pilot means × subset population, at the pilot's concurrency. It is
   conservative for vLLM, which batches better at higher concurrency.
+
+## 5. Judging model outputs directly (first review batch)
+
+Until a full reference exists, reviewers judge each model's own output. A batch takes 5 records per dataset (25 per model):
+
+```bash
+python -m ci_audit pilot review-batch --run-name vllm__llama-3.3-70b-instruct --reviewer enrique --prefer shared_ids.txt
+```
+
+This writes `pilot/review/<reviewer>_<model>.csv`, the sheet to fill in with one row per record and item (5 CI parameters + domain),
+and a `.md` page with each scenario next to the model's values and evidence. `--prefer` puts records that other reviewers
+also judge first, so models can be compared on the same examples. For every row, write one `judgment`:
+
+| judgment | meaning |
+|---|---|
+| `correct` | the value is right (for `<null>`: the text really does not state it) |
+| `partial` | right party or type, but too broad, too narrow, or with a wrong extra piece |
+| `incorrect` | wrong value |
+| `invented` | a value the text does not support |
+| `missed` | `<null>`, but the text does state it |
+
+```bash
+python -m ci_audit pilot review-summary pilot/review/*.csv
+```
+
+This reports the correct rate, the correct-or-partial rate, and the invented and missed counts per model, per item and per dataset.
+Typos in `judgment` are reported and left unjudged rather than guessed. Several sheets (reviewers or models) can be summarized together.

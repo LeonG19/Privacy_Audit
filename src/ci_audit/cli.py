@@ -94,6 +94,16 @@ def build_parser(root: Optional[Path] = None) -> argparse.ArgumentParser:
     sc.add_argument("--gpu-log", type=Path, action="append", help="gpu-monitor CSV(s) covering the vLLM runs (repeatable)")
     sc.add_argument("--out-dir", type=Path, help="default: <pilot-dir>/reports")
 
+    rb = psub.add_parser("review-batch", help="pick N records per dataset and write a sheet to judge one model's outputs by hand")
+    rb.add_argument("--run-name", required=True, help="run folder under <pilot-dir>/runs/<dataset>/, e.g. vllm__llama-3.3-70b-instruct")
+    rb.add_argument("--reviewer", required=True)
+    rb.add_argument("--per-dataset", type=int, default=5)
+    rb.add_argument("--seed", type=int, default=7)
+    rb.add_argument("--prefer", type=Path, help="text file of record ids to include first (records other reviewers also judge)")
+    rb.add_argument("--pilot-dir", type=Path, default=Path("pilot"))
+    rs = psub.add_parser("review-summary", help="correct-judgment rates from filled review sheets")
+    rs.add_argument("sheets", nargs="+", type=Path)
+
     gm = sub.add_parser("gpu-monitor", help="log nvidia-smi utilisation/memory/power with UTC timestamps until stopped")
     gm.add_argument("--out", type=Path, required=True)
     gm.add_argument("--interval", type=float, default=1.0, help="seconds between samples")
@@ -318,8 +328,27 @@ def cmd_pilot(args, paths: Paths) -> int:
         print("Wrote: " + ", ".join(str(f) for f in files.values()))
         print("Next: commit pilot_sample.json, then fill the gold_* columns of reference_annotations.csv (see docs/pilot_evaluation.md).")
         return 0
+    if args.pilot_command == "review-summary":
+        from ci_audit.evaluation import review
+
+        print(review.render_summary(review.summarize(args.sheets)))
+        return 0
     pdir = _under_root(args.pilot_dir, paths)
     sample = json.loads((pdir / "pilot_sample.json").read_text(encoding="utf-8"))
+    if args.pilot_command == "review-batch":
+        from ci_audit.evaluation import review
+
+        refs = {r["record_id"]: r for r in scoring.read_csv_rows(pdir / "reference_annotations.csv")}
+        prefer = set(read_ids_file(args.prefer, "") if args.prefer and args.prefer.suffix != ".json" else [])
+        batch = review.pick_batch(sample, args.per_dataset, args.seed, prefer, {i: refs[i]["subset"] for i in refs})
+        run_dirs = {ds: pdir / "runs" / ds / args.run_name for ds in batch}
+        files = review.write_batch(run_dirs, batch, args.run_name, args.reviewer, pdir / "review")
+        for ds, ids in batch.items():
+            print(f"{ds}:")
+            for i in ids:
+                print(f"  {i}{'   (also in the other sample)' if i in prefer else ''}")
+        print("Wrote: " + ", ".join(str(f) for f in files.values()))
+        return 0
     runs = [r.resolve() for r in args.run_dirs] or sorted(m.parent for m in (pdir / "runs").glob("*/*/run_manifest.json")
                                                           if not m.parent.name.startswith("mock__"))
     if not runs:
