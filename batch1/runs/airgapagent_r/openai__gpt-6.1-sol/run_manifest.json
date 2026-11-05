@@ -1,0 +1,62 @@
+{
+  "run_id": "80ea3c120e27",
+  "operation": "extract",
+  "dataset": "airgapagent_r",
+  "subsets": [
+    "full"
+  ],
+  "adapter_status": "loader_verified",
+  "source_revision": "hf@f1d8f27376eb0854ec5b476e88b942d0060eee62; github@66154a39d932354960da2fa56821a10196ed3605",
+  "engine": {
+    "engine": "openai",
+    "model": "gpt-6.1-sol",
+    "base_url": null
+  },
+  "is_mock": false,
+  "generation": {
+    "temperature": 0.0,
+    "max_output_tokens": 3000,
+    "timeout": 180,
+    "retries": 3,
+    "seed": 0
+  },
+  "concurrency": 4,
+  "validation_retries": 2,
+  "prompt_version": "airgapagent_r-focused-v1+blind_native_ci",
+  "blind_native_ci": true,
+  "prompt_variant": "focused",
+  "record_ids_requested": 50,
+  "prompt_sha256": "512f346aa3ffc348b44870b5af97872f2fc754cab01df3b89b14ce136a5c1f0d",
+  "taxonomy_version": 1,
+  "limit": null,
+  "records_selected": 50,
+  "records_resumed_from_previous": 0,
+  "records_attempted_this_run": 50,
+  "ok_this_run": 50,
+  "failed_this_run": 0,
+  "total_ok_in_file": 50,
+  "unresolved_failures": [],
+  "started_at": "2026-11-05T05:07:45+00:00",
+  "finished_at": "2026-11-05T05:08:52+00:00",
+  "cli_args": {
+    "command": "extract",
+    "dataset": "airgapagent_r",
+    "engine": "openai",
+    "model": "gpt-6.1-sol",
+    "ids_file": "batch1/enrique_sample.json",
+    "output_dir": "batch1/runs",
+    "concurrency": 4,
+    "resume": false,
+    "force": false,
+    "no_progress": true,
+    "prompt_variant": "focused",
+    "blind_native_ci": true,
+    "base_url": null
+  },
+  "environment": {
+    "ci_audit": "0.1.0",
+    "python": "3.12.13",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "note": null
+}

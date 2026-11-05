@@ -1,0 +1,5 @@
+pisas:thesis_readiness/scenario_01
+pisas:inpatient_discharge/scenario_09
+pisas:meeting_allocation/scenario_24
+pisas:severity_classification/scenario_12
+pisas:uas_flight_readiness/scenario_21

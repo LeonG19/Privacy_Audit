@@ -1,0 +1,11 @@
+# 5 per dataset, all already extracted by Samantha with her prompt (her 50-record pilot sample)
+airgapagent_r:full:17:vacation_ideas:sexual_orientation
+airgapagent_r:full:14:doctor_appointment:social_security_number
+airgapagent_r:full:06:job_interview:current_physical_health_conditions
+airgapagent_r:full:14:movie_ideas:name
+airgapagent_r:full:13:visit_social_worker:social_security_number
+pisas:thesis_readiness/scenario_01
+pisas:inpatient_discharge/scenario_09
+pisas:meeting_allocation/scenario_24
+pisas:severity_classification/scenario_12
+pisas:uas_flight_readiness/scenario_21
