@@ -52,6 +52,7 @@ class RunSpec:
     operation: str = "extract"  # extract | privacy
     record_ids: Optional[list[str]] = None  # restrict to these records (e.g. a shared pilot sample), in this order
     blind_native_ci: bool = False  # hide benchmark CI values from the model (evaluation); extract only
+    prompt_variant: Optional[str] = None  # alternative template, configs/extraction.yaml key <dataset>_<variant>
     cli_args: dict[str, Any] = field(default_factory=dict)
     show_progress: bool = True
 
@@ -173,7 +174,7 @@ async def run_async(spec: RunSpec, paths: Paths) -> dict:
 
     rdir = run_dir(spec.output_dir, spec.dataset, spec.engine.name, spec.engine.model)
     out_ok, out_fail = rdir / op["ok"], rdir / op["fail"]
-    key = spec.dataset if spec.operation == "extract" else "privacy_classification"
+    key = builder.extraction_key(spec.dataset, spec.prompt_variant) if spec.operation == "extract" else "privacy_classification"
     cur_sha = builder.prompt_sha256(key, spec.blind_native_ci)
 
     existing = [p for p in (out_ok, out_fail) if p.exists() and p.stat().st_size > 0]
@@ -198,7 +199,8 @@ async def run_async(spec: RunSpec, paths: Paths) -> dict:
 
     if spec.operation == "extract":
         async def worker(rec):
-            return await extract_record(spec.engine, rec, builder, spec.settings, taxonomy, run_id, spec.validation_retries, spec.blind_native_ci)
+            return await extract_record(spec.engine, rec, builder, spec.settings, taxonomy, run_id, spec.validation_retries, spec.blind_native_ci,
+                                        spec.prompt_variant)
     else:
         async def worker(rec):
             return await classify_record(spec.engine, rec, builder, spec.settings, run_id, spec.validation_retries)
@@ -226,6 +228,7 @@ async def run_async(spec: RunSpec, paths: Paths) -> dict:
         "validation_retries": spec.validation_retries,
         "prompt_version": builder.prompt_version(key, spec.blind_native_ci),
         "blind_native_ci": spec.blind_native_ci,
+        "prompt_variant": spec.prompt_variant,
         "record_ids_requested": len(spec.record_ids) if spec.record_ids is not None else None,
         "prompt_sha256": cur_sha,
         "taxonomy_version": taxonomy.version,

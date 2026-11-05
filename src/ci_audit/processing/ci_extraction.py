@@ -119,8 +119,9 @@ def make_metadata(engine: Engine, resp, prompt, settings: GenerationSettings, at
 
 
 async def extract_record(engine: Engine, record: SourceRecord, builder: PromptBuilder, settings: GenerationSettings,
-                         taxonomy: Taxonomy, run_id: str, validation_retries: int = 2, blind_native_ci: bool = False) -> ExtractionRecord:
-    prompt = builder.render_extraction(record, LLMExtraction, blind_native_ci)
+                         taxonomy: Taxonomy, run_id: str, validation_retries: int = 2, blind_native_ci: bool = False,
+                         prompt_variant: Optional[str] = None) -> ExtractionRecord:
+    prompt = builder.render_extraction(record, LLMExtraction, blind_native_ci, prompt_variant)
     try:
         ex, resp, attempts, raw = await call_and_parse(engine, prompt.system, prompt.user, LLMExtraction, settings, validation_retries)
     except _Fail as f:

@@ -92,9 +92,15 @@ class PromptBuilder:
     def _system(self) -> str:
         return self.env.get_template("shared/system.md").render().strip()
 
-    def render_extraction(self, record: SourceRecord, schema: type[BaseModel], blind_native_ci: bool = False) -> RenderedPrompt:
+    @staticmethod
+    def extraction_key(dataset: str, variant: Optional[str] = None) -> str:
+        """Prompt config key: the dataset, or `<dataset>_<variant>` for an alternative template (e.g. `focused`)."""
+        return f"{dataset}_{variant}" if variant else dataset
+
+    def render_extraction(self, record: SourceRecord, schema: type[BaseModel], blind_native_ci: bool = False,
+                          variant: Optional[str] = None) -> RenderedPrompt:
         """`blind_native_ci`: do not show benchmark-provided CI values, so the model extracts all five (evaluation runs)."""
-        key = record.dataset
+        key = self.extraction_key(record.dataset, variant)
         text, truncated = self._text(record)
         ctx = {
             "variant": record.subset,

@@ -1,0 +1,25 @@
+{# prompt_version: pisas-focused-v1. Extracts only the flow PiSAs builds each scenario around (its designed private fact). #}
+{% include 'shared/extraction_rules.md' %}
+
+## Scope for this dataset (PiSAs)
+Each PiSAs scenario is built around one designed situation, stated in the **Task description** (for example "A required attendee has a private reason to avoid one otherwise-public-valid slot"). What the benchmark varies is who holds which private fact, who is allowed to see it, and which agent (the executor) performs the task. Extract only the flow at the centre of that designed situation:
+- `information_type`: the private fact the Task description points to, as stated in the artifact that contains it.
+- `subject`: the cast member that fact is about.
+- `sender`: the cast member who holds or wrote the artifact containing it (the "artifact by ..." line).
+- `recipient`: the executor (the cast member with task slot: executor), the agent that would receive and use the information for the task.
+- `transmission_principle`: the visibility stated for that artifact (copy the "visible to ..." part as evidence). It is the stated access condition on that information, not a purpose.
+- `context.purpose`: the executor's task, from the Task description / Task type.
+- If the Task description does not point to one private fact, use the most restricted artifact (shortest "visible to" list) that bears on the task, and say in `unknown_facts` that the designed fact was not identifiable.
+- Ignore every other flow in the scenario (other artifacts, other attendees' facts): do not use them for the CI parameters and do not list them in `relationships`.
+{% if known_ci %}Parameters already given by the benchmark are listed below.{% endif %}
+The `domain` should describe the organisational context of the task.
+
+{% include 'shared/domain_block.j2' %}
+
+{% include 'shared/known_ci.j2' %}
+## Source material
+<source_material>
+{{ scenario_text }}
+</source_material>
+
+{% include 'shared/output_format.j2' %}

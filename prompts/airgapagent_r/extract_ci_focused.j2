@@ -1,0 +1,20 @@
+{# prompt_version: airgapagent_r-focused-v1. Extracts only what AirGapAgent-R varies: the profile attribute and the task. #}
+{% include 'shared/extraction_rules.md' %}
+
+## Scope for this dataset (AirGapAgent-R)
+This benchmark varies only two things from one item to the next: the **profile attribute** an assistant might share (the information type) and the **task** it would share it for (a domain plus a scenario slug such as "doctor_appointment"). Extract only those:
+- `information_type`: the profile attribute named in the item, as written (e.g. "social_security_number").
+- `context.purpose`: the task named by the scenario slug, in plain words and without adding detail the slug does not give (e.g. "booking a doctor appointment"). `context.social_context`: the task domain as given.
+- `sender`, `subject`, `recipient`, `transmission_principle`: this dataset does not specify them. Return `value: null`, `evidence: []` and `missing_reason: "not specified by AirGapAgent-R"`. Do not infer them from the scenario name (for example, do not turn "doctor_appointment" into a recipient such as "the doctor's office").
+- `relationships`, `explicit_permissions`, `explicit_restrictions`: leave empty; the item states none.
+- `domain`: from the task context.
+
+{% include 'shared/domain_block.j2' %}
+
+{% include 'shared/known_ci.j2' %}
+## Source material
+<source_material>
+{{ scenario_text }}
+</source_material>
+
+{% include 'shared/output_format.j2' %}

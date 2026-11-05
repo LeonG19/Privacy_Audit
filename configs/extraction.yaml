@@ -20,6 +20,9 @@ prompts:
   mpci_bench:      {dir: mpci_bench,      version: "mpci_bench-v1-untested"}
   airgapagent_r:   {dir: airgapagent_r,   version: "airgapagent_r-v1-untested"}
   pisas:           {dir: pisas,           version: "pisas-v1-untested"}
+  # --prompt-variant focused: extract only the CI parameters the dataset itself varies (see the templates)
+  airgapagent_r_focused: {dir: airgapagent_r, template: extract_ci_focused.j2, version: "airgapagent_r-focused-v1"}
+  pisas_focused:         {dir: pisas,         template: extract_ci_focused.j2, version: "pisas-focused-v1"}
   privacy_classification: {dir: shared, template: classify_privacy.j2, version: "privacy_cls-v1"}
 
 engines:

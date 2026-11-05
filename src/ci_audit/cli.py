@@ -72,6 +72,7 @@ def build_parser(root: Optional[Path] = None) -> argparse.ArgumentParser:
         sp.add_argument("--force", action="store_true", help="start over; existing outputs are archived, not deleted")
         sp.add_argument("--no-progress", action="store_true")
         if not privacy:
+            sp.add_argument("--prompt-variant", help="alternative extraction template, e.g. 'focused' (configs/extraction.yaml: <dataset>_<variant>)")
             sp.add_argument("--blind-native-ci", action="store_true",
                             help="EVALUATION: do not show benchmark-provided CI values; the model extracts all five (benchmark values stay in native_ci)")
 
@@ -227,6 +228,7 @@ def _spec(args, paths: Paths, operation: str) -> RunSpec:
         operation=operation,
         record_ids=read_ids_file(args.ids_file, args.dataset) if args.ids_file else None,
         blind_native_ci=getattr(args, "blind_native_ci", False),
+        prompt_variant=getattr(args, "prompt_variant", None),
         cli_args={k: v for k, v in vars(args).items() if k not in ("root", "data_dir") and v is not None and not callable(v)} | {"base_url": base_url},
         show_progress=not args.no_progress,
     )
