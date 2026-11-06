@@ -233,6 +233,8 @@ class FailureRecord(BaseModel):
     validation_errors: list[str] = Field(default_factory=list)
     processed_at: str
     run_id: str
+    usage: dict[str, Any] = Field(default_factory=dict, description="Tokens spent on this record before it failed (all calls)")
+    latency_s: Optional[float] = None
 
 
 # --------------------------------------------------------------------------- strict JSON schema helper

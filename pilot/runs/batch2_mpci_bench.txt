@@ -1,0 +1,16 @@
+# fits the 4096-token server limit with a 1000-token answer
+mpci_bench:2017_45020166_pos:seed
+mpci_bench:2017_43066313_neg:seed
+mpci_bench:2017_15705147_pos:seed
+mpci_bench:2017_98332935_neg:seed
+mpci_bench:2017_21578128_neg:seed
+mpci_bench:2017_26732290_neg:seed
+mpci_bench:2017_20239168_pos:seed
+mpci_bench:2017_92889881_neg:story
+mpci_bench:2017_59710017_neg:story
+mpci_bench:2017_63637942_pos:story
+mpci_bench:2017_86789140_neg:story
+mpci_bench:2017_97419550_pos:story
+mpci_bench:2017_78441267_neg:story
+mpci_bench:2017_76585663_neg:story
+mpci_bench:2017_93029674_pos:trajectory

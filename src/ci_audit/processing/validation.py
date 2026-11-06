@@ -117,11 +117,15 @@ def check_extraction(ex: LLMExtraction, source_text: str) -> tuple[LLMExtraction
     return ex, w
 
 
-def merge_ci(ex: LLMExtraction, record: SourceRecord) -> dict[str, FinalCIParameter]:
-    """Benchmark-provided CI values always win and are never overwritten; LLM values fill the rest."""
+def merge_ci(ex: LLMExtraction, record: SourceRecord, blind_native_ci: bool = False) -> dict[str, FinalCIParameter]:
+    """Benchmark-provided CI values always win and are never overwritten; LLM values fill the rest.
+
+    With `blind_native_ci` (evaluation runs) the model was not shown the benchmark values, so every parameter is the
+    model's own; the benchmark values remain untouched in the record's `native_ci`.
+    """
     out: dict[str, FinalCIParameter] = {}
     for name in CI_PARAMS:
-        native = record.native_ci.get(name)
+        native = None if blind_native_ci else record.native_ci.get(name)
         if native is not None:
             out[name] = FinalCIParameter(
                 value=native.value, evidence=[], missing_reason=None, origin=native.origin, source_field=native.source_field, note=native.note

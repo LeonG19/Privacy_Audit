@@ -23,7 +23,8 @@ async def classify_record(engine: Engine, record: SourceRecord, builder: PromptB
     except _Fail as f:
         raise ExtractionFailure(
             FailureRecord(record_id=record.record_id, dataset=record.dataset, source_id=record.source_id, stage=f.stage, error_type=f.etype,
-                          message=f.msg[:1500], attempts=f.attempts, raw_response=f.raw, validation_errors=f.errors, processed_at=utcnow(), run_id=run_id)
+                          message=f.msg[:1500], attempts=f.attempts, raw_response=f.raw, validation_errors=f.errors, processed_at=utcnow(), run_id=run_id,
+                          usage=f.spent.usage(), latency_s=f.spent.latency_s())
         ) from None
     meta = make_metadata(engine, resp, prompt, settings, attempts, run_id, raw, False)
     return PrivacyPredictionRecord(record_id=record.record_id, dataset=record.dataset, source_id=record.source_id, prediction=pred, extraction_metadata=meta)
