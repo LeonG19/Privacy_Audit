@@ -15,3 +15,5 @@ data/external/
 pilot/runs/*.log
 pilot/runs/slurm-*.out
 .hf_cache/
+# macOS metadata
+.DS_Store
