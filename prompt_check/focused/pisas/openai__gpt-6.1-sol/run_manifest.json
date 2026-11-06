@@ -1,0 +1,62 @@
+{
+  "run_id": "3f5896a636fb",
+  "operation": "extract",
+  "dataset": "pisas",
+  "subsets": [
+    "original",
+    "expanded"
+  ],
+  "adapter_status": "loader_verified",
+  "source_revision": "hf@8a1ba30ba210d4a430bbd25cf4a3500d0e22c5b9; github@52611d0cb6eac6e13a80c5716fd9cfd02e0ee155",
+  "engine": {
+    "engine": "openai",
+    "model": "gpt-6.1-sol",
+    "base_url": null
+  },
+  "is_mock": false,
+  "generation": {
+    "temperature": 0.0,
+    "max_output_tokens": 3000,
+    "timeout": 180,
+    "retries": 3,
+    "seed": 0
+  },
+  "concurrency": 4,
+  "validation_retries": 2,
+  "prompt_version": "pisas-focused-v1+blind_native_ci",
+  "blind_native_ci": true,
+  "prompt_variant": "focused",
+  "record_ids_requested": 5,
+  "prompt_sha256": "5b0d191ce6a995f3f2dad747d1621069ceadecb22680e1c5ebeecdc0eac6f1ec",
+  "taxonomy_version": 1,
+  "limit": null,
+  "records_selected": 5,
+  "records_resumed_from_previous": 0,
+  "records_attempted_this_run": 5,
+  "ok_this_run": 5,
+  "failed_this_run": 0,
+  "total_ok_in_file": 5,
+  "unresolved_failures": [],
+  "started_at": "2026-11-05T05:01:21+00:00",
+  "finished_at": "2026-11-05T05:01:42+00:00",
+  "cli_args": {
+    "command": "extract",
+    "dataset": "pisas",
+    "engine": "openai",
+    "model": "gpt-6.1-sol",
+    "ids_file": "prompt_check/test_ids_pisas.txt",
+    "output_dir": "prompt_check/focused",
+    "resume": false,
+    "force": false,
+    "no_progress": true,
+    "prompt_variant": "focused",
+    "blind_native_ci": true,
+    "base_url": null
+  },
+  "environment": {
+    "ci_audit": "0.1.0",
+    "python": "3.12.13",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "note": null
+}

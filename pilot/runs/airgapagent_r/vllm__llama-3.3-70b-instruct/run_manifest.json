@@ -1,0 +1,62 @@
+{
+  "run_id": "cf67ac845728",
+  "operation": "extract",
+  "dataset": "airgapagent_r",
+  "subsets": [
+    "full"
+  ],
+  "adapter_status": "loader_verified",
+  "source_revision": "hf@f1d8f27376eb0854ec5b476e88b942d0060eee62; github@66154a39d932354960da2fa56821a10196ed3605",
+  "engine": {
+    "engine": "vllm",
+    "model": "llama-3.3-70b-instruct",
+    "base_url": "http://127.0.0.1:18002/v1"
+  },
+  "is_mock": false,
+  "generation": {
+    "temperature": 0.0,
+    "max_output_tokens": 1400,
+    "timeout": 600.0,
+    "retries": 3,
+    "seed": 0
+  },
+  "concurrency": 1,
+  "validation_retries": 2,
+  "prompt_version": "airgapagent_r-v1-untested+blind_native_ci",
+  "blind_native_ci": true,
+  "record_ids_requested": 20,
+  "prompt_sha256": "50758f32bb52199bc711fb72b2292a6a4f30d70c0e8c54764978166b7394de3e",
+  "taxonomy_version": 1,
+  "limit": null,
+  "records_selected": 20,
+  "records_resumed_from_previous": 0,
+  "records_attempted_this_run": 20,
+  "ok_this_run": 20,
+  "failed_this_run": 0,
+  "total_ok_in_file": 20,
+  "unresolved_failures": [],
+  "started_at": "2026-11-03T17:33:18+00:00",
+  "finished_at": "2026-11-03T17:37:42+00:00",
+  "cli_args": {
+    "command": "extract",
+    "dataset": "airgapagent_r",
+    "engine": "vllm",
+    "model": "llama-3.3-70b-instruct",
+    "base_url": "http://127.0.0.1:18002/v1",
+    "ids_file": "pilot/pilot_sample.json",
+    "output_dir": "pilot/runs",
+    "max_output_tokens": 1400,
+    "timeout": 600.0,
+    "concurrency": 1,
+    "resume": false,
+    "force": false,
+    "no_progress": true,
+    "blind_native_ci": true
+  },
+  "environment": {
+    "ci_audit": "0.1.0",
+    "python": "3.12.13",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "note": null
+}

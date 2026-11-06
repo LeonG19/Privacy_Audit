@@ -99,9 +99,16 @@ is validated against the same Pydantic schema, with limited re-asks (`--validati
 environment and never logged or stored.
 
 Common options: `--limit N --subset 2a,2b --output-dir DIR --temperature T --max-output-tokens N --timeout S --retries N
---validation-retries N --concurrency N --seed N --resume --force`. Defaults are in [configs/extraction.yaml](configs/extraction.yaml).
+--validation-retries N --concurrency N --seed N --resume --force --ids-file FILE --blind-native-ci`. Defaults are in [configs/extraction.yaml](configs/extraction.yaml).
 `--resume` continues an interrupted run (completed records skipped, failed ones retried; refuses if the prompt templates changed).
 `--force` starts over, **archiving** old outputs as `*.bak-<timestamp>` rather than deleting them.
+
+## Model-comparison pilot
+
+Before choosing a model for the full run, candidates are compared on one shared 100-record sample (20 per dataset)
+against a human reference: `python -m ci_audit pilot sample` → `extract ... --ids-file pilot/pilot_sample.json --blind-native-ci`
+→ `python -m ci_audit pilot score`. Llama-3.3-70B (vLLM) end to end: `scripts/run_pilot_vllm.sh` or
+`sbatch scripts/slurm/pilot_llama70b.sbatch`. Protocol, annotation guide and metrics: [docs/pilot_evaluation.md](docs/pilot_evaluation.md).
 
 ## Other commands
 

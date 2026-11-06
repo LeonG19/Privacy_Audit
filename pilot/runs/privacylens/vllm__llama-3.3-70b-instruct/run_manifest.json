@@ -1,0 +1,63 @@
+{
+  "run_id": "9f90af1f93e2",
+  "operation": "extract",
+  "dataset": "privacylens",
+  "subsets": [
+    "seed",
+    "vignette",
+    "trajectory"
+  ],
+  "adapter_status": "loader_verified",
+  "source_revision": "hf@7dc406e8d1e882e5b0c6ea4be697b2b7a5dee805; github@9c2ee07b080dc54ed4924af11d9751e81753c94d",
+  "engine": {
+    "engine": "vllm",
+    "model": "llama-3.3-70b-instruct",
+    "base_url": "http://127.0.0.1:18002/v1"
+  },
+  "is_mock": false,
+  "generation": {
+    "temperature": 0.0,
+    "max_output_tokens": 3000,
+    "timeout": 900.0,
+    "retries": 3,
+    "seed": 0
+  },
+  "concurrency": 1,
+  "validation_retries": 2,
+  "prompt_version": "privacylens-v1-untested+blind_native_ci",
+  "blind_native_ci": true,
+  "record_ids_requested": 20,
+  "prompt_sha256": "abcfb004bc2f821dce06a180cc3ca2c17a5b4c7031bae3fa7a1ea7a54e2c7fbd",
+  "taxonomy_version": 1,
+  "limit": null,
+  "records_selected": 20,
+  "records_resumed_from_previous": 15,
+  "records_attempted_this_run": 5,
+  "ok_this_run": 5,
+  "failed_this_run": 0,
+  "total_ok_in_file": 20,
+  "unresolved_failures": [],
+  "started_at": "2026-11-03T18:33:45+00:00",
+  "finished_at": "2026-11-03T18:35:26+00:00",
+  "cli_args": {
+    "command": "extract",
+    "dataset": "privacylens",
+    "engine": "vllm",
+    "model": "llama-3.3-70b-instruct",
+    "base_url": "http://127.0.0.1:18002/v1",
+    "ids_file": "pilot/pilot_sample.json",
+    "output_dir": "pilot/runs",
+    "timeout": 900.0,
+    "concurrency": 1,
+    "resume": true,
+    "force": false,
+    "no_progress": true,
+    "blind_native_ci": true
+  },
+  "environment": {
+    "ci_audit": "0.1.0",
+    "python": "3.12.13",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "note": null
+}

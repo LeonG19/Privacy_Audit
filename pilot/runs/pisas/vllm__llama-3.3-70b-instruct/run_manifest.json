@@ -1,0 +1,62 @@
+{
+  "run_id": "e10289ec3fbe",
+  "operation": "extract",
+  "dataset": "pisas",
+  "subsets": [
+    "original",
+    "expanded"
+  ],
+  "adapter_status": "loader_verified",
+  "source_revision": "hf@8a1ba30ba210d4a430bbd25cf4a3500d0e22c5b9; github@52611d0cb6eac6e13a80c5716fd9cfd02e0ee155",
+  "engine": {
+    "engine": "vllm",
+    "model": "llama-3.3-70b-instruct",
+    "base_url": "http://127.0.0.1:18002/v1"
+  },
+  "is_mock": false,
+  "generation": {
+    "temperature": 0.0,
+    "max_output_tokens": 3000,
+    "timeout": 900.0,
+    "retries": 3,
+    "seed": 0
+  },
+  "concurrency": 1,
+  "validation_retries": 2,
+  "prompt_version": "pisas-v1-untested+blind_native_ci",
+  "blind_native_ci": true,
+  "record_ids_requested": 20,
+  "prompt_sha256": "b90cd3eba2438ec8d8d317e38c3b4bfe86984cbbb9b0c25fd939d1712ac6a4d2",
+  "taxonomy_version": 1,
+  "limit": null,
+  "records_selected": 20,
+  "records_resumed_from_previous": 0,
+  "records_attempted_this_run": 20,
+  "ok_this_run": 20,
+  "failed_this_run": 0,
+  "total_ok_in_file": 20,
+  "unresolved_failures": [],
+  "started_at": "2026-11-03T18:38:28+00:00",
+  "finished_at": "2026-11-03T18:45:51+00:00",
+  "cli_args": {
+    "command": "extract",
+    "dataset": "pisas",
+    "engine": "vllm",
+    "model": "llama-3.3-70b-instruct",
+    "base_url": "http://127.0.0.1:18002/v1",
+    "ids_file": "pilot/pilot_sample.json",
+    "output_dir": "pilot/runs",
+    "timeout": 900.0,
+    "concurrency": 1,
+    "resume": false,
+    "force": false,
+    "no_progress": true,
+    "blind_native_ci": true
+  },
+  "environment": {
+    "ci_audit": "0.1.0",
+    "python": "3.12.13",
+    "platform": "macOS-27.0.1-arm64-arm-64bit"
+  },
+  "note": null
+}

@@ -1,0 +1,30 @@
+# Model-comparison pilot (proprietary vs open-source). Every model runs on the SAME records, chosen
+# once by `python -m ci_audit pilot sample` and frozen in pilot/pilot_sample.json (commit that file).
+# Changing anything here after references exist means re-annotating: bump `sample_version`.
+sample_version: 1
+seed: 20261102
+n_per_dataset: 20 # task asks for 10-20; split evenly across the subsets below (stratified)
+
+# One adapter per benchmark (the five datasets). Subsets = what the full pipeline would process.
+datasets:
+  confaide_tier2: { subsets: ["2a", "2b"] }
+  privacylens: { subsets: [seed, vignette, trajectory] }
+  mpci_bench: { subsets: [seed, story, trajectory] }
+  airgapagent_r: { subsets: [full] }
+  pisas: { subsets: [original, expanded] }
+
+scoring:
+  # A model value is auto-accepted when it equals a reference value after normalisation, or when the
+  # token-set F1 against a reference value is at least this; every other value pair goes to the human
+  # judgment queue (pilot/judgments.csv). Nothing below this threshold is auto-rejected.
+  auto_accept_f1: 0.8
+
+costs:
+  # USD per 1M tokens, keyed by the exact --model string. Fill in from the provider's pricing page on the
+  # day of the run (note the date); leave null when unknown and the report shows tokens only.
+  api_pricing:
+    # "<anthropic model id>": {input_per_mtok: null, output_per_mtok: null, priced_on: null}
+    # "<openai model id>":    {input_per_mtok: null, output_per_mtok: null, priced_on: null}
+  # Self-hosted vLLM: GPU-hours x this rate gives a dollar estimate comparable with API cost
+  # (e.g. a cloud on-demand price for the same GPU). null -> report GPU-hours only.
+  gpu_hourly_usd: null
