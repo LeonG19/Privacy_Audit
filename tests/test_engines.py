@@ -170,6 +170,20 @@ async def test_anthropic_drops_rejected_temperature_and_unsupported_structured_o
     assert "temperature" not in client.calls[-1] and "extra_body" not in client.calls[-1]
 
 
+async def test_anthropic_drops_temperature_the_sdk_no_longer_accepts():
+    # anthropic SDK 2.x removed sampling params from messages.create(): it raises TypeError before sending
+    sdk_err = TypeError("AsyncMessages.create() got an unexpected keyword argument 'temperature'")
+    client = FakeAnthropic([sdk_err, anthropic_response("{}")])
+    r = await fast(AnthropicEngine("m", client=client)).generate("s", "u", LLMExtraction, S)
+    assert r.dropped_params == ["temperature"] and "temperature" not in client.calls[-1] and r.content == "{}"
+
+
+async def test_anthropic_unrelated_type_error_is_raised():
+    client = FakeAnthropic([TypeError("AsyncMessages.create() got an unexpected keyword argument 'foo'")])
+    with pytest.raises(TypeError, match="foo"):
+        await fast(AnthropicEngine("m", client=client)).generate("s", "u", None, S)
+
+
 async def test_non_droppable_bad_request_is_raised():
     client = FakeAnthropic([anthropic.BadRequestError("prompt is too long", response=http_response(400), body=None)])
     with pytest.raises(BadRequest, match="too long"):
