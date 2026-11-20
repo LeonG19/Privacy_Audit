@@ -1,0 +1,6 @@
+# Step-1 smoke set: one sample per text format in Enrique's datasets (mostly outside the initial review set)
+mpci_bench:2017_96859525_pos:story
+mpci_bench:2017_94830506_neg:trajectory
+mpci_bench:2017_62881898_pos:story
+airgapagent_r:full:13:doctor_appointment:religious_beliefs
+pisas:special_event_permit_readiness/scenario_13
