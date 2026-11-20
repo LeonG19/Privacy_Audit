@@ -26,7 +26,6 @@ Read by hand: the new value is expressed, the old value is gone, the other param
   and 2 of those 3 have no verifier result. As agreed, we're sending what we have. The rest can be finished with the same command + `--resume`.
 
 ## Review of the 53 rows (`review_enrique.csv`)
-Every row was graded from a side-by-side diff of the original and new text, and each has a note.
 
 | column | y | ? | n |
 |---|---|---|---|
