@@ -1,0 +1,70 @@
+{
+  "model_id": "microsoft/Phi-3.5-mini-instruct",
+  "sub": "2b",
+  "n_items": 98,
+  "r_human": {
+    "point": 0.6414663130936112,
+    "ci_lo": 0.5412862371404034,
+    "ci_hi": 0.7498038110577583,
+    "n_boot": 1000,
+    "n": 98
+  },
+  "variance_shares": {
+    "type_share": 0.03126690241436452,
+    "actor_share": 0.054897507578749956,
+    "use_share": 0.6432485950801369,
+    "type_actor_share": 0.08687023614839402,
+    "type_use_share": 0.021514480970625263,
+    "actor_use_share": 0.09449555397775822,
+    "residual_share": 0.06770672382997098,
+    "ss_total": 575142.9986854055
+  },
+  "r_main": 0.8728780371951755,
+  "r_int": 0.3077918557216396,
+  "crossover_fidelity": {
+    "in_context": 0.6910569105691057,
+    "commercial": 0.6086956521739131,
+    "reference_additive_model": 0.0,
+    "reference_random_model": 0.25,
+    "reference_human_table_itself": 1.0,
+    "n_human_crossovers_in_context": 123,
+    "n_human_crossovers_commercial": 23
+  },
+  "split_half_reliability": {
+    "half_a_reproduces_half_b": 0.8960396039603961,
+    "half_b_reproduces_half_a": 0.8605769230769231
+  },
+  "binary_views": {
+    "threshold_0": {
+      "threshold": 0.0,
+      "agreement_with_human_binary": 0.5918367346938775,
+      "n_human_crossovers_reproduced": 0,
+      "n_human_crossovers_total": 17,
+      "frac_human_crossovers_reproduced": 0.0,
+      "model_own_binary_crossovers_in_context": 6,
+      "model_own_clearance_distance_in_context": 2,
+      "model_positive_count": 47,
+      "model_refuse_all_agreement": 51,
+      "model_refuse_all_total": 98
+    },
+    "threshold_7_positives": {
+      "threshold": 81.29223348949384,
+      "agreement_with_human_binary": 0.8775510204081632,
+      "n_human_crossovers_reproduced": 0,
+      "n_human_crossovers_total": 17,
+      "frac_human_crossovers_reproduced": 0.0,
+      "model_own_binary_crossovers_in_context": 17,
+      "model_own_clearance_distance_in_context": 4,
+      "model_positive_count": 7,
+      "model_refuse_all_agreement": 91,
+      "model_refuse_all_total": 98
+    }
+  },
+  "prompt_sensitivity": {
+    "mean_sd_expected_rating_across_variants": 10.272245395070076,
+    "frac_items_binarized_decision_flips_across_variants": 0.07142857142857142
+  },
+  "candidate_mass_frac_below_0.9": 0.0,
+  "used_teacher_forcing": false,
+  "is_constant_rater": false
+}

@@ -1,0 +1,4 @@
+AI_ACT: n=3000 floor=0.343 text=0.922 ci=0.849 itype=0.749
+GDPR: n=3137 floor=0.785 text=0.996 ci=0.959 itype=0.725
+HIPAA: n=214 floor=0.500 text=0.883 ci=0.762 itype=0.565
+done

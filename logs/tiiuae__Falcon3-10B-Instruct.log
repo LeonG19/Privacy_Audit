@@ -1,0 +1,6 @@
+[2026-09-11 11:19:29] Loading tiiuae/Falcon3-10B-Instruct (tensor_parallel_size=1, quantization=None)
+[2026-09-11 11:20:17] B1: scoring ConfAIde Tier 2a/2b
+[2026-09-11 11:20:23] B2: scoring CAMBER single/paired
+[2026-09-11 11:22:38] B4: scoring persona unanimity on Tier 2a
+[2026-09-11 11:22:40] B3: defense sweep on a 300-pair subset
+[2026-09-11 11:33:43] Done with tiiuae/Falcon3-10B-Instruct. Freeing engine.

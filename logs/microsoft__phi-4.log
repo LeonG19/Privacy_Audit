@@ -1,0 +1,6 @@
+[2026-09-11 09:55:46] Loading microsoft/phi-4 (tensor_parallel_size=1, quantization=None)
+[2026-09-11 09:56:48] B1: scoring ConfAIde Tier 2a/2b
+[2026-09-11 09:56:55] B2: scoring CAMBER single/paired
+[2026-09-11 09:59:50] B4: scoring persona unanimity on Tier 2a
+[2026-09-11 09:59:52] B3: defense sweep on a 300-pair subset
+[2026-09-11 10:14:07] Done with microsoft/phi-4. Freeing engine.

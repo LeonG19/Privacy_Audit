@@ -1,0 +1,6 @@
+[2026-09-11 09:15:46] Loading Qwen/Qwen2.5-14B-Instruct (tensor_parallel_size=1, quantization=None)
+[2026-09-11 09:16:49] B1: scoring ConfAIde Tier 2a/2b
+[2026-09-11 09:16:56] B2: scoring CAMBER single/paired
+[2026-09-11 09:19:51] B4: scoring persona unanimity on Tier 2a
+[2026-09-11 09:19:53] B3: defense sweep on a 300-pair subset
+[2026-09-11 09:33:57] Done with Qwen/Qwen2.5-14B-Instruct. Freeing engine.

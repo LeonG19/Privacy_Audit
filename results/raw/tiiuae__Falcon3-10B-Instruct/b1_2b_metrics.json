@@ -1,0 +1,70 @@
+{
+  "model_id": "tiiuae/Falcon3-10B-Instruct",
+  "sub": "2b",
+  "n_items": 98,
+  "r_human": {
+    "point": 0.7031227722698488,
+    "ci_lo": 0.6177921029445554,
+    "ci_hi": 0.7851820681272343,
+    "n_boot": 1000,
+    "n": 98
+  },
+  "variance_shares": {
+    "type_share": 0.05888449353662066,
+    "actor_share": 0.060490471256258574,
+    "use_share": 0.5876852975500495,
+    "type_actor_share": 0.10828139166753818,
+    "type_use_share": 0.03441519998810607,
+    "actor_use_share": 0.060017213744743045,
+    "residual_share": 0.09022593225668407,
+    "ss_total": 544218.4466282682
+  },
+  "r_main": 0.9198374684936879,
+  "r_int": 0.405388620469118,
+  "crossover_fidelity": {
+    "in_context": 0.6910569105691057,
+    "commercial": 0.5652173913043478,
+    "reference_additive_model": 0.0,
+    "reference_random_model": 0.25,
+    "reference_human_table_itself": 1.0,
+    "n_human_crossovers_in_context": 123,
+    "n_human_crossovers_commercial": 23
+  },
+  "split_half_reliability": {
+    "half_a_reproduces_half_b": 0.8715596330275229,
+    "half_b_reproduces_half_a": 0.8303571428571429
+  },
+  "binary_views": {
+    "threshold_0": {
+      "threshold": 0.0,
+      "agreement_with_human_binary": 0.6326530612244898,
+      "n_human_crossovers_reproduced": 2,
+      "n_human_crossovers_total": 17,
+      "frac_human_crossovers_reproduced": 0.11764705882352941,
+      "model_own_binary_crossovers_in_context": 24,
+      "model_own_clearance_distance_in_context": 3,
+      "model_positive_count": 43,
+      "model_refuse_all_agreement": 55,
+      "model_refuse_all_total": 98
+    },
+    "threshold_7_positives": {
+      "threshold": 82.64079033567195,
+      "agreement_with_human_binary": 0.8979591836734694,
+      "n_human_crossovers_reproduced": 0,
+      "n_human_crossovers_total": 17,
+      "frac_human_crossovers_reproduced": 0.0,
+      "model_own_binary_crossovers_in_context": 2,
+      "model_own_clearance_distance_in_context": 1,
+      "model_positive_count": 7,
+      "model_refuse_all_agreement": 91,
+      "model_refuse_all_total": 98
+    }
+  },
+  "prompt_sensitivity": {
+    "mean_sd_expected_rating_across_variants": 11.821435746867001,
+    "frac_items_binarized_decision_flips_across_variants": 0.12244897959183673
+  },
+  "candidate_mass_frac_below_0.9": 0.0,
+  "used_teacher_forcing": false,
+  "is_constant_rater": false
+}

@@ -1,0 +1,156 @@
+{
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+  "n_pairs_used": 300,
+  "levels": {
+    "none": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.7729946838052978,
+      "H": 0.7258253565149443,
+      "FA": 0.30621215081070524,
+      "d_prime": 1.1068514849693356,
+      "c": -0.04680977377008172,
+      "balanced_accuracy_own_criterion": 0.7098066028521195,
+      "pair_rank_accuracy": 0.93,
+      "pair_rank_accuracy_ci": {
+        "point": 0.93,
+        "ci_lo": 0.9,
+        "ci_hi": 0.96,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.7486580281715358,
+      "paired_argmax_accuracy": 0.8333333333333334,
+      "position_bias_p_one": 0.5139071611680086,
+      "criterion_cost": 0.22019339714788055,
+      "salience_effect": -0.18134197182846423
+    },
+    "low": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.7320325125781078,
+      "H": 0.07804258644266458,
+      "FA": 0.01553037702676304,
+      "d_prime": 0.7379317420321916,
+      "c": 1.787327634771474,
+      "balanced_accuracy_own_criterion": 0.5312561047079507,
+      "pair_rank_accuracy": 0.9133333333333333,
+      "pair_rank_accuracy_ci": {
+        "point": 0.9133333333333333,
+        "ci_lo": 0.8833333333333333,
+        "ci_hi": 0.9433333333333334,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.8727399274774632,
+      "paired_argmax_accuracy": 0.9466666666666667,
+      "position_bias_p_one": 0.47721676321393725,
+      "criterion_cost": 0.3820772286253826,
+      "salience_effect": -0.040593405855870124
+    },
+    "medium": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.7420136059034148,
+      "H": 0.3800546981832389,
+      "FA": 0.12473139285016605,
+      "d_prime": 0.8463180727229659,
+      "c": 0.7284961706453361,
+      "balanced_accuracy_own_criterion": 0.6276616526665364,
+      "pair_rank_accuracy": 0.9166666666666666,
+      "pair_rank_accuracy_ci": {
+        "point": 0.9166666666666666,
+        "ci_lo": 0.8866666666666667,
+        "ci_hi": 0.9466666666666667,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.8657785697315488,
+      "paired_argmax_accuracy": 0.9266666666666666,
+      "position_bias_p_one": 0.5134204009492723,
+      "criterion_cost": 0.28900501400013023,
+      "salience_effect": -0.050888096935117866
+    },
+    "high": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.7410184514546199,
+      "H": 0.11125219769486228,
+      "FA": 0.02647001367454581,
+      "d_prime": 0.7155140479750719,
+      "c": 1.5776527786497367,
+      "balanced_accuracy_own_criterion": 0.5423910920101582,
+      "pair_rank_accuracy": 0.9266666666666666,
+      "pair_rank_accuracy_ci": {
+        "point": 0.9266666666666666,
+        "ci_lo": 0.8966666666666666,
+        "ci_hi": 0.9566666666666667,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.8589753335088282,
+      "paired_argmax_accuracy": 0.91,
+      "position_bias_p_one": 0.5402142665317823,
+      "criterion_cost": 0.3842755746565084,
+      "salience_effect": -0.06769133315783848
+    },
+    "ci_frame": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.7798545189334748,
+      "H": 0.6719085758937292,
+      "FA": 0.26206290291072476,
+      "d_prime": 1.0821879755757011,
+      "c": 0.09590453498494164,
+      "balanced_accuracy_own_criterion": 0.7049228364915022,
+      "pair_rank_accuracy": 0.9066666666666666,
+      "pair_rank_accuracy_ci": {
+        "point": 0.9066666666666666,
+        "ci_lo": 0.8733333333333333,
+        "ci_hi": 0.9366666666666666,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.8194315179401047,
+      "paired_argmax_accuracy": 0.8633333333333333,
+      "position_bias_p_one": 0.5061915484327537,
+      "criterion_cost": 0.2017438301751644,
+      "salience_effect": -0.0872351487265619
+    }
+  },
+  "deltas_from_none": {
+    "low": {
+      "delta_d_prime": -0.368919742937144,
+      "delta_c": 1.8341374085415556,
+      "delta_auc": -0.040962171227190036,
+      "delta_pair_rank_accuracy": -0.01666666666666672,
+      "delta_paired_accuracy": 0.12408189930592739,
+      "caution_without_discrimination_gain": false
+    },
+    "medium": {
+      "delta_d_prime": -0.2605334122463697,
+      "delta_c": 0.7753059444154178,
+      "delta_auc": -0.03098107790188298,
+      "delta_pair_rank_accuracy": -0.01333333333333342,
+      "delta_paired_accuracy": 0.11712054156001295,
+      "caution_without_discrimination_gain": false
+    },
+    "high": {
+      "delta_d_prime": -0.3913374369942637,
+      "delta_c": 1.6244625524198184,
+      "delta_auc": -0.031976232350677924,
+      "delta_pair_rank_accuracy": -0.0033333333333334103,
+      "delta_paired_accuracy": 0.11031730533729234,
+      "caution_without_discrimination_gain": false
+    },
+    "ci_frame": {
+      "delta_d_prime": -0.024663509393634486,
+      "delta_c": 0.14271430875502336,
+      "delta_auc": 0.006859835128177005,
+      "delta_pair_rank_accuracy": -0.023333333333333428,
+      "delta_paired_accuracy": 0.0707734897685689,
+      "caution_without_discrimination_gain": false
+    }
+  },
+  "cimemories_defense_prompts": {}
+}

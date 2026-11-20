@@ -1,0 +1,156 @@
+{
+  "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+  "n_pairs_used": 300,
+  "levels": {
+    "none": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.7853280401974138,
+      "H": 0.5255909357296347,
+      "FA": 0.16028521195546006,
+      "d_prime": 1.0574773765783836,
+      "c": 0.4645476694060807,
+      "balanced_accuracy_own_criterion": 0.6826528618870873,
+      "pair_rank_accuracy": 0.9466666666666667,
+      "pair_rank_accuracy_ci": {
+        "point": 0.9466666666666667,
+        "ci_lo": 0.92,
+        "ci_hi": 0.97,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.7046796819671729,
+      "paired_argmax_accuracy": 0.7433333333333333,
+      "position_bias_p_one": 0.7457050792780361,
+      "criterion_cost": 0.26401380477957936,
+      "salience_effect": -0.24198698469949376
+    },
+    "low": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.7934115178771993,
+      "H": 0.2941004102363743,
+      "FA": 0.06593084586833366,
+      "d_prime": 0.9653558159332406,
+      "c": 1.0241230196690116,
+      "balanced_accuracy_own_criterion": 0.6140847821840203,
+      "pair_rank_accuracy": 0.9466666666666667,
+      "pair_rank_accuracy_ci": {
+        "point": 0.9466666666666667,
+        "ci_lo": 0.92,
+        "ci_hi": 0.9700833333333332,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.7599971193398283,
+      "paired_argmax_accuracy": 0.76,
+      "position_bias_p_one": 0.7154499773717676,
+      "criterion_cost": 0.33258188448264636,
+      "salience_effect": -0.18666954732683838
+    },
+    "medium": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.771315573031364,
+      "H": 0.4224457901933972,
+      "FA": 0.14172689978511427,
+      "d_prime": 0.8769524552263178,
+      "c": 0.6341166994834169,
+      "balanced_accuracy_own_criterion": 0.6403594452041415,
+      "pair_rank_accuracy": 0.92,
+      "pair_rank_accuracy_ci": {
+        "point": 0.92,
+        "ci_lo": 0.8866666666666667,
+        "ci_hi": 0.95,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.7901920555484729,
+      "paired_argmax_accuracy": 0.84,
+      "position_bias_p_one": 0.6776031536272815,
+      "criterion_cost": 0.2796405547958586,
+      "salience_effect": -0.1298079444515271
+    },
+    "high": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.7638114472654041,
+      "H": 0.4163899199062317,
+      "FA": 0.1511037311974995,
+      "d_prime": 0.8205734505399584,
+      "c": 0.6214244036262143,
+      "balanced_accuracy_own_criterion": 0.632643094354366,
+      "pair_rank_accuracy": 0.92,
+      "pair_rank_accuracy_ci": {
+        "point": 0.92,
+        "ci_lo": 0.8866666666666667,
+        "ci_hi": 0.95,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.7884620107741441,
+      "paired_argmax_accuracy": 0.8433333333333334,
+      "position_bias_p_one": 0.688834569019772,
+      "criterion_cost": 0.287356905645634,
+      "salience_effect": -0.1315379892258559
+    },
+    "ci_frame": {
+      "n_items": 10236,
+      "n_pairs": 300,
+      "auc": 0.7655181789486754,
+      "H": 0.5158234030084001,
+      "FA": 0.20560656378198866,
+      "d_prime": 0.8614344549110312,
+      "c": 0.39104343270574277,
+      "balanced_accuracy_own_criterion": 0.6551084196132058,
+      "pair_rank_accuracy": 0.9266666666666666,
+      "pair_rank_accuracy_ci": {
+        "point": 0.9266666666666666,
+        "ci_lo": 0.8966666666666666,
+        "ci_hi": 0.9566666666666667,
+        "n_boot": 1000,
+        "n": 300
+      },
+      "paired_accuracy_mean_p_correct": 0.7807739127016697,
+      "paired_argmax_accuracy": 0.9066666666666666,
+      "position_bias_p_one": 0.6556526793209903,
+      "criterion_cost": 0.2715582470534609,
+      "salience_effect": -0.1458927539649969
+    }
+  },
+  "deltas_from_none": {
+    "low": {
+      "delta_d_prime": -0.09212156064514299,
+      "delta_c": 0.5595753502629309,
+      "delta_auc": 0.008083477679785567,
+      "delta_pair_rank_accuracy": 0.0,
+      "delta_paired_accuracy": 0.055317437372655376,
+      "caution_without_discrimination_gain": true
+    },
+    "medium": {
+      "delta_d_prime": -0.18052492135206577,
+      "delta_c": 0.16956903007733615,
+      "delta_auc": -0.014012467166049758,
+      "delta_pair_rank_accuracy": -0.026666666666666616,
+      "delta_paired_accuracy": 0.08551237358130004,
+      "caution_without_discrimination_gain": false
+    },
+    "high": {
+      "delta_d_prime": -0.23690392603842514,
+      "delta_c": 0.1568767342201336,
+      "delta_auc": -0.021516592932009693,
+      "delta_pair_rank_accuracy": -0.026666666666666616,
+      "delta_paired_accuracy": 0.08378232880697123,
+      "caution_without_discrimination_gain": false
+    },
+    "ci_frame": {
+      "delta_d_prime": -0.19604292166735238,
+      "delta_c": -0.07350423670033795,
+      "delta_auc": -0.019809861248738403,
+      "delta_pair_rank_accuracy": -0.020000000000000018,
+      "delta_paired_accuracy": 0.07609423073449684,
+      "caution_without_discrimination_gain": false
+    }
+  },
+  "cimemories_defense_prompts": {}
+}

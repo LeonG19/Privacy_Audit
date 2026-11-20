@@ -4,7 +4,6 @@ from __future__ import annotations
 import difflib
 from typing import Optional
 
-from ci_audit.engines.anthropic_api import AnthropicEngine
 from ci_audit.engines.base import Engine, EngineError
 from ci_audit.engines.mock import MockEngine
 from ci_audit.engines.openai_api import OpenAIChatEngine
@@ -25,5 +24,8 @@ def create_engine(name: str, model: Optional[str], base_url: Optional[str] = Non
     if name == "openai":
         return OpenAIChatEngine(model, base_url=base_url, timeout=timeout)
     if name == "anthropic":
+        # imported lazily so vllm/openai runs do not require the anthropic SDK to be installed
+        from ci_audit.engines.anthropic_api import AnthropicEngine
+
         return AnthropicEngine(model, timeout=timeout)
     return MockEngine(model or "mock-model")

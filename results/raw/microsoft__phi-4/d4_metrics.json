@@ -1,0 +1,31 @@
+{
+  "model": "microsoft/phi-4",
+  "variance_shares_4way": {
+    "main": {
+      "info_type": 0.06937992019889759,
+      "actor": 0.058171449377351594,
+      "use": 0.08771122909562902,
+      "sender": 0.05956347536990019
+    },
+    "two_way": {
+      "info_type:actor": 0.16799328899631522,
+      "info_type:use": 0.06012146108856502,
+      "info_type:sender": 0.024421747186562304,
+      "actor:use": 0.06436818173705183,
+      "actor:sender": 0.0141091288975271,
+      "use:sender": 0.042408977510461444
+    },
+    "residual": 0.3517511405417388
+  },
+  "sender_share": 0.05956347536990019,
+  "mean_abs_shift_between_senders": {
+    "sender_device_vs_sender_self": 9.57704297927786,
+    "sender_device_vs_sender_third": 4.210662270784595,
+    "sender_self_vs_sender_third": 13.151471960786415
+  },
+  "max_pairwise_sender_shift": 13.151471960786415,
+  "sender_slice_crossovers": {
+    "info_type_x_sender_crossovers_margin10": 0,
+    "actor_x_sender_crossovers_margin10": 0
+  }
+}

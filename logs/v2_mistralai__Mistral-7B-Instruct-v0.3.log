@@ -1,0 +1,11 @@
+[2026-09-14 02:20:22] Loading mistralai/Mistral-7B-Instruct-v0.3 (tp=1, quantization=None)
+[2026-09-14 02:20:44] Loaded in 23s
+[2026-09-14 02:20:44] D2: scoring
+[2026-09-14 02:20:57] D2: done in 13s, mean candidate mass 0.999, frac below 0.5 = 0.0000
+[2026-09-14 02:20:57] D3: scoring
+[2026-09-14 02:20:59] D3: done in 2s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:20:59] D5: scoring
+[2026-09-14 02:21:01] D5: done in 2s, mean candidate mass 0.999, frac below 0.5 = 0.0000
+[2026-09-14 02:21:01] D4: scoring
+[2026-09-14 02:21:02] D4: done in 1s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:21:02] Done with mistralai/Mistral-7B-Instruct-v0.3. Freeing engine.

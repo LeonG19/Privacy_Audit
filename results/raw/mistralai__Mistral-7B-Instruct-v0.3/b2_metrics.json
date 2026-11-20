@@ -1,0 +1,78 @@
+{
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+  "overall": {
+    "n_items": 10236,
+    "n_pairs": 763,
+    "auc": 0.7729946838052978,
+    "H": 0.7258253565149443,
+    "FA": 0.30621215081070524,
+    "d_prime": 1.1068514849693356,
+    "c": -0.04680977377008172,
+    "balanced_accuracy_own_criterion": 0.7098066028521195,
+    "pair_rank_accuracy": 0.9213630406290957,
+    "pair_rank_accuracy_ci": {
+      "point": 0.9213630406290957,
+      "ci_lo": 0.9017038007863696,
+      "ci_hi": 0.9397116644823067,
+      "n_boot": 1000,
+      "n": 763
+    },
+    "paired_accuracy_mean_p_correct": 0.7294721103076278,
+    "paired_argmax_accuracy": 0.8165137614678899,
+    "position_bias_p_one": 0.48149172815161606,
+    "criterion_cost": 0.2115564377769762,
+    "salience_effect": -0.19189093032146787,
+    "nuisance_flip_rate": {
+      "n_comparisons": 1526,
+      "flip_rate": 0.1743119266055046
+    }
+  },
+  "by_source": {
+    "confaideplus": {
+      "n_items": 4320,
+      "n_pairs": 270,
+      "auc": 0.782483067558299,
+      "H": 0.6952799629801018,
+      "FA": 0.26168440536788523,
+      "d_prime": 1.14903398651016,
+      "c": 0.06364411557024313,
+      "balanced_accuracy_own_criterion": 0.7167977788061082,
+      "pair_rank_accuracy": 0.9481481481481482,
+      "pair_rank_accuracy_ci": {
+        "point": 0.9481481481481482,
+        "ci_lo": 0.9222222222222223,
+        "ci_hi": 0.9740740740740741,
+        "n_boot": 1000,
+        "n": 270
+      },
+      "paired_accuracy_mean_p_correct": 0.752860546609133,
+      "paired_argmax_accuracy": 0.8592592592592593,
+      "position_bias_p_one": 0.5902548862562178,
+      "criterion_cost": 0.23135036934204,
+      "salience_effect": -0.19528760153901514
+    },
+    "privacylensplus": {
+      "n_items": 5916,
+      "n_pairs": 493,
+      "auc": 0.7696771021481265,
+      "H": 0.7480567759378168,
+      "FA": 0.3387968908415005,
+      "d_prime": 1.0841360878890702,
+      "c": -0.12631918083641602,
+      "balanced_accuracy_own_criterion": 0.7046299425481581,
+      "pair_rank_accuracy": 0.9066937119675457,
+      "pair_rank_accuracy_ci": {
+        "point": 0.9066937119675457,
+        "ci_lo": 0.8823529411764706,
+        "ci_hi": 0.9290060851926978,
+        "n_boot": 1000,
+        "n": 493
+      },
+      "paired_accuracy_mean_p_correct": 0.7166630275461544,
+      "paired_argmax_accuracy": 0.7931034482758621,
+      "position_bias_p_one": 0.4219256983580209,
+      "criterion_cost": 0.20206376941938753,
+      "salience_effect": -0.19003068442139126
+    }
+  }
+}

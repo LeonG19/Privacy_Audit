@@ -1,0 +1,31 @@
+{
+  "model": "microsoft/Phi-3.5-mini-instruct",
+  "variance_shares_4way": {
+    "main": {
+      "info_type": 0.17197111817201602,
+      "actor": 0.0691882048086913,
+      "use": 0.1366839467302718,
+      "sender": 0.08147060169562653
+    },
+    "two_way": {
+      "info_type:actor": 0.16301307608651697,
+      "info_type:use": 0.06815821088279804,
+      "info_type:sender": 0.016510906186105245,
+      "actor:use": 0.05381496406640217,
+      "actor:sender": 0.03410220919661145,
+      "use:sender": 0.02353236550637579
+    },
+    "residual": 0.18155439666858472
+  },
+  "sender_share": 0.08147060169562653,
+  "mean_abs_shift_between_senders": {
+    "sender_device_vs_sender_self": 23.788182257872496,
+    "sender_device_vs_sender_third": 3.70060550289867,
+    "sender_self_vs_sender_third": 25.518711176469214
+  },
+  "max_pairwise_sender_shift": 25.518711176469214,
+  "sender_slice_crossovers": {
+    "info_type_x_sender_crossovers_margin10": 0,
+    "actor_x_sender_crossovers_margin10": 0
+  }
+}

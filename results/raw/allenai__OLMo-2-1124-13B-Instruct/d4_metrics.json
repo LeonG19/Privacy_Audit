@@ -1,0 +1,31 @@
+{
+  "model": "allenai/OLMo-2-1124-13B-Instruct",
+  "variance_shares_4way": {
+    "main": {
+      "info_type": 0.14792013122041392,
+      "actor": 0.06403534238151071,
+      "use": 0.23754948715551666,
+      "sender": 0.05959887699831981
+    },
+    "two_way": {
+      "info_type:actor": 0.10429996336848668,
+      "info_type:use": 0.061331936916435875,
+      "info_type:sender": 0.018696097160242498,
+      "actor:use": 0.08286532931169309,
+      "actor:sender": 0.01166422998844062,
+      "use:sender": 0.062062640442837935
+    },
+    "residual": 0.14997596505610222
+  },
+  "sender_share": 0.05959887699831981,
+  "mean_abs_shift_between_senders": {
+    "sender_device_vs_sender_self": 11.064846138171726,
+    "sender_device_vs_sender_third": 8.811715860764608,
+    "sender_self_vs_sender_third": 18.795195233509265
+  },
+  "max_pairwise_sender_shift": 18.795195233509265,
+  "sender_slice_crossovers": {
+    "info_type_x_sender_crossovers_margin10": 0,
+    "actor_x_sender_crossovers_margin10": 0
+  }
+}

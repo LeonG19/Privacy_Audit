@@ -1,0 +1,111 @@
+[2026-09-14 02:18:55] Loading Qwen/Qwen3-8B (tp=1, quantization=None)
+[2026-09-14 02:19:21] Loaded in 26s
+[2026-09-14 02:19:21] D2: scoring
+[2026-09-14 02:19:34] D2: done in 13s, mean candidate mass 0.017, frac below 0.5 = 0.9904
+[2026-09-14 02:19:34] D3: scoring
+[2026-09-14 02:19:36] D3: done in 2s, mean candidate mass 0.002, frac below 0.5 = 1.0000
+[2026-09-14 02:19:36] D5: scoring
+[2026-09-14 02:19:37] D5: FAILED
+Traceback (most recent call last):
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue_v2.py", line 104, in run_for_model
+    save_json(d_metrics.compute_d5_metrics(model_id, raw, df), out_dir / "d5_metrics.json")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_metrics.py", line 324, in compute_d5_metrics
+    llm_label_kept = (kept[[c for c in wide.columns]].mean(axis=1) > 0.5).astype(int) if len(kept) else pd.Series(dtype=int)
+                      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/pandas/core/frame.py", line 4384, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6302, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6352, in _raise_if_missing
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['fundamentalist', 'pragmatist', 'unconcerned'], dtype='str')] are in the [columns]"
+
+[2026-09-14 02:19:37] D4: scoring
+[2026-09-14 02:19:38] D4: done in 1s, mean candidate mass 0.002, frac below 0.5 = 1.0000
+[2026-09-14 02:19:38] Done with Qwen/Qwen3-8B. Freeing engine.
+[2026-09-14 02:39:59] SCORING SWITCH: Qwen/Qwen3-8B uses teacher-forced scoring (next-token candidate mass collapses below the frozen 0.5 threshold)
+[2026-09-14 02:39:59] Loading Qwen/Qwen3-8B (tp=1, quantization=None)
+[2026-09-14 02:40:25] Loaded in 26s
+[2026-09-14 02:40:25] D2: scoring
+[2026-09-14 02:40:30] D2: FAILED
+Traceback (most recent call last):
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue_v2.py", line 103, in run_for_model
+    raw = d_tasks.score_d2(model_id, llm, tokenizer, df, system_role_supported, enable_thinking, teacher_forced)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_tasks.py", line 120, in score_d2
+    df = _run(llm, tokenizer, variants, LETTERS_5, system_role_supported, enable_thinking, teacher_forced=teacher_forced)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_tasks.py", line 75, in _run
+    scores = teacher_forced_batch(llm, tokenizer, prompts, candidates)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/scoring.py", line 241, in teacher_forced_batch
+    outs = llm.generate(prompt_token_ids=seqs, sampling_params=sp, use_tqdm=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LLM.generate() got an unexpected keyword argument 'prompt_token_ids'
+
+[2026-09-14 02:40:30] D3: scoring
+[2026-09-14 02:40:33] D3: FAILED
+Traceback (most recent call last):
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue_v2.py", line 106, in run_for_model
+    raw = d_tasks.score_d3(model_id, llm, tokenizer, df, system_role_supported, enable_thinking, teacher_forced)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_tasks.py", line 145, in score_d3
+    df = _run(llm, tokenizer, variants, LETTERS_5, system_role_supported, enable_thinking, teacher_forced=teacher_forced)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_tasks.py", line 75, in _run
+    scores = teacher_forced_batch(llm, tokenizer, prompts, candidates)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/scoring.py", line 241, in teacher_forced_batch
+    outs = llm.generate(prompt_token_ids=seqs, sampling_params=sp, use_tqdm=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LLM.generate() got an unexpected keyword argument 'prompt_token_ids'
+
+[2026-09-14 02:40:33] D5: scoring
+[2026-09-14 02:40:33] D5: FAILED
+Traceback (most recent call last):
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue_v2.py", line 109, in run_for_model
+    raw = d_tasks.score_d5(model_id, llm, tokenizer, df, personas, system_role_supported, enable_thinking, teacher_forced)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_tasks.py", line 196, in score_d5
+    df = _run(llm, tokenizer, variants, LETTERS_2, system_role_supported, enable_thinking, teacher_forced=teacher_forced)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_tasks.py", line 75, in _run
+    scores = teacher_forced_batch(llm, tokenizer, prompts, candidates)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/scoring.py", line 241, in teacher_forced_batch
+    outs = llm.generate(prompt_token_ids=seqs, sampling_params=sp, use_tqdm=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LLM.generate() got an unexpected keyword argument 'prompt_token_ids'
+
+[2026-09-14 02:40:33] D4: scoring
+[2026-09-14 02:40:35] D4: FAILED
+Traceback (most recent call last):
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue_v2.py", line 112, in run_for_model
+    raw = d_tasks.score_d4(model_id, llm, tokenizer, df, system_role_supported, enable_thinking, teacher_forced)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_tasks.py", line 170, in score_d4
+    df = _run(llm, tokenizer, variants, LETTERS_5, system_role_supported, enable_thinking, teacher_forced=teacher_forced)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_tasks.py", line 75, in _run
+    scores = teacher_forced_batch(llm, tokenizer, prompts, candidates)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/scoring.py", line 241, in teacher_forced_batch
+    outs = llm.generate(prompt_token_ids=seqs, sampling_params=sp, use_tqdm=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LLM.generate() got an unexpected keyword argument 'prompt_token_ids'
+
+[2026-09-14 02:40:35] Done with Qwen/Qwen3-8B. Freeing engine.
+[2026-09-14 02:41:43] SCORING SWITCH: Qwen/Qwen3-8B uses teacher-forced scoring (next-token candidate mass collapses below the frozen 0.5 threshold)
+[2026-09-14 02:41:43] Loading Qwen/Qwen3-8B (tp=1, quantization=None)
+[2026-09-14 02:42:09] Loaded in 26s
+[2026-09-14 02:42:09] D2: scoring
+[2026-09-14 02:44:02] D2: done in 113s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:44:02] D3: scoring
+[2026-09-14 02:45:09] D3: done in 68s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:45:09] D5: scoring
+[2026-09-14 02:45:15] D5: done in 6s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:45:15] D4: scoring
+[2026-09-14 02:45:44] D4: done in 29s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:45:44] Done with Qwen/Qwen3-8B. Freeing engine.

@@ -1,0 +1,31 @@
+{
+  "model": "ibm-granite/granite-3.1-8b-instruct",
+  "variance_shares_4way": {
+    "main": {
+      "info_type": 0.14855179478497832,
+      "actor": 0.04677156373689614,
+      "use": 0.3060404837722421,
+      "sender": 0.03313495830197162
+    },
+    "two_way": {
+      "info_type:actor": 0.14614226787141626,
+      "info_type:use": 0.050100324834894974,
+      "info_type:sender": 0.004392215505335957,
+      "actor:use": 0.08882848505058123,
+      "actor:sender": 0.008218329719336632,
+      "use:sender": 0.016719416256108927
+    },
+    "residual": 0.15110016016623784
+  },
+  "sender_share": 0.03313495830197162,
+  "mean_abs_shift_between_senders": {
+    "sender_device_vs_sender_self": 10.496599282967699,
+    "sender_device_vs_sender_third": 5.56530780504423,
+    "sender_self_vs_sender_third": 14.518370144966
+  },
+  "max_pairwise_sender_shift": 14.518370144966,
+  "sender_slice_crossovers": {
+    "info_type_x_sender_crossovers_margin10": 0,
+    "actor_x_sender_crossovers_margin10": 0
+  }
+}

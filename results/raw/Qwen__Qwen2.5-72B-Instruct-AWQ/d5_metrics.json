@@ -1,0 +1,927 @@
+{
+  "model": "Qwen/Qwen2.5-72B-Instruct-AWQ",
+  "part1_generator_structure": {
+    "per_persona": {
+      "fundamentalist": {
+        "interaction_share": 0.9284004487099531,
+        "type_actor_share": 0.2047124479075296,
+        "theory_class_eps3": "P3-nonseparable",
+        "fidelity_in_context": 0.6260162601626016,
+        "binary_crossovers_in_context": 0,
+        "clearance_distance_in_context": 0,
+        "n_positive": 4,
+        "mean_p_yes": 0.03170437151417796,
+        "ladder": {
+          "n_cells": 98,
+          "value_col": "p_yes",
+          "constant_object": false,
+          "value_sd": 0.14981303663369144,
+          "r2_in_sample": {
+            "P0": 0.0,
+            "P1-type": 0.029927799683919565,
+            "P1-actor": 0.24273788180404787,
+            "P1-use": 0.04524419292920945,
+            "P2-additive": 0.3179098744171772,
+            "P3-additive+type:actor": 0.522622322324707,
+            "P3-additive+type:use": 0.3478377985317408,
+            "P3-additive+actor:use": 0.5606477649290975
+          },
+          "r2_loo": {
+            "P0": -0.02072483792113955,
+            "P1-type": -0.1250541494790045,
+            "P1-actor": 0.12175517653013834,
+            "P1-use": 0.005048310426663094,
+            "P2-additive": 0.07159955129004691,
+            "P3-additive+type:actor": -0.9899024376707974,
+            "P3-additive+type:use": -0.029481555374944124,
+            "P3-additive+actor:use": 0.3064531779058275
+          },
+          "interaction_share_in_sample": 0.6820901255828228,
+          "interaction_share": 0.9284004487099531,
+          "variance_shares": {
+            "type_share": 0.02992779968391996,
+            "actor_share": 0.24273788180404798,
+            "use_share": 0.04524419292920951,
+            "type_actor_share": 0.2047124479075296,
+            "type_use_share": 0.029927924114563485,
+            "actor_use_share": 0.2427378905119203,
+            "residual_share": 0.2047118630488092,
+            "ss_total": 2.177062756704554
+          },
+          "type_actor_share": 0.2047124479075296,
+          "ceiling_loo_r2": 0.3064531779058275,
+          "theory_class": {
+            "eps_1pp": "P3-nonseparable",
+            "eps_3pp": "P3-nonseparable",
+            "eps_5pp": "P3-nonseparable"
+          },
+          "continuous_crossovers": {
+            "in_context": {
+              "n_crossovers_margin10": 0,
+              "n_comparisons": 441
+            },
+            "commercial": {
+              "n_crossovers_margin10": 0,
+              "n_comparisons": 441
+            }
+          },
+          "crossover_fidelity": {
+            "in_context": {
+              "fidelity": 0.6260162601626016,
+              "n_reference_crossovers": 123,
+              "margin": 0.0
+            },
+            "commercial": {
+              "fidelity": 0.8260869565217391,
+              "n_reference_crossovers": 23,
+              "margin": 0.0
+            }
+          },
+          "binary": {
+            "n_positive": 4,
+            "n_total": 98,
+            "refuse_all_agreement": 94,
+            "refuse_all_total": 98,
+            "type_only_rule_agreement": 94,
+            "binary_crossovers_in_context": 0,
+            "binary_crossover_quadruples_in_context": [],
+            "clearance_distance_in_context": 0,
+            "clearance_distance_full_additive": 0
+          }
+        }
+      },
+      "pragmatist": {
+        "interaction_share": 0.735845159464741,
+        "type_actor_share": 0.20806645138486635,
+        "theory_class_eps3": "P3-nonseparable",
+        "fidelity_in_context": 0.8943089430894309,
+        "binary_crossovers_in_context": 28,
+        "clearance_distance_in_context": 4,
+        "n_positive": 21,
+        "mean_p_yes": 0.22009559104908982,
+        "ladder": {
+          "n_cells": 98,
+          "value_col": "p_yes",
+          "constant_object": false,
+          "value_sd": 0.39605589904754646,
+          "r2_in_sample": {
+            "P0": 1.1102230246251565e-16,
+            "P1-type": 0.18185834837372317,
+            "P1-actor": 0.027035180515631696,
+            "P1-use": 0.2504855376263453,
+            "P2-additive": 0.45937906651570026,
+            "P3-additive+type:actor": 0.6674455179005668,
+            "P3-additive+type:use": 0.5676920137288213,
+            "P3-additive+actor:use": 0.48098546890093263
+          },
+          "r2_loo": {
+            "P0": -0.02072483792113955,
+            "P1-type": 0.051149327107986586,
+            "P1-actor": -0.12840890307062836,
+            "P1-use": 0.21893045826426005,
+            "P2-additive": 0.26415484053525895,
+            "P3-additive+type:actor": -0.3862210269457276,
+            "P3-additive+type:use": 0.31757299471591016,
+            "P3-additive+actor:use": 0.18070092756813927
+          },
+          "interaction_share_in_sample": 0.5406209334842997,
+          "interaction_share": 0.735845159464741,
+          "variance_shares": {
+            "type_share": 0.18185834837372317,
+            "actor_share": 0.027035180515631883,
+            "use_share": 0.2504855376263454,
+            "type_actor_share": 0.20806645138486635,
+            "type_use_share": 0.10831294721312076,
+            "actor_use_share": 0.021606402385232336,
+            "residual_share": 0.20263513250107995,
+            "ss_total": 15.215446691524953
+          },
+          "type_actor_share": 0.20806645138486635,
+          "ceiling_loo_r2": 0.31757299471591016,
+          "theory_class": {
+            "eps_1pp": "P3-nonseparable",
+            "eps_3pp": "P3-nonseparable",
+            "eps_5pp": "P3-nonseparable"
+          },
+          "continuous_crossovers": {
+            "in_context": {
+              "n_crossovers_margin10": 0,
+              "n_comparisons": 441
+            },
+            "commercial": {
+              "n_crossovers_margin10": 0,
+              "n_comparisons": 441
+            }
+          },
+          "crossover_fidelity": {
+            "in_context": {
+              "fidelity": 0.8943089430894309,
+              "n_reference_crossovers": 123,
+              "margin": 0.0
+            },
+            "commercial": {
+              "fidelity": 0.8260869565217391,
+              "n_reference_crossovers": 23,
+              "margin": 0.0
+            }
+          },
+          "binary": {
+            "n_positive": 21,
+            "n_total": 98,
+            "refuse_all_agreement": 77,
+            "refuse_all_total": 98,
+            "type_only_rule_agreement": 79,
+            "binary_crossovers_in_context": 28,
+            "binary_crossover_quadruples_in_context": [
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "doctor",
+                "a2": "library",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "doctor",
+                "a2": "school",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "doctor",
+                "a2": "search",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "doctor",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "insurer",
+                "a2": "library",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "insurer",
+                "a2": "school",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "insurer",
+                "a2": "search",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "insurer",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "location",
+                "a1": "doctor",
+                "a2": "library",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "location",
+                "a1": "doctor",
+                "a2": "school",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "location",
+                "a1": "doctor",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "location",
+                "a1": "doctor",
+                "a2": "workplace",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "religion",
+                "a1": "doctor",
+                "a2": "library",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "religion",
+                "a1": "doctor",
+                "a2": "school",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "religion",
+                "a1": "doctor",
+                "a2": "search",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "religion",
+                "a1": "doctor",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "library",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "school",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "search",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "workplace",
+                "sign1": -1
+              },
+              {
+                "t1": "health",
+                "t2": "location",
+                "a1": "insurer",
+                "a2": "search",
+                "sign1": 1
+              },
+              {
+                "t1": "health",
+                "t2": "location",
+                "a1": "search",
+                "a2": "workplace",
+                "sign1": -1
+              },
+              {
+                "t1": "location",
+                "t2": "religion",
+                "a1": "search",
+                "a2": "workplace",
+                "sign1": 1
+              },
+              {
+                "t1": "location",
+                "t2": "ssn",
+                "a1": "doctor",
+                "a2": "insurer",
+                "sign1": 1
+              },
+              {
+                "t1": "location",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "search",
+                "sign1": -1
+              },
+              {
+                "t1": "religion",
+                "t2": "ssn",
+                "a1": "doctor",
+                "a2": "insurer",
+                "sign1": 1
+              },
+              {
+                "t1": "religion",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "workplace",
+                "sign1": -1
+              }
+            ],
+            "clearance_distance_in_context": 4,
+            "clearance_distance_full_additive": 5
+          }
+        }
+      },
+      "unconcerned": {
+        "interaction_share": 0.608630951015171,
+        "type_actor_share": 0.20442338661015522,
+        "theory_class_eps3": "P3-nonseparable",
+        "fidelity_in_context": 0.9024390243902439,
+        "binary_crossovers_in_context": 21,
+        "clearance_distance_in_context": 4,
+        "n_positive": 50,
+        "mean_p_yes": 0.5441035615748643,
+        "ladder": {
+          "n_cells": 98,
+          "value_col": "p_yes",
+          "constant_object": false,
+          "value_sd": 0.4350899433414165,
+          "r2_in_sample": {
+            "P0": 0.0,
+            "P1-type": 0.15359701851982133,
+            "P1-actor": 0.19145794629905755,
+            "P1-use": 0.20778760178221944,
+            "P2-additive": 0.5528425666010988,
+            "P3-additive+type:actor": 0.7572659532112539,
+            "P3-additive+type:use": 0.5733834079961513,
+            "P3-additive+actor:use": 0.6752691154064754
+          },
+          "r2_loo": {
+            "P0": -0.02072483792113955,
+            "P1-type": 0.018372873549615365,
+            "P1-actor": 0.062282588607190714,
+            "P1-use": 0.17443490966975228,
+            "P2-additive": 0.39136904898482905,
+            "P3-additive+type:actor": -0.01181327489544981,
+            "P3-additive+type:use": 0.3265572403673631,
+            "P3-additive+actor:use": 0.4873906285936538
+          },
+          "interaction_share_in_sample": 0.44715743339890124,
+          "interaction_share": 0.608630951015171,
+          "variance_shares": {
+            "type_share": 0.1535970185198216,
+            "actor_share": 0.1914579462990577,
+            "use_share": 0.20778760178221956,
+            "type_actor_share": 0.20442338661015522,
+            "type_use_share": 0.02054084139505263,
+            "actor_use_share": 0.12242654880537664,
+            "residual_share": 0.09976665658831667,
+            "ss_total": 18.36241610329319
+          },
+          "type_actor_share": 0.20442338661015522,
+          "ceiling_loo_r2": 0.4873906285936538,
+          "theory_class": {
+            "eps_1pp": "P3-nonseparable",
+            "eps_3pp": "P3-nonseparable",
+            "eps_5pp": "P3-nonseparable"
+          },
+          "continuous_crossovers": {
+            "in_context": {
+              "n_crossovers_margin10": 0,
+              "n_comparisons": 441
+            },
+            "commercial": {
+              "n_crossovers_margin10": 0,
+              "n_comparisons": 441
+            }
+          },
+          "crossover_fidelity": {
+            "in_context": {
+              "fidelity": 0.9024390243902439,
+              "n_reference_crossovers": 123,
+              "margin": 0.0
+            },
+            "commercial": {
+              "fidelity": 0.782608695652174,
+              "n_reference_crossovers": 23,
+              "margin": 0.0
+            }
+          },
+          "binary": {
+            "n_positive": 50,
+            "n_total": 98,
+            "refuse_all_agreement": 48,
+            "refuse_all_total": 98,
+            "type_only_rule_agreement": 62,
+            "binary_crossovers_in_context": 21,
+            "binary_crossover_quadruples_in_context": [
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "doctor",
+                "a2": "library",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "doctor",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "insurer",
+                "a2": "library",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "health",
+                "a1": "insurer",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "religion",
+                "a1": "doctor",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "library",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "school",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "search",
+                "sign1": -1
+              },
+              {
+                "t1": "friends",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "health",
+                "t2": "politics",
+                "a1": "doctor",
+                "a2": "store",
+                "sign1": 1
+              },
+              {
+                "t1": "health",
+                "t2": "politics",
+                "a1": "insurer",
+                "a2": "store",
+                "sign1": 1
+              },
+              {
+                "t1": "health",
+                "t2": "religion",
+                "a1": "insurer",
+                "a2": "library",
+                "sign1": 1
+              },
+              {
+                "t1": "politics",
+                "t2": "religion",
+                "a1": "doctor",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "politics",
+                "t2": "religion",
+                "a1": "library",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "politics",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "school",
+                "sign1": -1
+              },
+              {
+                "t1": "politics",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "search",
+                "sign1": -1
+              },
+              {
+                "t1": "politics",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "store",
+                "sign1": -1
+              },
+              {
+                "t1": "religion",
+                "t2": "ssn",
+                "a1": "doctor",
+                "a2": "insurer",
+                "sign1": 1
+              },
+              {
+                "t1": "religion",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "library",
+                "sign1": -1
+              },
+              {
+                "t1": "religion",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "school",
+                "sign1": -1
+              },
+              {
+                "t1": "religion",
+                "t2": "ssn",
+                "a1": "insurer",
+                "a2": "search",
+                "sign1": -1
+              }
+            ],
+            "clearance_distance_in_context": 4,
+            "clearance_distance_full_additive": 8
+          }
+        }
+      }
+    },
+    "pooled": {
+      "interaction_share": 0.6467130122182745,
+      "type_actor_share": 0.20083320032643287,
+      "theory_class_eps3": "P2-additive",
+      "fidelity_in_context": 0.8780487804878049,
+      "binary_crossovers_in_context": 28,
+      "clearance_distance_in_context": 4,
+      "n_positive": 21,
+      "ladder": {
+        "n_cells": 98,
+        "value_col": "p_yes",
+        "constant_object": false,
+        "value_sd": 0.2679223655772583,
+        "r2_in_sample": {
+          "P0": 0.0,
+          "P1-type": 0.16899460311571834,
+          "P1-actor": 0.07176869641871586,
+          "P1-use": 0.2841006098562213,
+          "P2-additive": 0.5248639093906553,
+          "P3-additive+type:actor": 0.7256971097170881,
+          "P3-additive+type:use": 0.5672894080464973,
+          "P3-additive+actor:use": 0.6040110231845806
+        },
+        "r2_loo": {
+          "P0": -0.020724837921139105,
+          "P1-type": 0.03623042728213488,
+          "P1-actor": -0.076528612437466,
+          "P1-use": 0.2539607483788139,
+          "P2-additive": 0.3532869877817255,
+          "P3-additive+type:actor": -0.14340492980776243,
+          "P3-additive+type:use": 0.3169374547795133,
+          "P3-additive+actor:use": 0.37490497479696117
+        },
+        "interaction_share_in_sample": 0.4751360906093447,
+        "interaction_share": 0.6467130122182745,
+        "variance_shares": {
+          "type_share": 0.16899460311571834,
+          "actor_share": 0.07176869641871574,
+          "use_share": 0.28410060985622126,
+          "type_actor_share": 0.20083320032643287,
+          "type_use_share": 0.04242549865584202,
+          "actor_use_share": 0.07914711379392526,
+          "residual_share": 0.15273027783314452,
+          "ss_total": 6.962892215721862
+        },
+        "type_actor_share": 0.20083320032643287,
+        "ceiling_loo_r2": 0.37490497479696117,
+        "theory_class": {
+          "eps_1pp": "P3-nonseparable",
+          "eps_3pp": "P2-additive",
+          "eps_5pp": "P2-additive"
+        },
+        "continuous_crossovers": {
+          "in_context": {
+            "n_crossovers_margin10": 0,
+            "n_comparisons": 441
+          },
+          "commercial": {
+            "n_crossovers_margin10": 0,
+            "n_comparisons": 441
+          }
+        },
+        "crossover_fidelity": {
+          "in_context": {
+            "fidelity": 0.8780487804878049,
+            "n_reference_crossovers": 123,
+            "margin": 0.0
+          },
+          "commercial": {
+            "fidelity": 0.782608695652174,
+            "n_reference_crossovers": 23,
+            "margin": 0.0
+          }
+        },
+        "binary": {
+          "n_positive": 21,
+          "n_total": 98,
+          "refuse_all_agreement": 77,
+          "refuse_all_total": 98,
+          "type_only_rule_agreement": 79,
+          "binary_crossovers_in_context": 28,
+          "binary_crossover_quadruples_in_context": [
+            {
+              "t1": "friends",
+              "t2": "health",
+              "a1": "doctor",
+              "a2": "library",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "health",
+              "a1": "doctor",
+              "a2": "school",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "health",
+              "a1": "doctor",
+              "a2": "search",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "health",
+              "a1": "doctor",
+              "a2": "store",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "health",
+              "a1": "insurer",
+              "a2": "library",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "health",
+              "a1": "insurer",
+              "a2": "school",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "health",
+              "a1": "insurer",
+              "a2": "search",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "health",
+              "a1": "insurer",
+              "a2": "store",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "location",
+              "a1": "doctor",
+              "a2": "library",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "location",
+              "a1": "doctor",
+              "a2": "school",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "location",
+              "a1": "doctor",
+              "a2": "store",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "location",
+              "a1": "doctor",
+              "a2": "workplace",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "religion",
+              "a1": "doctor",
+              "a2": "library",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "religion",
+              "a1": "doctor",
+              "a2": "school",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "religion",
+              "a1": "doctor",
+              "a2": "search",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "religion",
+              "a1": "doctor",
+              "a2": "store",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "ssn",
+              "a1": "insurer",
+              "a2": "library",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "ssn",
+              "a1": "insurer",
+              "a2": "school",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "ssn",
+              "a1": "insurer",
+              "a2": "search",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "ssn",
+              "a1": "insurer",
+              "a2": "store",
+              "sign1": -1
+            },
+            {
+              "t1": "friends",
+              "t2": "ssn",
+              "a1": "insurer",
+              "a2": "workplace",
+              "sign1": -1
+            },
+            {
+              "t1": "health",
+              "t2": "location",
+              "a1": "insurer",
+              "a2": "search",
+              "sign1": 1
+            },
+            {
+              "t1": "health",
+              "t2": "location",
+              "a1": "search",
+              "a2": "workplace",
+              "sign1": -1
+            },
+            {
+              "t1": "location",
+              "t2": "religion",
+              "a1": "search",
+              "a2": "workplace",
+              "sign1": 1
+            },
+            {
+              "t1": "location",
+              "t2": "ssn",
+              "a1": "doctor",
+              "a2": "insurer",
+              "sign1": 1
+            },
+            {
+              "t1": "location",
+              "t2": "ssn",
+              "a1": "insurer",
+              "a2": "search",
+              "sign1": -1
+            },
+            {
+              "t1": "religion",
+              "t2": "ssn",
+              "a1": "doctor",
+              "a2": "insurer",
+              "sign1": 1
+            },
+            {
+              "t1": "religion",
+              "t2": "ssn",
+              "a1": "insurer",
+              "a2": "workplace",
+              "sign1": -1
+            }
+          ],
+          "clearance_distance_in_context": 4,
+          "clearance_distance_full_additive": 5
+        }
+      }
+    }
+  },
+  "part2_filter": {
+    "R_min": 1.4418240664309217e-55,
+    "R_max": 0.999175669660166,
+    "R_mean": 0.2741576891614533,
+    "R_in_unit_interval": true,
+    "expected_kept_count": 26.86745353782242,
+    "n_kept_at_threshold": 26,
+    "retention_threshold": 0.5,
+    "spearman_rho_R_absI": 0.06822485320276188,
+    "spearman_p": 0.5044500650645365,
+    "spearman_rho_ci": {
+      "point": 0.06822485320276188,
+      "ci_lo": -0.12673622201424564,
+      "ci_hi": 0.2712374725688075,
+      "n_boot": 1000,
+      "n": 98
+    },
+    "mean_R_top_third_absI": 0.3076319011678603,
+    "mean_R_bottom_third_absI": 0.22615839530203555,
+    "mean_R_human_positives": 0.1463005584129255,
+    "mean_R_human_negatives": 0.28399285306518623,
+    "kept_frac_positive_by_llm": 0.038461538461538464,
+    "kept_frac_positive_by_human": 0.038461538461538464,
+    "kept_refuse_all_agreement": 25,
+    "human_crossover_quads_fully_intact": 0,
+    "human_crossover_quads_total": 17
+  }
+}

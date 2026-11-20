@@ -1,0 +1,31 @@
+{
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "variance_shares_4way": {
+    "main": {
+      "info_type": 0.0962380125304485,
+      "actor": 0.03335416228841272,
+      "use": 0.2871591585179762,
+      "sender": 0.07890364523785968
+    },
+    "two_way": {
+      "info_type:actor": 0.10526129496445658,
+      "info_type:use": 0.07582772586845192,
+      "info_type:sender": 0.014973576660731203,
+      "actor:use": 0.04413196429752642,
+      "actor:sender": 0.0101600761821615,
+      "use:sender": 0.06820782682724412
+    },
+    "residual": 0.18578255662473125
+  },
+  "sender_share": 0.07890364523785968,
+  "mean_abs_shift_between_senders": {
+    "sender_device_vs_sender_self": 15.159504434881258,
+    "sender_device_vs_sender_third": 6.7022608529865195,
+    "sender_self_vs_sender_third": 21.406019849126384
+  },
+  "max_pairwise_sender_shift": 21.406019849126384,
+  "sender_slice_crossovers": {
+    "info_type_x_sender_crossovers_margin10": 0,
+    "actor_x_sender_crossovers_margin10": 0
+  }
+}

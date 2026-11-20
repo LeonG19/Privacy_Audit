@@ -1,0 +1,63 @@
+[2026-09-11 00:52:29 MDT] overnight_driver.sh started (hard_stop_minutes=360, smoke_model=meta-llama/Llama-3.1-8B-Instruct)
+[2026-09-11 00:52:29 MDT] Waiting for vllm install to finish...
+vllm 0.11.0
+torch 2.8.0+cu128
+transformers 5.17.0
+[2026-09-11 04:24:15 MDT] vllm install confirmed.
+[2026-09-11 04:24:15 MDT] Waiting for Phase A (data prep + A1/A2/A3) to finish...
+[2026-09-11 04:24:15 MDT] Phase A finished (or exited).
+[2026-09-11 04:24:15 MDT] Running smoke test with meta-llama/Llama-3.1-8B-Instruct...
+INFO 09-11 04:24:18 [__init__.py:216] Automatically detected platform cuda.
+INFO 09-11 04:24:20 [utils.py:233] non-default args: {'trust_remote_code': True, 'seed': 0, 'max_model_len': 8192, 'disable_log_stats': True, 'model': 'meta-llama/Llama-3.1-8B-Instruct'}
+[transformers] The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 09-11 04:24:28 [model.py:547] Resolved architecture: LlamaForCausalLM
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+INFO 09-11 04:24:28 [model.py:1510] Using max model len 8192
+INFO 09-11 04:24:28 [scheduler.py:205] Chunked prefill is enabled with max_num_batched_tokens=16384.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/smoke_test.py", line 86, in <module>
+    out = run_smoke_test(model_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/smoke_test.py", line 34, in run_smoke_test
+    llm = load_engine(model_id, tensor_parallel_size=tensor_parallel_size)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/scoring.py", line 158, in load_engine
+    return LLM(model=model_id, tensor_parallel_size=tensor_parallel_size, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 297, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
+    return cls(vllm_config=vllm_config,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 96, in __init__
+    self.tokenizer = init_tokenizer_from_configs(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/transformers_utils/tokenizer.py", line 286, in init_tokenizer_from_configs
+    return get_tokenizer(
+           ^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/transformers_utils/tokenizer.py", line 256, in get_tokenizer
+    tokenizer = get_cached_tokenizer(tokenizer)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/transformers_utils/tokenizer.py", line 99, in get_cached_tokenizer
+    tokenizer.all_special_tokens_extended)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 1308, in __getattr__
+    raise AttributeError(f"{self.__class__.__name__} has no attribute {key}")
+AttributeError: TokenizersBackend has no attribute all_special_tokens_extended. Did you mean: 'num_special_tokens_to_add'?
+[2026-09-11 04:24:31 MDT] Smoke test script errored. Logging and proceeding to Phase B anyway (Phase B has its own per-model error handling).
+[2026-09-11 04:24:31 MDT] Launching Phase B (hard stop 360 minutes from now).
+Traceback (most recent call last):
+  File "/home/lgarza3/projects/Privacy_Audit/scripts/run_phase_b.py", line 23, in <module>
+    from src.config import AWQ_MODELS, LOGS, PROGRESS_MD, QUEUE_0, QUEUE_1, ROOT, slugify
+ModuleNotFoundError: No module named 'src'
+[2026-09-11 04:24:31 MDT] Phase B orchestrator exited. Running final aggregate + report.
+b1: 0 model(s) aggregated
+b2: 0 model(s) aggregated
+b3: 0 model(s) aggregated
+b4: 0 model(s) aggregated
+c1: 0 model(s) aggregated
+Wrote /home/lgarza3/projects/Privacy_Audit/results/REPORT.md, /home/lgarza3/projects/Privacy_Audit/results/SLIDES_OUTLINE.md, /home/lgarza3/projects/Privacy_Audit/results/provenance.json
+[2026-09-11 04:24:31 MDT] overnight_driver.sh done.

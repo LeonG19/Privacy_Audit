@@ -1,0 +1,12 @@
+[2026-09-14 02:26:20] Using reduced max_model_len=4096 for allenai/OLMo-2-1124-13B-Instruct
+[2026-09-14 02:26:20] Loading allenai/OLMo-2-1124-13B-Instruct (tp=1, quantization=None)
+[2026-09-14 02:27:22] Loaded in 62s
+[2026-09-14 02:27:22] D2: scoring
+[2026-09-14 02:27:38] D2: done in 15s, mean candidate mass 0.989, frac below 0.5 = 0.0000
+[2026-09-14 02:27:38] D3: scoring
+[2026-09-14 02:27:41] D3: done in 3s, mean candidate mass 0.984, frac below 0.5 = 0.0000
+[2026-09-14 02:27:41] D5: scoring
+[2026-09-14 02:27:43] D5: done in 2s, mean candidate mass 0.995, frac below 0.5 = 0.0000
+[2026-09-14 02:27:43] D4: scoring
+[2026-09-14 02:27:45] D4: done in 2s, mean candidate mass 0.989, frac below 0.5 = 0.0000
+[2026-09-14 02:27:45] Done with allenai/OLMo-2-1124-13B-Instruct. Freeing engine.

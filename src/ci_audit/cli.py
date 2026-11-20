@@ -79,6 +79,41 @@ def build_parser(root: Optional[Path] = None) -> argparse.ArgumentParser:
     run_args(sub.add_parser("extract", help="extract CI parameters + domain for a dataset"))
     run_args(sub.add_parser("classify-privacy", help="OPTIONAL: model judges appropriate/inappropriate/uncertain (separate output file)"), privacy=True)
 
+    vy = sub.add_parser("vary", help="create variations: replace ONE CI parameter per sample with a same-domain value and regenerate the story")
+    vy.add_argument("--engine", required=True, type=_choice(["vllm", "openai", "anthropic"], "engine", extra=("mock",)),
+                    help="LLM that writes the new stories: vllm | openai | anthropic")
+    vy.add_argument("--model", help="model name (required for openai/anthropic; vllm: must be served, omitted = the server's only model)")
+    vy.add_argument("--base-url", help="API base URL (vllm default http://localhost:8000/v1)")
+    vy.add_argument("--input", type=Path, help="subset file: record ids (txt/json/jsonl, pilot-sample json) or jsonl rows with scenario_text + ci_parameters. Default: every known sample")
+    vy.add_argument("--extractions", type=Path, action="append", default=[], help="extra extraction JSONL to take samples/CI parameters from (repeatable)")
+    vy.add_argument("--datasets", help="comma-separated datasets to use (default: all that have extracted samples)")
+    vy.add_argument("--domains", help="comma-separated domains: only use samples that belong to these domains (e.g. Healthcare,Education)")
+    vy.add_argument("--domain", help="declare the domain of ALL selected samples (overrides the known assignment; use for custom --input files). "
+                                     "Replacements are then drawn at random from this domain's pool")
+    vy.add_argument("--per-domain", type=int, help="select N samples per (dataset, domain); only domains with at least N samples qualify")
+    vy.add_argument("--domains-per-dataset", type=int, help="with --per-domain: use M randomly drawn domains per dataset (e.g. --per-domain 3 --domains-per-dataset 3)")
+    vy.add_argument("--per-dataset", type=int, help="randomly select N samples per dataset (default: all)")
+    vy.add_argument("--params", help="comma-separated CI parameters to replace (default: all five; null parameters are skipped)")
+    vy.add_argument("--per-param", type=int, default=1, help="variants per (sample, parameter), each with a different replacement value")
+    vy.add_argument("--seed", type=int, default=20261119, help="seed for sample selection and replacement draws")
+    vy.add_argument("--max-pool-chars", type=int, default=200, help="ignore pool values longer than this")
+    vy.add_argument("--strict-domain", action="store_true", help="never fall back to other domains when the domain pool has no replacement (skip instead)")
+    vy.add_argument("--knowledge-md", type=Path, action="append", default=[], help="extra domain_knowledge.md-style file for the pools")
+    vy.add_argument("--knowledge-csv", type=Path, action="append", default=[], help="extra norm_elements-style CSV for the pools")
+    vy.add_argument("--output-dir", type=Path, help="default: <data>/processed/variations")
+    vy.add_argument("--plan-only", action="store_true", help="only select samples and replacement values; no LLM call (writes plan.json)")
+    vy.add_argument("--verify", action="store_true", help="second LLM call per variant that checks the new text against the original")
+    vy.add_argument("--no-substitution", action="store_true", help="also use the LLM for structured 'seed' texts instead of replacing the line directly")
+    vy.add_argument("--temperature", type=float, default=0.3)
+    vy.add_argument("--max-output-tokens", type=int, default=6000)
+    vy.add_argument("--timeout", type=float, default=300.0)
+    vy.add_argument("--retries", type=int, default=3)
+    vy.add_argument("--validation-retries", type=int, default=1)
+    vy.add_argument("--concurrency", type=int, default=4)
+    vy.add_argument("--resume", action="store_true")
+    vy.add_argument("--force", action="store_true", help="start over; existing outputs are archived, not deleted")
+    vy.add_argument("--no-progress", action="store_true")
+
     dm = sub.add_parser("domains", help="summarise extracted domains (CSV + JSON inventory)")
     dm.add_argument("--dataset", default="all", type=_choice(adapters, "dataset", ("all",)))
     dm.add_argument("--output-dir", type=Path, help="where extraction runs live (default: <data>/processed)")
@@ -269,6 +304,80 @@ def cmd_run(args, paths: Paths, operation: str) -> int:
     return 0 if not m["unresolved_failures"] else 1
 
 
+def cmd_vary(args, paths: Paths) -> int:
+    import asyncio
+    from collections import Counter
+
+    from ci_audit.variation.generate import VariationRun, generate_variations
+    from ci_audit.variation.knowledge import CI_PARAMS, DomainKnowledge
+    from ci_audit.variation.plan import plan_variants
+    from ci_audit.variation.seeds import assign_domain, load_known_seeds, match_domain, read_subset_file, select_seeds
+
+    if args.resume and args.force:
+        raise PipelineError("--resume and --force are mutually exclusive")
+    params = tuple(x.strip() for x in args.params.split(",")) if args.params else CI_PARAMS
+    bad = [x for x in params if x not in CI_PARAMS]
+    if bad:
+        raise PipelineError(f"unknown CI parameter(s) {bad}; choose from {list(CI_PARAMS)}")
+    kb = DomainKnowledge.load(paths.root, paths.processed, args.knowledge_md, args.knowledge_csv)
+    known = load_known_seeds(paths.root, paths.processed, kb, args.extractions)
+    seeds = read_subset_file(args.input, known, kb) if args.input else list(known.values())
+    datasets = [d.strip() for d in args.datasets.split(",")] if args.datasets else None
+    if args.domain:
+        seeds = assign_domain(seeds, match_domain(args.domain, kb))
+    domains = [match_domain(d, kb) for d in args.domains.split(",")] if args.domains else None
+    if args.domains_per_dataset and not args.per_domain:
+        raise PipelineError("--domains-per-dataset needs --per-domain")
+    if args.per_domain and args.per_dataset:
+        raise PipelineError("use either --per-dataset or --per-domain, not both")
+    seeds = select_seeds(seeds, datasets, args.per_dataset, args.seed, domains=domains,
+                         per_domain=args.per_domain, domains_per_dataset=args.domains_per_dataset)
+    if not seeds:
+        raise PipelineError("no samples selected (check --input / --datasets; samples need extracted CI parameters)")
+    plans, skipped = plan_variants(seeds, kb, args.seed, params, args.per_param, args.max_pool_chars, args.strict_domain)
+    fallback = sum(p.pool_scope != "same_domain" for p in plans)
+    print(f"samples: {len(seeds)} ({dict(Counter(s.dataset for s in seeds))})")
+    print(f"domains: {dict(Counter(s.domain for s in seeds))}")
+    if args.domains_per_dataset:
+        for ds in sorted({s.dataset for s in seeds}):
+            doms = sorted({s.domain for s in seeds if s.dataset == ds})
+            print(f"  {ds}: {len(doms)} domain(s) {doms}" + ("   <-- fewer than requested" if len(doms) < args.domains_per_dataset else ""))
+    print(f"variants planned: {len(plans)}  (by parameter: {dict(Counter(p.parameter for p in plans))})")
+    print(f"  replacement drawn from the same domain: {len(plans) - fallback}; cross-domain fallback: {fallback}; skipped (empty pool): {len(skipped)}")
+
+    cfg = load_config(paths.root, "extraction")
+    base_url, ctk = args.base_url, None
+    if args.engine == "vllm":
+        base_url = base_url or cfg["engines"]["vllm"]["default_base_url"]
+        ctk = cfg["engines"]["vllm"].get("chat_template_kwargs")
+    out_dir = (args.output_dir or paths.processed / "variations").resolve()
+    if args.plan_only:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        write_json_atomic(out_dir / "plan.json", [
+            {"variant_id": p.variant_id, "source_record_id": p.seed.record_id, "dataset": p.seed.dataset, "domain": p.seed.domain,
+             "parameter": p.parameter, "original_value": p.original_value, "new_value": p.new_value,
+             "pool_scope": p.pool_scope, "pool_size": p.pool_size} for p in plans])
+        write_json_atomic(out_dir / "plan_skipped.json", skipped)
+        print(f"plan only: wrote {out_dir / 'plan.json'} (no LLM calls)")
+        return 0
+    engine = create_engine(args.engine, args.model, base_url=base_url, timeout=args.timeout, chat_template_kwargs=ctk)
+    if engine.is_mock:
+        print("NOTE: --engine mock produces content-free TEST output.", file=sys.stderr)
+    settings = GenerationSettings(temperature=args.temperature, max_output_tokens=args.max_output_tokens,
+                                  timeout=args.timeout, retries=args.retries, seed=args.seed)
+    run_cfg = VariationRun(engine=engine, settings=settings, out_dir=out_dir, concurrency=args.concurrency,
+                           validation_retries=args.validation_retries, verify=args.verify, use_substitution=not args.no_substitution,
+                           resume=args.resume, force=args.force, show_progress=not args.no_progress)
+    extra = {"cli_args": {k: v for k, v in vars(args).items() if k not in ("root", "data_dir") and v is not None and not callable(v)},
+             "knowledge_files": kb.files, "pool_sizes": kb.sizes(), "skipped_no_pool": skipped, "samples": len(seeds)}
+    res = asyncio.run(generate_variations(plans, run_cfg, extra))
+    m = res["manifest"]
+    print(f"\nvary: {m['ok_this_run']} ok, {m['failed_this_run']} failed this run ({m['already_done_before_run']} resumed) -> {res['run_dir']}")
+    if m["failed_this_run"]:
+        print(f"  see {res['run_dir'] / 'failures.jsonl'}; rerun with --resume to retry them")
+    return 0 if not m["failed_this_run"] else 1
+
+
 def cmd_domains(args, paths: Paths) -> int:
     from ci_audit.processing.domain_classification import build_inventory, write_inventory
     from ci_audit.prompts import load_taxonomy
@@ -381,6 +490,8 @@ def main(argv: Optional[list[str]] = None) -> int:
             return cmd_run(args, paths, "extract")
         if args.command == "classify-privacy":
             return cmd_run(args, paths, "privacy")
+        if args.command == "vary":
+            return cmd_vary(args, paths)
         if args.command == "domains":
             return cmd_domains(args, paths)
         if args.command == "pilot":
@@ -391,6 +502,11 @@ def main(argv: Optional[list[str]] = None) -> int:
             return monitor(args.out, args.interval)
     except (PipelineError, AdapterError, EngineError, FileNotFoundError, FileExistsError) as e:
         print(f"error: {e}", file=sys.stderr)
+        return 2
+    except (ValueError, KeyError) as e:
+        if args.command != "vary":
+            raise
+        print(f"error: {e.args[0] if e.args else e}", file=sys.stderr)
         return 2
     except KeyboardInterrupt:
         print("\ninterrupted - completed records were saved; continue with --resume", file=sys.stderr)

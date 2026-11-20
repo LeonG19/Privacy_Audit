@@ -1,0 +1,6 @@
+[2026-09-11 10:20:48] Loading ibm-granite/granite-3.1-8b-instruct (tensor_parallel_size=1, quantization=None)
+[2026-09-11 10:21:43] B1: scoring ConfAIde Tier 2a/2b
+[2026-09-11 10:21:48] B2: scoring CAMBER single/paired
+[2026-09-11 10:23:52] B4: scoring persona unanimity on Tier 2a
+[2026-09-11 10:23:53] B3: defense sweep on a 300-pair subset
+[2026-09-11 10:33:59] Done with ibm-granite/granite-3.1-8b-instruct. Freeing engine.

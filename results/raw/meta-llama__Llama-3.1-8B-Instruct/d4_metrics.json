@@ -1,0 +1,31 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "variance_shares_4way": {
+    "main": {
+      "info_type": 0.10819243149453883,
+      "actor": 0.08207858234722464,
+      "use": 0.22749092205199314,
+      "sender": 0.01663699029581632
+    },
+    "two_way": {
+      "info_type:actor": 0.1708995576641193,
+      "info_type:use": 0.06086802057601878,
+      "info_type:sender": 0.0034245090583061217,
+      "actor:use": 0.11804788739027204,
+      "actor:sender": 0.008797839650287194,
+      "use:sender": 0.01606147854777325
+    },
+    "residual": 0.18750178092365047
+  },
+  "sender_share": 0.01663699029581632,
+  "mean_abs_shift_between_senders": {
+    "sender_device_vs_sender_self": 12.566000504946185,
+    "sender_device_vs_sender_third": 4.938737900140742,
+    "sender_self_vs_sender_third": 11.289760427427089
+  },
+  "max_pairwise_sender_shift": 12.566000504946185,
+  "sender_slice_crossovers": {
+    "info_type_x_sender_crossovers_margin10": 0,
+    "actor_x_sender_crossovers_margin10": 0
+  }
+}

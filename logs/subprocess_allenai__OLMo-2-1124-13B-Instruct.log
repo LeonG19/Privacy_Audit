@@ -1,0 +1,34 @@
+[2026-09-11 09:55:26] Loading allenai/OLMo-2-1124-13B-Instruct (tensor_parallel_size=1, quantization=None)
+INFO 09-11 09:55:28 [__init__.py:216] Automatically detected platform cuda.
+INFO 09-11 09:55:30 [utils.py:233] non-default args: {'trust_remote_code': True, 'seed': 0, 'max_model_len': 8192, 'disable_log_stats': True, 'model': 'allenai/OLMo-2-1124-13B-Instruct'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 09-11 09:55:38 [model.py:547] Resolved architecture: Olmo2ForCausalLM
+`torch_dtype` is deprecated! Use `dtype` instead!
+Traceback (most recent call last):
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue.py", line 175, in main
+    run_for_model(
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue.py", line 79, in run_for_model
+    llm = load_engine(model_id, tensor_parallel_size=tensor_parallel_size, quantization=quantization)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/scoring.py", line 158, in load_engine
+    return LLM(model=model_id, tensor_parallel_size=tensor_parallel_size, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 297, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 169, in from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/engine/arg_utils.py", line 1142, in create_engine_config
+    model_config = self.create_model_config()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/engine/arg_utils.py", line 994, in create_model_config
+    return ModelConfig(
+           ^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/pydantic/_internal/_dataclasses.py", line 121, in __init__
+    s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ModelConfig
+  Value error, User-specified max_model_len (8192) is greater than the derived max_model_len (max_position_embeddings=4096 or model_max_length=None in model's config.json). To allow overriding this maximum, set the env var VLLM_ALLOW_LONG_MAX_MODEL_LEN=1. VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error. [type=value_error, input_value=ArgsKwargs((), {'model': ...rocessor_plugin': None}), input_type=ArgsKwargs]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error
+
+=== 2026-09-11 09:55:25 MDT starting allenai/OLMo-2-1124-13B-Instruct ===

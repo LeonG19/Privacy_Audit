@@ -1,0 +1,11 @@
+[2026-09-14 02:29:59] Loading Qwen/Qwen2.5-72B-Instruct-AWQ (tp=1, quantization=awq)
+[2026-09-14 02:32:25] Loaded in 147s
+[2026-09-14 02:32:25] D2: scoring
+[2026-09-14 02:33:08] D2: done in 43s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:33:08] D3: scoring
+[2026-09-14 02:33:23] D3: done in 15s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:33:23] D5: scoring
+[2026-09-14 02:33:31] D5: done in 8s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:33:31] D4: scoring
+[2026-09-14 02:33:42] D4: done in 11s, mean candidate mass 1.000, frac below 0.5 = 0.0000
+[2026-09-14 02:33:42] Done with Qwen/Qwen2.5-72B-Instruct-AWQ. Freeing engine.

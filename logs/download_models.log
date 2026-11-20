@@ -1,0 +1,28 @@
+[Fri Sep 11 12:41:53 AM MDT 2026] Starting model downloads (max 2 parallel)
+[Fri Sep 11 12:41:53 AM MDT 2026] Downloading meta-llama/Llama-3.1-8B-Instruct
+[Fri Sep 11 12:41:53 AM MDT 2026] Downloading Qwen/Qwen2.5-7B-Instruct
+[Fri Sep 11 12:41:54 AM MDT 2026] FAILED or GATED: meta-llama/Llama-3.1-8B-Instruct (see download_meta-llama_Llama-3.1-8B-Instruct.log)
+[Fri Sep 11 12:41:54 AM MDT 2026] Downloading Qwen/Qwen2.5-14B-Instruct
+[Fri Sep 11 12:46:48 AM MDT 2026] Done: Qwen/Qwen2.5-7B-Instruct
+[Fri Sep 11 12:46:48 AM MDT 2026] Downloading Qwen/Qwen3-8B
+[Fri Sep 11 12:48:27 AM MDT 2026] Done: Qwen/Qwen2.5-14B-Instruct
+[Fri Sep 11 12:48:27 AM MDT 2026] Downloading google/gemma-2-9b-it
+[Fri Sep 11 12:48:29 AM MDT 2026] FAILED or GATED: google/gemma-2-9b-it (see download_google_gemma-2-9b-it.log)
+[Fri Sep 11 12:48:29 AM MDT 2026] Downloading mistralai/Mistral-7B-Instruct-v0.3
+[Fri Sep 11 12:50:44 AM MDT 2026] Done: Qwen/Qwen3-8B
+[Fri Sep 11 12:50:44 AM MDT 2026] Downloading allenai/OLMo-2-1124-13B-Instruct
+[Fri Sep 11 12:52:19 AM MDT 2026] Done: mistralai/Mistral-7B-Instruct-v0.3
+[Fri Sep 11 12:52:19 AM MDT 2026] Downloading microsoft/phi-4
+[Fri Sep 11 12:58:13 AM MDT 2026] Done: allenai/OLMo-2-1124-13B-Instruct
+[Fri Sep 11 12:58:13 AM MDT 2026] Downloading microsoft/Phi-3.5-mini-instruct
+[Fri Sep 11 12:58:31 AM MDT 2026] Done: microsoft/phi-4
+[Fri Sep 11 12:58:31 AM MDT 2026] Downloading ibm-granite/granite-3.1-8b-instruct
+[Fri Sep 11 01:00:22 AM MDT 2026] Done: microsoft/Phi-3.5-mini-instruct
+[Fri Sep 11 01:00:22 AM MDT 2026] Downloading Qwen/Qwen2.5-32B-Instruct-AWQ
+[Fri Sep 11 01:03:21 AM MDT 2026] Done: ibm-granite/granite-3.1-8b-instruct
+[Fri Sep 11 01:03:21 AM MDT 2026] Downloading tiiuae/Falcon3-10B-Instruct
+[Fri Sep 11 01:04:55 AM MDT 2026] Done: Qwen/Qwen2.5-32B-Instruct-AWQ
+[Fri Sep 11 01:04:55 AM MDT 2026] Downloading Qwen/Qwen2.5-72B-Instruct-AWQ
+[Fri Sep 11 01:09:10 AM MDT 2026] Done: tiiuae/Falcon3-10B-Instruct
+[Fri Sep 11 01:12:33 AM MDT 2026] Done: Qwen/Qwen2.5-72B-Instruct-AWQ
+[Fri Sep 11 01:12:33 AM MDT 2026] All downloads finished or failed; see /home/lgarza3/projects/Privacy_Audit/logs/download_models.log

@@ -1,0 +1,31 @@
+{
+  "model": "Qwen/Qwen2.5-32B-Instruct-AWQ",
+  "variance_shares_4way": {
+    "main": {
+      "info_type": 0.08216050302230694,
+      "actor": 0.050160033549428405,
+      "use": 0.19976750765362633,
+      "sender": 0.10919031618614528
+    },
+    "two_way": {
+      "info_type:actor": 0.1269460047916111,
+      "info_type:use": 0.049301368357476276,
+      "info_type:sender": 0.01972608627367147,
+      "actor:use": 0.06039241870326036,
+      "actor:sender": 0.01343237051054389,
+      "use:sender": 0.06420228475036939
+    },
+    "residual": 0.22472110620156052
+  },
+  "sender_share": 0.10919031618614528,
+  "mean_abs_shift_between_senders": {
+    "sender_device_vs_sender_self": 18.408608669735358,
+    "sender_device_vs_sender_third": 8.102523954954053,
+    "sender_self_vs_sender_third": 26.38027789720369
+  },
+  "max_pairwise_sender_shift": 26.38027789720369,
+  "sender_slice_crossovers": {
+    "info_type_x_sender_crossovers_margin10": 0,
+    "actor_x_sender_crossovers_margin10": 0
+  }
+}

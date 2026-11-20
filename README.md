@@ -110,6 +110,60 @@ against a human reference: `python -m ci_audit pilot sample` → `extract ... --
 → `python -m ci_audit pilot score`. Llama-3.3-70B (vLLM) end to end: `scripts/run_pilot_vllm.sh` or
 `sbatch scripts/slurm/pilot_llama70b.sbatch`. Protocol, annotation guide and metrics: [docs/pilot_evaluation.md](docs/pilot_evaluation.md).
 
+## Variations: replace one CI parameter, regenerate the story
+
+`python -m ci_audit vary` takes original samples (text + extracted CI parameters + domain), replaces **one** CI parameter at a
+time with a random value **from the same domain**, and asks an LLM to rewrite the original story so it expresses the new parameter
+set. Code: [src/ci_audit/variation/](src/ci_audit/variation/).
+
+```bash
+# 1. look at what would be generated (no LLM, no cost)
+python -m ci_audit vary --engine vllm --per-dataset 10 --plan-only
+# 2. generate. The engine is an argument: vllm | openai | anthropic
+python -m ci_audit vary --engine vllm      --model Qwen3.6-35B-A3B   --per-dataset 10        # needs a running server, see above
+python -m ci_audit vary --engine openai    --model MODEL_NAME        --input my_subset.txt
+python -m ci_audit vary --engine anthropic --model MODEL_NAME        --datasets privacylens,mpci_bench --per-dataset 5 --verify
+```
+
+* **Samples.** Everything with extracted CI parameters is available: `data/processed/expanded_pilot/` (ConfAIde, PrivacyLens, MPCI-Bench;
+  text from `samples_150.jsonl`, parameters from `results/*.jsonl`) and `batch1/runs/*/*/extractions.jsonl` (AirGapAgent-R, PiSAs).
+  Use `--per-dataset N` (random, seeded) and/or `--datasets a,b`, or pass your own subset with `--input FILE`: record ids (txt, json list,
+  jsonl, or a pilot-sample JSON), or JSONL rows that already hold `scenario_text` + `ci_parameters` (+ optional `domain`).
+  More extraction files can be added with `--extractions FILE.jsonl` (repeatable; `ci_audit extract` output works as is).
+* **Replacement pools.** Per domain: roles (usable for sender, subject **and** recipient), attributes (information type) and transmission
+  principles, read from `data/processed/expanded_pilot/knowledge/domain_knowledge.md` and `knowledge/norm_elements_enrique.csv`
+  (`--knowledge-md/--knowledge-csv` add more). A sample's domain is the reviewed one (the "Included scenario IDs" in `domain_knowledge.md` /
+  `final_domain` in the CSV). Placeholder or hedged values ("(not stated)", "…is not specified"), values over `--max-pool-chars` (200) and
+  values containing e-mail addresses are never drawn; the replacement is never the original value, never another role already in the flow
+  and never a value extracted only from that same record.
+* **Per-domain selection.** `--per-domain 3 --domains-per-dataset 3` takes 3 samples from each of 3 randomly drawn domains per dataset (only domains with at least 3
+  samples qualify). Draws depend only on `--seed` and the dataset, so running datasets separately (e.g. split between two people) gives the same samples as one combined run.
+  `scripts/variation_review_sheet.py RUN_DIR...` turns run outputs into a review CSV + side-by-side Markdown and prints a readiness summary.
+  Instructions for the first review round: [docs/variation_handoff.md](docs/variation_handoff.md).
+* **Domain.** The domain is **not** decided by the LLM: it comes from the reviewed assignments (or is given by you), and the replacement is a random draw
+  from that domain's pool made in code (`--seed`); the LLM only sees the domain as context. `--domains Healthcare,Education` keeps only samples of those
+  domains; `--domain Healthcare` declares the domain of all selected samples yourself (for custom `--input` files, or to force a pool). A `domain` field in
+  `--input` JSONL rows is also honoured. Names are matched case-insensitively against the pool domains (typos get a suggestion); the output row records
+  `domain_source` (`manual_review | model | fallback | user`).
+* **What is varied.** For each sample, each CI parameter that **has a value** gives one variant (`--params` restricts, `--per-param K` makes K
+  variants with different values). Parameters that are null in the sample are not touched. `variant_id = <record_id>::<parameter>::<k>`.
+  Draws are deterministic for a given `--seed`.
+* **Thin pools.** Transmission principles are scarce (Finance, Insurance and Other services have none). When a domain has no usable value the
+  draw falls back to **all domains** and the row says so (`replacement.pool_scope = cross_domain_fallback`); `--strict-domain` skips instead.
+* **Story generation.** One LLM call per variant with the original text, the original CI set, the old→new value and a per-dataset format hint
+  (ConfAIde 2a sentence, 2b narrative, tier-3 story, vignette, agent trajectory, …). The model must keep the other four parameters, not add new
+  consent/purpose facts, and return `new_text` plus the CI parameters it believes the text expresses (`ci_realized`). Invalid JSON, an empty or unchanged text,
+  or truncation triggers `--validation-retries` re-asks, then a row in `failures.jsonl`. `--verify` adds a second call that checks the new text against the
+  original (`verification.passed`). Structured `seed` texts (PrivacyLens / MPCI-Bench `- sender: ...` lists) are edited directly without an LLM
+  (`generation_method: template_substitution`; `--no-substitution` sends them to the LLM instead).
+* **Outputs** in `data/processed/variations/<engine>__<model>/` (`--output-dir` to change): `variations.jsonl` (one row per variant: original and new
+  text, original/new CI, changed parameter, replacement provenance, `ci_realized`, verification, generation metadata), `variations.csv`, `failures.jsonl`,
+  `plan.json`, `run_manifest.json` (prompt hash, settings, pool sizes, skipped parameters). `--resume` skips finished variants and retries failed ones;
+  `--force` archives old outputs.
+* Agent trajectories and PiSAs documents are long (up to ~9k characters): serve vLLM with `MAX_MODEL_LEN` ≥ 16384 and keep `--max-output-tokens` ≥ 6000.
+* Not validated: no real model has been run through this pipeline yet (tests use a scripted mock engine). Read a sample of `new_text` against
+  `original_text` before using the variants; the pools contain scenario-specific values (names, long descriptions) that the model has to adapt.
+
 ## Other commands
 
 ```bash
@@ -227,7 +281,7 @@ and extraction models are never asked to invent norms.
 * ConfAIde Tier 2 label alignment is **positional** (the convention in the authors' `eval.py`), and the same 98 ratings are attached to both 2a and 2b versions. The release does not say how ratings were aggregated, nor whether 2b was rated separately. The adapter reports a heuristic consistency check but cannot prove the pairing.
 * The model can still make semantic mistakes that verbatim-evidence checks cannot catch (e.g. choosing the wrong subject with a real quote). Review lists and `researcher_review` exist for this reason.
 * Truncation: sources over `max_source_chars` are cut in the prompt and flagged.
-* Not implemented (by request): counterfactual/pair generation, the populated knowledge base, human validation workflows.
+* Not implemented (by request): the populated knowledge base, human validation workflows. One-parameter variations are available via `ci_audit vary` (see above) but are not yet evaluated.
 
 ## Initial run results
 

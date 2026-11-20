@@ -1,0 +1,31 @@
+{
+  "model": "mistralai/Mistral-7B-Instruct-v0.3",
+  "variance_shares_4way": {
+    "main": {
+      "info_type": 0.06748977667581885,
+      "actor": 0.08900187192562296,
+      "use": 0.2298708976096573,
+      "sender": 0.05896526624501119
+    },
+    "two_way": {
+      "info_type:actor": 0.14521358568244475,
+      "info_type:use": 0.04501300090219295,
+      "info_type:sender": 0.006474640124885153,
+      "actor:use": 0.10388638421085926,
+      "actor:sender": 0.01483845946786261,
+      "use:sender": 0.04213419725296931
+    },
+    "residual": 0.19711191990267574
+  },
+  "sender_share": 0.05896526624501119,
+  "mean_abs_shift_between_senders": {
+    "sender_device_vs_sender_self": 7.215056999005538,
+    "sender_device_vs_sender_third": 6.419471680803541,
+    "sender_self_vs_sender_third": 13.628557587147219
+  },
+  "max_pairwise_sender_shift": 13.628557587147219,
+  "sender_slice_crossovers": {
+    "info_type_x_sender_crossovers_margin10": 0,
+    "actor_x_sender_crossovers_margin10": 0
+  }
+}

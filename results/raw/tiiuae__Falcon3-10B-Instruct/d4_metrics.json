@@ -1,0 +1,31 @@
+{
+  "model": "tiiuae/Falcon3-10B-Instruct",
+  "variance_shares_4way": {
+    "main": {
+      "info_type": 0.13883605833148957,
+      "actor": 0.05895603327922454,
+      "use": 0.2815861986864666,
+      "sender": 0.04558015764017355
+    },
+    "two_way": {
+      "info_type:actor": 0.11937147684783049,
+      "info_type:use": 0.0828293968445566,
+      "info_type:sender": 0.009604539680183792,
+      "actor:use": 0.08073385039525408,
+      "actor:sender": 0.007549135919822542,
+      "use:sender": 0.022604331729880984
+    },
+    "residual": 0.15234882064511707
+  },
+  "sender_share": 0.04558015764017355,
+  "mean_abs_shift_between_senders": {
+    "sender_device_vs_sender_self": 14.330598013663066,
+    "sender_device_vs_sender_third": 10.877796303671829,
+    "sender_self_vs_sender_third": 23.834672844998117
+  },
+  "max_pairwise_sender_shift": 23.834672844998117,
+  "sender_slice_crossovers": {
+    "info_type_x_sender_crossovers_margin10": 0,
+    "actor_x_sender_crossovers_margin10": 0
+  }
+}

@@ -1,0 +1,89 @@
+[2026-09-11 09:44:24] Loading google/gemma-2-9b-it (tensor_parallel_size=1, quantization=None)
+INFO 09-11 09:44:26 [__init__.py:216] Automatically detected platform cuda.
+INFO 09-11 09:44:28 [utils.py:233] non-default args: {'trust_remote_code': True, 'seed': 0, 'max_model_len': 8192, 'disable_log_stats': True, 'model': 'google/gemma-2-9b-it'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+Traceback (most recent call last):
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 403, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/google/gemma-2-9b-it/resolve/main/config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/transformers/utils/hub.py", line 479, in cached_files
+    hf_hub_download(
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1014, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1121, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1662, in _raise_on_head_call_error
+    raise head_call_error
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1550, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1467, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 283, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 307, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 420, in hf_raise_for_status
+    raise _format(GatedRepoError, message, response) from e
+huggingface_hub.errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-6aa421dc-54b8d50643ec57f13cd73873;c4fe3c35-2d89-45b1-8fd5-e4626e03fbf9)
+
+Cannot access gated repo for url https://huggingface.co/google/gemma-2-9b-it/resolve/main/config.json.
+Access to model google/gemma-2-9b-it is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue.py", line 175, in main
+    run_for_model(
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue.py", line 79, in run_for_model
+    llm = load_engine(model_id, tensor_parallel_size=tensor_parallel_size, quantization=quantization)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/scoring.py", line 158, in load_engine
+    return LLM(model=model_id, tensor_parallel_size=tensor_parallel_size, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 297, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 169, in from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/engine/arg_utils.py", line 1135, in create_engine_config
+    self.speculative_config) = maybe_override_with_speculators(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/vllm/transformers_utils/config.py", line 501, in maybe_override_with_speculators
+    config_dict, _ = PretrainedConfig.get_config_dict(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/transformers/configuration_utils.py", line 662, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/transformers/configuration_utils.py", line 721, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/transformers/utils/hub.py", line 322, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/transformers/utils/hub.py", line 543, in cached_files
+    raise OSError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/google/gemma-2-9b-it.
+401 Client Error. (Request ID: Root=1-6aa421dc-54b8d50643ec57f13cd73873;c4fe3c35-2d89-45b1-8fd5-e4626e03fbf9)
+
+Cannot access gated repo for url https://huggingface.co/google/gemma-2-9b-it/resolve/main/config.json.
+Access to model google/gemma-2-9b-it is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+=== 2026-09-11 09:44:23 MDT starting google/gemma-2-9b-it ===

@@ -1,0 +1,2 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+path=/home/lgarza3/.cache/huggingface/hub/models--tiiuae--Falcon3-10B-Instruct/snapshots/8799bc6aec0152757221dc6b272d824642db6202

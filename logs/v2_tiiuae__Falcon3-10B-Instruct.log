@@ -1,0 +1,27 @@
+[2026-09-14 02:21:52] Loading tiiuae/Falcon3-10B-Instruct (tp=1, quantization=None)
+[2026-09-14 02:22:23] Loaded in 31s
+[2026-09-14 02:22:23] D2: scoring
+[2026-09-14 02:22:37] D2: done in 14s, mean candidate mass 0.998, frac below 0.5 = 0.0000
+[2026-09-14 02:22:37] D3: scoring
+[2026-09-14 02:22:39] D3: done in 2s, mean candidate mass 0.996, frac below 0.5 = 0.0000
+[2026-09-14 02:22:39] D5: scoring
+[2026-09-14 02:22:40] D5: FAILED
+Traceback (most recent call last):
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/run_model_queue_v2.py", line 104, in run_for_model
+    save_json(d_metrics.compute_d5_metrics(model_id, raw, df), out_dir / "d5_metrics.json")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/projects/Privacy_Audit/src/experiments/d_metrics.py", line 324, in compute_d5_metrics
+    llm_label_kept = (kept[[c for c in wide.columns]].mean(axis=1) > 0.5).astype(int) if len(kept) else pd.Series(dtype=int)
+                      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/pandas/core/frame.py", line 4384, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6302, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/lgarza3/.conda/envs/ciaudit/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6352, in _raise_if_missing
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['fundamentalist', 'pragmatist', 'unconcerned'], dtype='str')] are in the [columns]"
+
+[2026-09-14 02:22:40] D4: scoring
+[2026-09-14 02:22:42] D4: done in 2s, mean candidate mass 0.997, frac below 0.5 = 0.0000
+[2026-09-14 02:22:42] Done with tiiuae/Falcon3-10B-Instruct. Freeing engine.
