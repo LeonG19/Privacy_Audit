@@ -93,6 +93,15 @@ class AnthropicEngine(Engine):
                 call["extra_body"] = {"output_config": {"format": {"type": "json_schema", "schema": strict_json_schema(schema)}}}
             try:
                 r = await self.client.messages.create(**call)
+            except TypeError as e:
+                # Newer SDK releases removed sampling parameters from the signature (the API rejects them on
+                # current models), so the SDK raises before sending. Drop the parameter once, like a 400.
+                m = re.search(r"unexpected keyword argument '(\w+)'", str(e))
+                if m and m.group(1) in ("temperature", "top_p", "top_k") and m.group(1) in params:
+                    params.pop(m.group(1))
+                    dropped.append(m.group(1))
+                    continue
+                raise
             except Exception as e:
                 err = classify_anthropic_error(e)
                 if isinstance(err, BadRequest):
