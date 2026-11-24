@@ -3,7 +3,7 @@
   "prompt_sha256": "03f25536e984fe9e69a11b0e91577cd75f960fdf058c002d399d6e6534f710ff",
   "engine": {
     "engine": "anthropic",
-    "model": "claude-opus-5-5"
+    "model": "claude-sonnet-5-5"
   },
   "generation": {
     "temperature": 0.3,
@@ -20,12 +20,12 @@
   "ok_this_run": 95,
   "failed_this_run": 0,
   "total_ok": 95,
-  "seconds": 418.1,
-  "finished_at": "2026-11-24T14:33:49+00:00",
+  "seconds": 305.6,
+  "finished_at": "2026-11-24T15:03:38+00:00",
   "cli_args": {
     "command": "vary",
     "engine": "anthropic",
-    "model": "claude-opus-5-5",
+    "model": "claude-sonnet-5-5",
     "extractions": [],
     "datasets": "mpci_bench,airgapagent_r,pisas",
     "per_domain": 3,
