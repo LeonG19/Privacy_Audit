@@ -42,4 +42,35 @@ Fixing the pools (no other scenarios' names, no agent-style values in stories, r
 - **PiSAs sender (1):** `inpatient_discharge/25`. The note is attributed to the new sender but still contains the old sender's personal visa note,
   and the new sender is also the recipient.
 
-The review sheet is in `review_enrique.csv` / `.md`, with the reviewer columns not yet filled.
+## Review of the 95 rows (`review_enrique.csv`)
+23 rows have exactly the same text as in v1 (the 14 seed substitutions, plus 9 rewrites that came out identical), so they keep their v1 grades.
+The other 72 were graded fresh. Each row has a note.
+
+| column | y | ? | n |
+|---|---|---|---|
+| new value expressed | 87 | 7 | 1 |
+| old value gone | 76 | 7 | 12 |
+| other parameters preserved | 84 | 9 | 2 |
+| natural + same format | 43 | 33 | 19 |
+| replacement value sensible | 16 | 23 | **56** |
+
+**On the 53 rows that both runs have, v2 is not better than v1:**
+
+| column | v1 y | v2 y |
+|---|---|---|
+| new value expressed | 50 | 51 |
+| old value gone | 50 | 47 |
+| other parameters preserved | 49 | 49 |
+| natural + same format | 33 | 31 |
+| replacement value sensible | 13 | 13 |
+
+- Better in 2 rows: the counseling principle now keeps the message to the concert, and the PiSAs recipient title is no longer called "role holder".
+- Worse in 5 rows. Example: `94952337 story::information_type` changed only the first sentence to medications and left the whole bus-commute story.
+
+**PiSAs (45 rows, first full run):**
+- Only 3 of 45 replacement values are sensible.
+- **8 of the 9 information-type variants replace the task-relevant fact** (readiness assessment, coverage certificate, clinical stability).
+  The correct outcome of those documents can change, so they shouldn't be used as-is for task-outcome comparisons.
+- Agent-style values ("The user, acting through the assistant", Messenger/NotionManager permissions) end up in casts and visibility tags.
+- Several senders are new people who are not in the cast, or who are the same person as the recipient.
+- Several recipients are just the original recipient's job title, so the recipient didn't really change.
