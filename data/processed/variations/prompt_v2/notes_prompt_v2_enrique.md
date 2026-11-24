@@ -37,4 +37,28 @@ at commit `445cdf1` on this branch.
 - **PiSAs (1 each):** a parental-consent medical rule added as a stray bullet (`thesis_readiness/27`), and a sender change that leaves Elena Okafor as the visibility holder (`special_event_permit_readiness/11`).
 - **AirGapAgent-R (1):** "Sarah's clinical status" brings a named person into an attribute line.
 
-The underlying problem is still the replacement values, not the model or the prompt. The review sheet (`review_enrique.csv` / `.md`) is the Sonnet run, with the reviewer columns not yet filled.
+## Review of the 95 rows (`review_enrique.csv`)
+25 rows have exactly the same text as the Opus v2 run (the 14 seed substitutions, plus 11 rewrites that came out identical), so they keep those grades.
+The other 70 were graded fresh. Each row has a note.
+
+| column | y | ? | n | Opus v2 y |
+|---|---|---|---|---|
+| new value expressed | 85 | 10 | 0 | 87 |
+| old value gone | 64 | 16 | 15 | **76** |
+| other parameters preserved | 86 | 6 | 3 | 84 |
+| natural + same format | 43 | 32 | 20 | 43 |
+| replacement value sensible | 16 | 23 | 56 | 16 |
+
+**Sonnet's main weakness is leaving the old value in.** It makes smaller edits, and often it only adds the new value as a prefix or one sentence:
+- "For the Discharge Planning Coordinator: …"
+- "Regarding the Special Event Permit Coordinator's review file: …"
+- "the client" in one bullet while the original person is named everywhere else
+
+The old permission sentence was also kept in two transmission-principle changes.
+
+Its strength is that it invents fewer new people and keeps the other parameters slightly better.
+
+**All 9 PiSAs information-type variants now replace the task-relevant fact.** In `special_event_permit_readiness/11`, Sonnet also dropped the compliant-certificate line, which Opus kept.
+The correct outcome of these documents can change, so they shouldn't be used as-is for task-outcome comparisons.
+
+The underlying problem is still the replacement values (56 of 95 are not sensible, the same count as with Opus), not the model or the prompt.
