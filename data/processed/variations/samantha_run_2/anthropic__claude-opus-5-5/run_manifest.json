@@ -1,0 +1,126 @@
+{
+  "prompt_version": "variation-v2",
+  "prompt_sha256": "e141d37cf3d6c57bcb6ec88e5539f233fb59d021c5f7c9263bd8456613f60160",
+  "engine": {
+    "engine": "anthropic",
+    "model": "claude-opus-5-5"
+  },
+  "generation": {
+    "temperature": 0.3,
+    "max_output_tokens": 6000,
+    "timeout": 300.0,
+    "retries": 3,
+    "seed": 42
+  },
+  "verify": true,
+  "validation_retries": 1,
+  "concurrency": 1,
+  "planned": 113,
+  "already_done_before_run": 0,
+  "ok_this_run": 113,
+  "failed_this_run": 0,
+  "total_ok": 113,
+  "seconds": 1171.6,
+  "finished_at": "2026-11-24T19:40:21+00:00",
+  "cli_args": {
+    "command": "vary",
+    "engine": "anthropic",
+    "model": "claude-opus-5-5",
+    "extractions": [],
+    "datasets": "confaide_tier2,confaide_tier3,privacylens",
+    "per_domain": 3,
+    "domains_per_dataset": 3,
+    "per_param": 1,
+    "seed": 42,
+    "max_pool_chars": 200,
+    "strict_domain": false,
+    "knowledge_md": [],
+    "knowledge_csv": [],
+    "output_dir": "data/processed/variations/samantha_run_2",
+    "plan_only": false,
+    "verify": true,
+    "no_substitution": false,
+    "temperature": 0.3,
+    "max_output_tokens": 6000,
+    "timeout": 300.0,
+    "retries": 3,
+    "validation_retries": 1,
+    "concurrency": 1,
+    "resume": false,
+    "force": false,
+    "no_progress": false
+  },
+  "knowledge_files": [
+    "/Users/samdguez/Developer/projects/Privacy_Audit/data/processed/expanded_pilot/knowledge/domain_knowledge.md",
+    "/Users/samdguez/Developer/projects/Privacy_Audit/knowledge/norm_elements_enrique.csv"
+  ],
+  "pool_sizes": {
+    "Community & activism": {
+      "role": 13,
+      "attribute": 5,
+      "transmission_principle": 3
+    },
+    "Education": {
+      "role": 44,
+      "attribute": 20,
+      "transmission_principle": 9
+    },
+    "Finance": {
+      "role": 7,
+      "attribute": 2,
+      "transmission_principle": 0
+    },
+    "Government": {
+      "role": 31,
+      "attribute": 16,
+      "transmission_principle": 4
+    },
+    "Healthcare": {
+      "role": 34,
+      "attribute": 29,
+      "transmission_principle": 5
+    },
+    "Insurance": {
+      "role": 3,
+      "attribute": 1,
+      "transmission_principle": 0
+    },
+    "Other services": {
+      "role": 5,
+      "attribute": 2,
+      "transmission_principle": 0
+    },
+    "Personal relationships": {
+      "role": 89,
+      "attribute": 29,
+      "transmission_principle": 17
+    },
+    "Research & publishing": {
+      "role": 24,
+      "attribute": 12,
+      "transmission_principle": 4
+    },
+    "Retail": {
+      "role": 48,
+      "attribute": 31,
+      "transmission_principle": 5
+    },
+    "Social media": {
+      "role": 32,
+      "attribute": 11,
+      "transmission_principle": 6
+    },
+    "Technology services": {
+      "role": 36,
+      "attribute": 14,
+      "transmission_principle": 9
+    },
+    "Workplace": {
+      "role": 84,
+      "attribute": 46,
+      "transmission_principle": 13
+    }
+  },
+  "skipped_no_pool": [],
+  "samples": 27
+}
